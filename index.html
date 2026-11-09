@@ -1,0 +1,2144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diapositivas del tema 1</title>
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Estilo común de la web. Colores claros; modo oscuro automático. */
+:root{
+  --bg:#f7faf6; --surface:#ffffff; --fg:#23302a; --muted:#5d6b63; --line:#d9e3dc;
+  --on:#f3c23c; --on-soft:#fdf1c9;
+  --a:#ff8a65; --a-soft:#ffe3d8;
+  --b:#4fb39a; --b-soft:#d8f2ea;
+  --c:#b38be8; --c-soft:#efe4fc;
+  --hi:#ff5c8a;
+  /* Alias por pieza: CPU naranja, memoria verde, entrada/salida amarillo, bus morado */
+  --cpu:var(--a); --cpu-soft:var(--a-soft);
+  --mem:var(--b); --mem-soft:var(--b-soft);
+  --io:var(--on); --io-soft:var(--on-soft);
+  --bus:var(--c); --bus-soft:var(--c-soft);
+  --display:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Atkinson Hyperlegible",Verdana,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root{
+  --bg:#1c221f; --surface:#252d29; --fg:#eef3ef; --muted:#a8b5ad; --line:#3a4640;
+  --on-soft:#463c1c; --a-soft:#4a2f26; --b-soft:#21423a; --c-soft:#3a2f4d; color-scheme:dark}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+img{max-width:100%}
+[hidden]{display:none!important}
+main{max-width:980px;margin:0 auto;padding-block:24px 64px;display:flex;flex-direction:column;gap:48px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800}
+h2{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:700}
+h3{font-size:1.1rem;font-weight:700}
+p{margin:0;max-width:65ch}
+a{color:inherit}
+.eyebrow{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:16px}
+header.page{display:flex;flex-direction:column;gap:12px}
+.lead{font-size:1.15rem;color:var(--muted)}
+abbr{text-decoration:none;border-bottom:1px dotted var(--muted);cursor:help}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.note{font-size:.92rem;color:var(--muted)}
+.mono{font-family:var(--mono)}
+.big{font-family:var(--mono);font-size:clamp(1.4rem,4vw,2rem);font-weight:700}
+.key{background:var(--on-soft);border-radius:12px;padding:14px 16px}
+.key strong{font-family:var(--display)}
+.scroll{overflow-x:auto}
+input[type=text],input[type=number]{font:inherit;padding:8px 12px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--fg)}
+input[type=range]{width:100%;accent-color:var(--hi)}
+:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+button.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 18px;cursor:pointer;background:var(--fg);color:var(--bg)}
+button.btn.alt{background:var(--line);color:var(--fg)}
+button.btn:disabled{opacity:.45;cursor:default}
+.controls{display:flex;flex-wrap:wrap;gap:10px}
+table{border-collapse:collapse;font-size:.95rem;width:100%}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-size:.8rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+
+/* Barra de navegación */
+.topbar{max-width:980px;margin:0 auto;padding-block:14px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.topbar .home{font-family:var(--display);font-weight:800;text-decoration:none;font-size:1.05rem}
+.topbar nav{display:flex;flex-wrap:wrap;gap:6px}
+.topbar nav a{font-family:var(--mono);font-size:.85rem;text-decoration:none;padding:4px 10px;border-radius:99px;border:1px solid var(--line)}
+.topbar nav a[aria-current="page"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.pager{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+.pager a{text-decoration:none;font-weight:700;padding:10px 16px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+.pager a:hover{border-color:var(--fg)}
+
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+.pg0 .toc{display:flex;flex-direction:column;gap:12px;counter-reset:n}
+.pg0 .toc a{display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:4px 16px;align-items:start;text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;transition:border-color .15s, transform .15s}
+.pg0 .toc a:hover{border-color:var(--fg);transform:translateX(4px)}
+.pg0 .toc .n{grid-row:span 2;font-family:var(--display);font-weight:800;font-size:2rem;line-height:1;width:3.2rem;height:3.2rem;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--c)}
+.pg0 .toc a:nth-child(1) .n{background:var(--c-soft)}
+.pg0 .toc a:nth-child(2) .n{background:var(--on-soft)}
+.pg0 .toc a:nth-child(3) .n{background:var(--a-soft)}
+.pg0 .toc a:nth-child(4) .n{background:var(--b-soft)}
+.pg0 .toc a:nth-child(5) .n{background:var(--c-soft)}
+.pg0 .toc .t{font-family:var(--display);font-weight:700;font-size:1.25rem}
+.pg0 .toc .d{color:var(--muted);font-size:.95rem}
+.pg0 .stack{display:flex;flex-direction:column;gap:6px;max-width:520px}
+.pg0 .stack div{border-radius:10px;padding:10px 16px;font-family:var(--display);font-weight:700}
+.pg1 .line{display:flex;flex-direction:column;gap:0;position:relative;padding-left:28px}
+.pg1 .line::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:3px;background:var(--line);border-radius:2px}
+.pg1 .m{position:relative;padding-bottom:22px}
+.pg1 .m::before{content:"";position:absolute;left:-26px;top:10px;width:17px;height:17px;border-radius:50%;background:var(--surface);border:4px solid var(--c)}
+.pg1 .m:nth-child(2)::before{border-color:var(--a)}
+.pg1 .m:nth-child(3)::before{border-color:var(--b)}
+.pg1 .m:nth-child(4)::before{border-color:var(--on)}
+.pg1 .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.pg1 .year{font-family:var(--display);font-weight:800;font-size:2rem;line-height:1}
+.pg1 .q{display:flex;flex-direction:column;gap:8px;background:var(--bg);border-radius:10px;padding:12px}
+.pg1 .q button{align-self:flex-start}
+.pg1 .vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.pg1 .vs .card .big{font-size:1.5rem}
+.pg1 .card.hist{display:grid;grid-template-columns:220px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:620px){.pg1 .card.hist{grid-template-columns:1fr}}
+.pg1 .card.hist .info{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pg1 .ilus{width:100%;max-width:220px;height:auto;background:var(--bg);border-radius:10px;display:block}
+.pg1 .ilus .tinta{stroke:var(--fg);stroke-width:2;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.pg1 .ilus .papel{fill:#f3e2b8;stroke:var(--fg);stroke-width:2}
+.pg1 .ilus .agujero{fill:var(--fg)}
+.pg1 .ilus .madera{fill:#d9b48a;stroke:var(--fg);stroke-width:2}
+.pg1 .ilus .metal{fill:var(--line);stroke:var(--fg);stroke-width:1.5}
+.pg1 .ilus .tecla{fill:var(--surface);stroke:var(--fg);stroke-width:1.2}
+.pg1 .ilus .luz{fill:var(--on-soft);stroke:var(--fg);stroke-width:1.2}
+.pg1 .ilus .luzon{fill:var(--on);stroke:var(--fg);stroke-width:1.2}
+.pg1 .ilus .armario{fill:var(--b-soft);stroke:var(--fg);stroke-width:2}
+.pg1 .ilus .panel{fill:var(--surface);stroke:var(--fg);stroke-width:1}
+.pg1 .ilus .persona{fill:var(--a);stroke:none}
+.pg1 .ilus .cuerpo{fill:var(--surface);stroke:var(--fg);stroke-width:2.5}
+.pg1 .ilus .pantalla{fill:var(--c-soft);stroke:var(--fg);stroke-width:1.5}
+.pg1 .ilus .app{stroke:none}
+.pg1 .ilus text{fill:var(--fg);font-family:var(--mono);font-size:9px;text-anchor:middle}
+.pg1 .foto{font-size:.9rem;color:var(--muted)}
+.pg1 .fig{margin:0;display:flex;flex-direction:column;gap:4px;max-width:220px}
+.pg1 .foto-real{width:100%;aspect-ratio:11/8;object-fit:cover;border-radius:10px;background:var(--bg);display:block}
+.pg1 .fig figcaption{font-size:.75rem;color:var(--muted)}
+.pg1 .zona-reto{background:var(--c-soft);border:3px dashed var(--c);border-radius:22px;padding:22px clamp(14px,3vw,28px);gap:14px}
+.pg1 .sello-reto{align-self:flex-start;font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;background:var(--c);color:#fff;padding:6px 16px;border-radius:99px;transform:rotate(-3deg)}
+.pg1 .zona-reto .key{background:var(--surface)}
+.pg1 .zona-reto .obj{border-color:transparent;box-shadow:0 3px 0 color-mix(in srgb,var(--c) 45%,transparent)}
+.pg1 .zona-reto .obj.bien{border-color:var(--b)}
+.pg1 .zona-reto .obj.mal{border-color:var(--a)}
+.pg1 .reto{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.pg1 .obj{background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s}
+.pg1 .obj h3{font-size:1.1rem}
+.pg1 .obj .sino{display:flex;gap:8px}
+.pg1 .obj .sino button{flex:1;padding:8px 10px}
+.pg1 .obj.bien{border-color:var(--b)}
+.pg1 .obj.mal{border-color:var(--a)}
+.pg1 .obj .res{font-size:.92rem;margin:0}
+.pg1 .obj .res b{font-family:var(--display)}
+.pg1 .obj.bien .res b{color:var(--b)}
+.pg1 .obj.mal .res b{color:var(--a)}
+.pg1 .encontrados{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px}
+.pg1 #reto-nuevo{flex:1;min-width:200px}
+.pg2 .ejercicios{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.pg2 .ej{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:8px;border:2px solid transparent;box-shadow:0 3px 0 color-mix(in srgb,var(--c) 45%,transparent)}
+.pg2 .ej.bien{border-color:var(--b)}
+.pg2 .ej.mal{border-color:var(--a)}
+.pg2 .ej .enunc{font-family:var(--mono);font-weight:700;font-size:1.5rem;letter-spacing:.05em}
+.pg2 .ej label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.95rem}
+.pg2 .ej input{width:6em;text-align:center;font-family:var(--mono);font-weight:700}
+.pg2 .ej .sol{font-size:.85rem;color:var(--muted);min-height:1.2em}
+.pg2 .parte-reto{font-family:var(--display);font-weight:700;font-size:1.15rem;margin-top:4px}
+.pg2 .zona-reto{background:var(--c-soft);border:3px dashed var(--c);border-radius:22px;padding:22px clamp(14px,3vw,28px);gap:14px}
+.pg2 .sello-reto{align-self:flex-start;font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;background:var(--c);color:#fff;padding:6px 16px;border-radius:99px;transform:rotate(-3deg)}
+.pg2 .zona-reto .key,.pg2 .zona-reto .tabla{background:var(--surface)}
+.pg2 .secreto{display:flex;flex-wrap:wrap;gap:10px 18px;font-family:var(--mono);font-weight:700;font-size:clamp(1.1rem,3.5vw,1.6rem);letter-spacing:.05em}
+.pg2 .aviso-secreto{background:var(--c-soft);border:2px dashed var(--c);border-radius:14px;padding:14px 18px;display:flex;flex-direction:column;gap:8px}
+.pg2 .bytes-reto{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.pg2 .byte-card{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px;border:2px solid transparent;box-shadow:0 3px 0 color-mix(in srgb,var(--c) 45%,transparent)}
+.pg2 .byte-card.bien{border-color:var(--b)}
+.pg2 .byte-card.mal{border-color:var(--a)}
+.pg2 .byte-card .bin{font-family:var(--mono);font-weight:700;font-size:1.4rem;letter-spacing:.06em}
+.pg2 .byte-card label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:.95rem}
+.pg2 .byte-card input{width:5.5em;text-align:center;font-family:var(--mono);font-weight:700}
+.pg2 .tabla{border-radius:12px;padding:12px;font-family:var(--mono);font-size:.95rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(72px,1fr));gap:4px 12px}
+.pg2 .solucion{font-family:var(--display);font-weight:800;font-size:2rem}
+.pg2 .circuitos{display:flex;flex-direction:column;gap:18px}
+.pg2 .circuito{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pg2 .circ{width:100%;height:auto;display:block;background:var(--bg);border-radius:12px}
+.pg2 .circuito[data-n="1"] .circ{max-width:300px}
+.pg2 .circuito[data-n="2"] .circ{max-width:440px}
+.pg2 .circuito[data-n="3"] .circ{max-width:580px}
+.pg2 .circ .cable{fill:none;stroke:var(--muted);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.pg2 .circ .cable.on{stroke:var(--a);stroke-dasharray:10 8;animation:corre .6s linear infinite}
+
+@keyframes corre{to{stroke-dashoffset:-18}}
+.pg2 .circ .pila{stroke:var(--fg);stroke-width:4;stroke-linecap:round}
+.pg2 .circ .signo{fill:var(--fg);font-family:var(--mono);font-size:16px;font-weight:700}
+.pg2 .circ .rotulo{fill:var(--muted);font-family:var(--mono);font-size:13px;text-anchor:middle}
+.pg2 .circ .inter{cursor:pointer}
+.pg2 .circ .inter .hit{fill:transparent;stroke:transparent;stroke-width:2}
+.pg2 .circ .inter:hover .hit,.pg2 .circ .inter:focus-visible .hit{fill:color-mix(in srgb,var(--hi) 12%,transparent);stroke:var(--hi);stroke-dasharray:5 4}
+.pg2 .circ .inter:focus-visible{outline:none}
+.pg2 .circ .borne{fill:var(--surface);stroke:var(--fg);stroke-width:2.5}
+.pg2 .circ .palanca{stroke:var(--fg);stroke-width:5;stroke-linecap:round;transition:all .15s}
+.pg2 .circ .bulbo{fill:var(--surface);stroke:var(--fg);stroke-width:2.5;transition:fill .15s}
+.pg2 .circ .bulbo.on{fill:var(--on)}
+.pg2 .circ .halo{fill:var(--on);opacity:0;transition:opacity .2s}
+.pg2 .circ .halo.on{opacity:.35}
+.pg2 .circ .filamento{fill:none;stroke:var(--fg);stroke-width:1.8}
+.pg2 .circ .bitnum{fill:var(--fg);font-family:var(--mono);font-size:26px;font-weight:700}
+.pg2 .combos{display:flex;flex-wrap:wrap;gap:8px;min-height:2.2rem}
+.pg2 .combo{font-family:var(--mono);font-weight:700;font-size:1.1rem;padding:4px 12px;border-radius:8px;background:var(--on-soft)}
+.pg2 .combo.ahora{outline:2px solid var(--hi)}
+.pg2 .cuenta{margin:0}
+.pg2 .contador{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:700px){.pg2 .contador{grid-template-columns:minmax(0,1fr)}}
+.pg2 .tres{display:flex;gap:16px;align-items:flex-end}
+.pg2 .tres .bb{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pg2 .tres .lamp{width:64px;height:64px;border-radius:50%;background:var(--line);border:3px solid var(--fg);transition:background .15s, box-shadow .15s}
+.pg2 .tres .lamp.on{background:var(--on);box-shadow:0 0 22px var(--on)}
+.pg2 .tres .d{font-family:var(--mono);font-weight:700;font-size:1.6rem}
+.pg2 .tres .w{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.pg2 .igual{font-family:var(--display);font-weight:800;font-size:3rem;line-height:1;margin-left:8px}
+.pg2 .cuenta-tabla{font-family:var(--mono);font-size:1rem;min-width:0;width:auto}
+.pg2 .cuenta-tabla td,.pg2 .cuenta-tabla th{padding:4px 14px}
+.pg2 .cuenta-tabla tr.ahora td{background:var(--on-soft);font-weight:700}
+.pg2 .cuenta-tabla tr.futuro td{color:transparent}
+.pg2 .posiciones{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.pg2 .pos{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.pg2 .cifras{display:flex;gap:10px}
+.pg2 .cifra-c{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:64px}
+.pg2 .cifra-c b{font-family:var(--mono);font-size:2.2rem;line-height:1;background:var(--on-soft);border-radius:10px;padding:8px 14px}
+.pg2 .pos.bin .cifra-c b{background:var(--a-soft)}
+.pg2 .cifra-c small{color:var(--muted);font-size:.8rem;text-align:center}
+.pg2 .cifra-c span{font-family:var(--mono);font-weight:700}
+.pg2 .cuenta-pos{font-family:var(--mono);font-size:1rem}
+.pg2 .letras{display:grid;grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:8px}
+.pg2 .letra{background:var(--a-soft);border-radius:10px;padding:8px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.pg2 .letra b{font-family:var(--display);font-size:1.5rem;line-height:1}
+.pg2 .letra span{font-family:var(--mono);font-size:.95rem;font-weight:700}
+.pg2 .letra small{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.pg2 .bulbs{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.pg2 .bulb{font:inherit;cursor:pointer;border:2px solid var(--line);background:var(--bg);color:var(--fg);border-radius:12px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:6px;transition:background .15s}
+.pg2 .bulb .lamp{width:min(42px,8vw);aspect-ratio:1;border-radius:50%;background:var(--line);transition:background .15s, box-shadow .15s}
+.pg2 .bulb.lit .lamp{background:var(--on);box-shadow:0 0 18px var(--on)}
+.pg2 .bulb .bit{font-family:var(--mono);font-weight:700;font-size:1.3rem}
+.pg2 .bulb .w{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.pg2 .readout{display:flex;flex-wrap:wrap;gap:14px}
+.pg2 .readout > div{background:var(--bg);border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;gap:2px;flex:1 1 180px}
+.pg2 .readout small{color:var(--muted)}
+.pg2 .chars{display:flex;flex-wrap:wrap;gap:8px}
+.pg2 .ch{background:var(--a-soft);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:5.5em}
+.pg2 .ch .l{font-family:var(--display);font-size:1.6rem;font-weight:700;line-height:1}
+.pg2 .ch .n{font-size:.8rem;color:var(--muted)}
+.pg2 .ch .bin{font-family:var(--mono);font-size:.82rem;font-weight:700}
+.pg2 .ch.multi{background:var(--c-soft)}
+.pg2 .imgrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:640px){.pg2 .imgrow{grid-template-columns:1fr}}
+.pg2 .grid{display:grid;grid-template-columns:repeat(8,32px);gap:3px;background:var(--line);padding:3px;border-radius:8px;width:max-content}
+.pg2 .px{width:32px;height:32px;border:0;padding:0;cursor:pointer;background:#fff;border-radius:3px}
+.pg2 .px.b{background:#23302a}
+.pg2 .rows{font-family:var(--mono);font-size:.95rem;display:flex;flex-direction:column;gap:3px}
+.pg2 .rows div{height:32px;display:flex;align-items:center}
+.pg2 .color{display:grid;grid-template-columns:minmax(0,1fr) 140px;gap:18px;align-items:center}
+@media (max-width:520px){.pg2 .color{grid-template-columns:1fr}}
+.pg2 .swatch{width:140px;height:140px;border-radius:16px;border:1px solid var(--line);max-width:100%}
+.pg2 .sl{display:grid;grid-template-columns:5.5em minmax(0,1fr) 7.5em;gap:10px;align-items:center;font-family:var(--mono);font-size:.9rem}
+.pg2 canvas{width:100%;height:240px;display:block;background:var(--bg);border-radius:12px}
+.pg2 .ctrls{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.pg2 .ctrls label{display:flex;flex-direction:column;gap:4px;font-size:.95rem}
+.pg2 table{border-collapse:collapse;font-size:.95rem;min-width:520px;width:100%}
+.pg2 th,.pg2 td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.pg2 th{font-size:.8rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.pg2 td.code{font-family:var(--mono);font-weight:700}
+.pg2 td.code .op{background:var(--a-soft);padding:2px 4px;border-radius:4px}
+.pg2 td.code .ad{background:var(--b-soft);padding:2px 4px;border-radius:4px}
+.pg2 .units{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.pg2 .unit{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.pg2 .unit .u{font-family:var(--display);font-weight:800;font-size:1.3rem}
+.pg2 .unit .eq{font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+.pg3 .parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.pg3 .part{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;border-top:6px solid var(--c)}
+.pg3 .part .an{font-size:.9rem;color:var(--muted)}
+.pg3 .part .an strong{color:var(--fg)}
+.pg3 .sim{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:16px}
+.pg3 .board{display:grid;grid-template-columns:minmax(0,1.1fr) 60px minmax(0,1fr);gap:0;align-items:stretch}
+@media (max-width:720px){.pg3 .board{grid-template-columns:1fr}
+.pg3 .busv{min-height:44px;writing-mode:horizontal-tb!important}}
+.pg3 .box{border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px;border:2px solid transparent;transition:border-color .2s, box-shadow .2s}
+.pg3 .box h3{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.pg3 .box h3 span{font-family:var(--mono);font-size:.75rem;color:var(--muted);font-weight:500}
+.pg3 .cpu{background:var(--cpu-soft)}
+.pg3 .memory{background:var(--mem-soft)}
+.pg3 .on{border-color:var(--hi);box-shadow:0 0 0 4px color-mix(in srgb, var(--hi) 25%, transparent)}
+.pg3 .cpu-inner{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pg3 .unit{background:var(--surface);border-radius:10px;padding:10px;border:2px solid transparent;display:flex;flex-direction:column;gap:4px;transition:border-color .2s}
+.pg3 .unit .name{font-weight:700;font-size:.9rem}
+.pg3 .unit .val{font-family:var(--mono);font-size:1.15rem;font-weight:700}
+.pg3 .unit.wide{grid-column:1/-1}
+.pg3 .busv{background:var(--bus-soft);border-radius:10px;margin:0 8px;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;color:var(--muted);border:2px solid transparent;transition:border-color .2s;position:relative;overflow:hidden}
+.pg3 .busv.on::after{content:"";position:absolute;width:14px;height:14px;border-radius:50%;background:var(--hi);animation:travel .9s ease-in-out}
+
+@keyframes travel{from{transform:translateY(-120px)}to{transform:translateY(120px)}}
+@media (max-width:720px){@keyframes travel{from{transform:translateX(-140px)}to{transform:translateX(140px)}}}
+.pg3 .cells{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-family:var(--mono);font-size:.92rem}
+.pg3 .addr{color:var(--muted);text-align:right;padding:6px 0}
+.pg3 .cell{background:var(--surface);border-radius:6px;padding:6px 10px;border:2px solid transparent;transition:border-color .2s;display:flex;justify-content:space-between;gap:8px}
+.pg3 .cell em{font-style:normal;color:var(--muted);font-family:var(--body);font-size:.8rem}
+.pg3 .cell input{font:inherit;width:4.5em;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg);padding:0 4px}
+.pg3 .io{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.pg3 .io{grid-template-columns:1fr}}
+.pg3 .io .box{background:var(--io-soft)}
+.pg3 .screen{font-family:var(--mono);font-size:1.6rem;font-weight:700;background:var(--surface);border-radius:8px;padding:8px 12px;min-height:1.6em}
+.pg3 .narr{display:flex;gap:14px;align-items:flex-start;background:var(--bg);border-radius:12px;padding:14px}
+.pg3 .phase{font-family:var(--mono);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:99px;background:var(--line);white-space:nowrap}
+.pg3 .phase.p0{background:var(--mem-soft)}
+.pg3 .phase.p1{background:var(--bus-soft)}
+.pg3 .phase.p2{background:var(--cpu-soft)}
+.pg3 .controls{display:flex;flex-wrap:wrap;gap:10px}
+.pg3 button.btn{font:inherit;font-weight:700;border:0;border-radius:10px;padding:10px 18px;cursor:pointer;background:var(--fg);color:var(--bg)}
+.pg3 button.btn.alt{background:var(--line);color:var(--fg)}
+.pg3 button.btn:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.pg3 button.btn:disabled{opacity:.45;cursor:default}
+.pg3 .cycle{display:flex;gap:6px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.pg3 .cycle span{padding:2px 10px;border-radius:99px;border:1px solid var(--line)}
+.pg3 .cycle span.now{border-color:var(--hi);color:var(--fg);font-weight:700}
+.pg3 .note{font-size:.9rem;color:var(--muted)}
+.pg3 .montado{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:820px){.pg3 .montado{grid-template-columns:1fr}}
+.pg3 .pcwrap{overflow-x:auto}
+.pg3 svg.pc{width:100%;min-width:560px;height:auto;display:block;background:var(--bg);border-radius:12px}
+.pg3 .pc .caja{fill:var(--surface);stroke:var(--fg);stroke-width:2.5}
+.pg3 .pc .placa{fill:color-mix(in srgb,var(--mem-soft) 45%,var(--surface));stroke:var(--muted);stroke-width:2}
+.pg3 .pc .p-cpu{fill:var(--cpu-soft)}
+.pg3 .pc .p-ram{fill:var(--mem-soft)}
+.pg3 .pc .p-gpu{fill:var(--io-soft)}
+.pg3 .pc .p-ssd{fill:var(--mem-soft)}
+.pg3 .pc .p-fuente{fill:var(--line)}
+.pg3 .pc .p-io{fill:var(--io-soft)}
+.pg3 .pc .pieza rect,.pg3 .pc .pieza circle,.pg3 .pc .pieza ellipse{stroke:var(--fg);stroke-width:2}
+.pg3 .pc .fan{fill:var(--surface)}
+.pg3 .pc .aspa{stroke:var(--fg);stroke-width:1.6;fill:none}
+.pg3 .pc .bus{fill:none;stroke:var(--bus);stroke-width:5;stroke-linecap:round;stroke-linejoin:round;opacity:.85}
+.pg3 .pc .cable{fill:none;stroke:var(--muted);stroke-width:4;stroke-linecap:round}
+.pg3 .pc text{fill:var(--fg);font-family:var(--body);font-size:14px;text-anchor:middle}
+.pg3 .pc text.nom{font-family:var(--display);font-weight:700;font-size:15px}
+.pg3 .pc .rol{display:none}
+.pg3 .pc.vn .rol{display:inline}
+.pg3 .pc .rol rect{fill:var(--fg);stroke:none}
+.pg3 .pc .rol text{fill:var(--bg);font-family:var(--mono);font-size:11px;font-weight:700}
+.pg3 .pc .pieza{cursor:pointer}
+.pg3 .pc .pieza:hover > :first-child,.pg3 .pc .pieza.sel > :first-child{stroke:var(--hi);stroke-width:4}
+.pg3 .pc .pieza.on > :first-child{stroke:var(--hi);stroke-width:5}
+.pg3 .pc .pieza:focus-visible{outline:none}
+.pg3 .pc .pieza:focus-visible > :first-child{stroke:var(--hi);stroke-width:4;stroke-dasharray:6 4}
+.pg3 .pc .pantalla-txt{font-family:var(--mono);font-size:34px;font-weight:700}
+.pg3 .pc .punto circle{fill:var(--hi);stroke:var(--surface);stroke-width:3}
+.pg3 .pc .punto text{fill:var(--fg);font-family:var(--mono);font-size:13px;font-weight:700;text-anchor:start}
+.pg3 .pc .punto rect{fill:var(--surface);stroke:var(--hi);stroke-width:2}
+.pg3 .fichap{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pg3 .fichap .rolb{align-self:flex-start;font-family:var(--mono);font-size:.78rem;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--fg);color:var(--bg)}
+.pg3 .leyenda{display:flex;flex-wrap:wrap;gap:8px 14px;font-size:.9rem;color:var(--muted)}
+.pg3 .leyenda span{display:inline-flex;gap:6px;align-items:center}
+.pg3 .leyenda i{width:14px;height:14px;border-radius:4px;border:1.5px solid var(--fg);display:inline-block}
+.pg3 .pc .pieza rect.hit{stroke:transparent}
+.pg3 .pc .pieza:hover > rect.hit,.pg3 .pc .pieza.sel > rect.hit,.pg3 .pc .pieza.on > rect.hit{stroke:var(--hi);stroke-width:4}
+.pg3 .pc .pieza rect.tecla{stroke:var(--muted);stroke-width:1}
+.pg3 .pc .pieza[data-k="buses"]:hover .bus,.pg3 .pc .pieza[data-k="buses"].sel .bus,.pg3 .pc .pieza[data-k="buses"].on .bus{stroke:var(--hi);opacity:1}
+.pg3 .zona-reto{background:var(--c-soft);border:3px dashed var(--c);border-radius:22px;padding:22px clamp(14px,3vw,28px);gap:14px}
+.pg3 .sello-reto{align-self:flex-start;font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;background:var(--c);color:#fff;padding:6px 16px;border-radius:99px;transform:rotate(-3deg)}
+.pg3 .zona-reto .key{background:var(--surface)}
+.pg3 .reglas{display:flex;flex-wrap:wrap;gap:8px}
+.pg3 .reglas span{font-family:var(--mono);font-weight:700;font-size:.9rem;background:var(--surface);border-radius:8px;padding:4px 10px}
+.pg3 .reglas span.no{text-decoration:line-through;color:var(--a)}
+.pg3 .editor{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:760px){.pg3 .editor{grid-template-columns:minmax(0,1fr)}}
+.pg3 .memo{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.pg3 .linea{display:grid;grid-template-columns:2em minmax(0,1fr) 4.5em;gap:8px;align-items:center;padding:3px 6px;border-radius:8px;border:2px solid transparent}
+.pg3 .linea.on{border-color:var(--hi);background:var(--on-soft)}
+.pg3 .linea .n{font-family:var(--mono);color:var(--muted)}
+.pg3 .linea select{font:inherit;font-family:var(--mono);font-size:.95rem;padding:6px 8px;border-radius:8px;border:2px solid var(--line);background:var(--bg);color:var(--fg);width:100%}
+.pg3 .linea .fijo{font-family:var(--mono);font-weight:700;grid-column:2 / 4}
+.pg3 .linea.dato{background:var(--mem-soft)}
+.pg3 .cpu-reto{background:var(--surface);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.pg3 .cpu-reto .regs{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.pg3 .cpu-reto .regs b{font-family:var(--mono);font-size:1.4rem}
+.pg3 .pantalla-reto{font-family:var(--mono);font-weight:700;font-size:1.8rem;background:var(--fg);color:var(--on);border-radius:8px;padding:2px 14px;min-width:3ch;display:inline-block;text-align:center}
+.pg3 .registro{font-family:var(--mono);font-size:.88rem;margin:0;padding:0;list-style:none;max-height:240px;overflow:auto;display:flex;flex-direction:column;gap:2px}
+.pg3 .veredicto{font-size:1.05rem;margin:0}
+.pg3 .veredicto.bien{color:var(--b)}
+.pg3 .veredicto.mal{color:var(--a)}
+.pg3 .veredicto strong{font-family:var(--display)}
+.pg3 .suma-panel{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:820px){.pg3 .suma-panel{grid-template-columns:1fr}}
+.pg3 .estado{display:flex;flex-direction:column;gap:10px;min-width:0}
+.pg3 .estado .caja-e{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px}
+.pg3 .estado ul{margin:6px 0 0;padding-left:1.1em;font-family:var(--mono);font-size:.92rem}
+.pg3 .estado li.nuevo{background:var(--on-soft)}
+.pg3 .paso-n{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.pg3 .num-in{width:5em}
+.pg4 .layers{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:720px){.pg4 .layers{grid-template-columns:1fr}}
+.pg4 .stack{display:flex;flex-direction:column;gap:6px}
+.pg4 .layer{font:inherit;text-align:left;border:2px solid transparent;border-radius:12px;padding:14px 18px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--fg);transition:transform .15s}
+.pg4 .layer b{font-family:var(--display);font-size:1.2rem}
+.pg4 .layer small{color:var(--muted)}
+.pg4 .layer:hover{transform:translateX(4px)}
+.pg4 .layer:focus-visible{outline:3px solid var(--hi);outline-offset:2px}
+.pg4 .layer[aria-pressed="true"]{border-color:var(--fg)}
+.pg4 .l-user{background:var(--bus-soft);margin-inline:15%}
+.pg4 .l-app{background:var(--io-soft);margin-inline:9%}
+.pg4 .l-os{background:var(--mem-soft);margin-inline:4%}
+.pg4 .l-hw{background:var(--cpu-soft)}
+.pg4 .explain{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.pg4 .explain .ex{background:var(--bg);border-radius:8px;padding:12px;font-size:.95rem}
+.pg4 .zona-reto{background:var(--c-soft);border:3px dashed var(--c);border-radius:22px;padding:22px clamp(14px,3vw,28px);gap:14px}
+.pg4 .sello-reto{align-self:flex-start;font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;background:var(--c);color:#fff;padding:6px 16px;border-radius:99px;transform:rotate(-3deg)}
+.pg4 .zona-reto .key{background:var(--surface)}
+.pg4 .abrir{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.pg4 .abrir div{background:var(--surface);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.pg4 kbd{font-family:var(--mono);font-size:.9rem;background:var(--bg);border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:1px 7px}
+.pg4 .misiones{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:m}
+.pg4 .misiones li{background:var(--surface);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:start;counter-increment:m}
+.pg4 .misiones li::before{content:counter(m);grid-row:span 3;font-family:var(--display);font-weight:800;font-size:1.3rem;width:2rem;height:2rem;border-radius:50%;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center}
+.pg4 .misiones li b{font-family:var(--display)}
+.pg4 .misiones .resp{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:.95rem}
+.pg4 .misiones .resp input{width:6em}
+.pg4 .misiones .resp input.largo{width:12em}
+.pg4 .revela{display:flex;flex-direction:column;gap:6px}
+.pg4 .revela button{align-self:flex-start}
+.pg4 .capas-sim{gap:8px}
+.pg4 .banda{border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.pg4 .b-app{background:var(--io-soft)}
+.pg4 .b-so{background:var(--mem-soft)}
+.pg4 .b-hw{background:var(--cpu-soft)}
+.pg4 .banda-cab{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.pg4 .banda-nom{font-family:var(--display);font-weight:800;font-size:1.15rem}
+.pg4 .banda-que{color:var(--muted);font-size:.95rem}
+.pg4 .flecha-capa{font-family:var(--mono);font-size:.85rem;color:var(--muted);padding-left:14px}
+.pg4 .b-so .log{background:var(--surface)}
+.pg4 .b-hw .box{background:var(--surface)}
+.pg4 .b-app .app{background:var(--surface)}
+.pg4 .b-app .app.open{background:var(--on);border-color:var(--fg)}
+.pg4 .apps{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
+.pg4 .app{font:inherit;cursor:pointer;border:2px solid var(--line);background:var(--bg);color:var(--fg);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:2px;text-align:left;transition:border-color .15s, background .15s}
+.pg4 .app b{font-family:var(--display)}
+.pg4 .app small{color:var(--muted)}
+.pg4 .app.open{background:var(--on-soft);border-color:var(--on)}
+.pg4 .app.run{border-color:var(--hi);box-shadow:0 0 0 4px color-mix(in srgb, var(--hi) 25%, transparent)}
+.pg4 .hw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:14px}
+@media (max-width:640px){.pg4 .hw{grid-template-columns:1fr}}
+.pg4 .box{border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:10px}
+.pg4 .cpu{background:var(--cpu-soft)}
+.pg4 .ram{background:var(--mem-soft)}
+.pg4 .turn{font-family:var(--display);font-weight:800;font-size:1.6rem;min-height:2rem}
+.pg4 .slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.pg4 .slot{background:var(--surface);border-radius:8px;padding:8px 6px;font-size:.85rem;min-height:2.6rem;display:flex;align-items:center;justify-content:center;text-align:center;border:2px dashed var(--line)}
+.pg4 .slot.used{border:2px solid var(--mem);font-weight:700}
+.pg4 .log{background:var(--bg);border-radius:12px;padding:12px 14px;min-height:3.2em}
+.pg4 .speed{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}
+.pg4 .osgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.pg4 .os{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.pg5 .zona-reto{background:var(--c-soft);border:3px dashed var(--c);border-radius:22px;padding:22px clamp(14px,3vw,28px);gap:14px}
+.pg5 .sello-reto{align-self:flex-start;font-family:var(--display);font-weight:800;font-size:1rem;letter-spacing:.12em;text-transform:uppercase;background:var(--c);color:#fff;padding:6px 16px;border-radius:99px;transform:rotate(-3deg)}
+.pg5 .zona-reto .key{background:var(--surface)}
+.pg5 .abrir{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.pg5 .abrir div{background:var(--surface);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.pg5 kbd{font-family:var(--mono);font-size:.9rem;background:var(--bg);border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:1px 7px}
+.pg5 .misiones{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;counter-reset:m}
+.pg5 .misiones li{background:var(--surface);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 12px;align-items:start;counter-increment:m}
+.pg5 .misiones li::before{content:counter(m);grid-row:span 4;font-family:var(--display);font-weight:800;font-size:1.3rem;width:2rem;height:2rem;border-radius:50%;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center}
+.pg5 .misiones li b{font-family:var(--display)}
+.pg5 .cmds{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:.9rem}
+.pg5 .cmd{display:inline-flex;align-items:center;gap:6px}
+.pg5 .cmd code{font-family:var(--mono);font-weight:700;background:var(--fg);color:var(--on);padding:4px 10px;border-radius:6px}
+.pg5 .cmd button{font:inherit;font-size:.8rem;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:6px;padding:3px 8px;cursor:pointer}
+.pg5 .misiones .resp{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;font-size:.95rem}
+.pg5 .misiones .resp input{width:8em}
+.pg5 .revela{display:flex;flex-direction:column;gap:6px}
+.pg5 .revela button{align-self:flex-start}
+.pg5 .viaje{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.pg5 .etapa{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;flex-direction:column;min-width:0}
+.pg5 .etapa b{font-family:var(--display)}
+.pg5 .etapa small{color:var(--muted)}
+.pg5 .etapa.dev{background:var(--on-soft);border-color:transparent}
+.pg5 .etapa.net{background:var(--b-soft);border-color:transparent}
+.pg5 .paso-flecha{font-family:var(--mono);font-size:.8rem;color:var(--muted);display:flex;flex-direction:column;align-items:center;line-height:1.1}
+.pg5 .paso-flecha::after{content:"→";font-size:1.3rem;color:var(--fg)}
+.pg5 .casa{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:760px){.pg5 .casa{grid-template-columns:1fr}}
+.pg5 svg.mapa{width:100%;height:auto;display:block;background:var(--bg);border-radius:12px}
+.pg5 .mapa .muro{fill:var(--surface);stroke:var(--fg);stroke-width:2.5}
+.pg5 .mapa .tejado{fill:none;stroke:var(--fg);stroke-width:2.5;stroke-linejoin:round}
+.pg5 .mapa .disp{fill:var(--surface);stroke:var(--fg);stroke-width:2}
+.pg5 .mapa text{fill:var(--fg);font-family:var(--body);font-size:14px;text-anchor:middle}
+.pg5 .mapa text.t{font-family:var(--display);font-weight:700;font-size:16px}
+.pg5 .zona{cursor:pointer}
+.pg5 .zona .hit{fill:transparent}
+.pg5 .zona:hover .hit,.pg5 .zona.sel .hit{fill:color-mix(in srgb,var(--hi) 14%,transparent)}
+.pg5 .zona:focus-visible{outline:none}
+.pg5 .zona:focus-visible .hit{stroke:var(--hi);stroke-width:2;stroke-dasharray:5 4}
+.pg5 .w-wifi{fill:none;stroke:var(--b);stroke-width:3;stroke-linecap:round}
+.pg5 .w-cable{fill:none;stroke:var(--naranja,#f4a259);stroke:var(--on);stroke-width:4;stroke-linecap:round}
+.pg5 .w-fibra{fill:none;stroke:var(--a);stroke-width:4;stroke-linecap:round}
+.pg5 .w-int{fill:none;stroke:var(--muted);stroke-width:2.5;stroke-dasharray:6 6}
+.pg5 .router-box{fill:var(--b-soft);stroke:var(--fg);stroke-width:2}
+.pg5 .nube{fill:var(--surface);stroke:var(--fg);stroke-width:2}
+.pg5 .serv{fill:var(--c-soft);stroke:var(--fg);stroke-width:2}
+.pg5 .ficha{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pg5 .ficha .tipo{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.pg5 .dns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.pg5 .dns{grid-template-columns:1fr}}
+.pg5 .dns .actor{background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:6px;transition:border-color .2s}
+.pg5 .dns .actor.on{border-color:var(--hi)}
+.pg5 .bocadillo{background:var(--bg);border-radius:10px;padding:8px 10px;font-size:.95rem;min-height:2.6em}
+.pg5 .mono-ip{font-family:var(--mono);font-weight:700}
+.pg5 select{font:inherit;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:var(--bg);color:var(--fg)}
+.pg5 .rt{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:640px){.pg5 .rt{grid-template-columns:1fr}}
+.pg5 .rt tr.on td{background:var(--on-soft)}
+.pg5 .paquete{display:inline-flex;flex-direction:column;gap:2px;background:var(--a-soft);border-radius:10px;padding:10px 14px;font-family:var(--mono)}
+.pg5 .paquete b{font-size:1.2rem}
+.pg5 .netbox{overflow-x:auto}
+.pg5 svg.net{width:100%;min-width:620px;height:auto;display:block;background:var(--bg);border-radius:12px}
+.pg5 .edge{stroke:var(--line);stroke-width:3}
+.pg5 .node rect{fill:var(--surface);stroke:var(--muted);stroke-width:2}
+.pg5 .node.end rect{fill:var(--on-soft);stroke:var(--on)}
+.pg5 .node.router rect{fill:var(--b-soft);stroke:var(--b)}
+.pg5 .node text{fill:var(--fg);font-family:var(--body);font-size:13px;text-anchor:middle}
+.pg5 .node text.ip{fill:var(--muted);font-family:var(--mono);font-size:11px}
+.pg5 .pkt rect{fill:var(--a);stroke:var(--fg);stroke-width:1.5}
+.pg5 .pkt text{fill:#23302a;font-family:var(--mono);font-size:12px;font-weight:700;text-anchor:middle}
+.pg5 .recv{display:flex;flex-wrap:wrap;gap:8px;min-height:3rem;align-items:center}
+.pg5 .chip{background:var(--a-soft);border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:.9rem;display:flex;gap:6px;align-items:baseline}
+.pg5 .chip b{font-size:.75rem;color:var(--muted)}
+.pg5 .final{font-family:var(--display);font-weight:700;font-size:1.4rem;min-height:1.8rem}
+.pg5 .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.pg5 .row label{display:flex;gap:8px;align-items:center}
+.pg5 #msg{width:100%;max-width:520px;font-size:1.1rem}
+.pg5 .panel-router{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media (max-width:700px){.pg5 .panel-router{grid-template-columns:1fr}}
+.pg5 .campo{display:flex;flex-direction:column;gap:4px}
+.pg5 .campo input,.pg5 .campo select{width:100%}
+.pg5 .check{display:flex;gap:10px;align-items:flex-start;font-size:.95rem}
+.pg5 .check i{font-style:normal;font-weight:700;width:1.2em;flex:none}
+.pg5 .check.ok i{color:var(--b)}
+.pg5 .check.ko i{color:var(--a)}
+.pg5 .medidor{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.pg5 .medidor span{display:block;height:100%;width:0;background:var(--a);transition:width .25s, background .25s}
+.pg5 .toggle{display:flex;gap:10px;align-items:center}
+.pg5 .q{display:flex;flex-direction:column;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+.pg5 .q button{align-self:flex-start}
+
+/* ===== Diapositivas ===== */
+html,body{height:100%;overflow:hidden}
+body{padding:0!important}
+.deck{position:fixed;inset:0 0 60px 0}
+.slide{position:absolute;inset:0;overflow-y:auto;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .25s ease, visibility 0s linear .25s}
+.slide.activa{opacity:1;visibility:visible;transition:opacity .25s ease}
+.slide-inner{margin:auto;width:100%;max-width:1120px;padding:32px max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px));zoom:var(--z,1);display:flex;flex-direction:column;gap:22px}
+.slide-inner > section{gap:18px}
+.slide-inner h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.titulo-portada{font-size:clamp(2.6rem,7vw,4.6rem)!important}
+.portada{display:flex;flex-direction:column;gap:18px}
+.indice-portada{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ir-sec{font:inherit;font-size:1.15rem;display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;color:var(--fg)}
+.ir-sec:hover{border-color:var(--fg)}
+.ir-sec .num{font-family:var(--display);font-weight:800;width:2.4rem;height:2.4rem;border-radius:10px;background:var(--on-soft);display:flex;align-items:center;justify-content:center;flex:none}
+.divisor{display:flex;flex-direction:column;gap:16px;padding-block:6vh}
+.divisor h1{font-size:clamp(2.4rem,6vw,4rem)}
+.num-grande{font-family:var(--display);font-weight:800;font-size:clamp(4rem,12vw,8rem);line-height:1;color:var(--c)}
+.divisoria{background:linear-gradient(135deg,var(--bg) 55%,var(--c-soft))}
+/* Momentos de la historia */
+.momento{gap:28px}
+.hitos{display:flex;gap:0;align-items:center}
+.hito{font-family:var(--mono);font-weight:700;font-size:.95rem;color:var(--muted);padding:6px 14px;border-bottom:4px solid var(--line);flex:1;text-align:center}
+.hito.ahora{color:var(--fg);border-bottom-color:var(--c);background:var(--c-soft);border-radius:8px 8px 0 0}
+.mom-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center}
+@media (max-width:760px){.mom-grid{grid-template-columns:minmax(0,1fr)}}
+.pg1 .momento .fig{max-width:none;width:100%}
+.pg1 .momento .ilus,.pg1 .momento .foto-real{max-width:none;width:100%;aspect-ratio:11/8;height:auto;border-radius:16px;background:var(--surface);border:1px solid var(--line);object-fit:cover}
+.mom-txt{display:flex;flex-direction:column;gap:14px;min-width:0}
+.mom-año{font-family:var(--display);font-weight:800;font-size:clamp(3rem,6vw,4.6rem);line-height:1;color:var(--c)}
+.mom-desc{font-size:1.2rem}
+.pg1 .momento .q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+/* Barra inferior */
+.barra{position:fixed;left:0;right:0;bottom:0;height:60px;background:var(--surface);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;
+  padding:0 max(12px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(12px,env(safe-area-inset-left,0px))}
+.barra .progreso{position:absolute;left:0;top:-3px;height:3px;background:var(--hi);transition:width .25s}
+.barra .donde{flex:1;min-width:0;font-size:.9rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.barra .centro{display:flex;align-items:center;gap:8px}
+.barra .cont{font-family:var(--mono);font-size:.9rem;min-width:5.5em;text-align:center}
+.barra button{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:8px 14px;cursor:pointer}
+.barra button:hover{border-color:var(--fg)}
+.barra .lado{flex:1;display:flex;justify-content:flex-end;gap:8px}
+@media (max-width:640px){.barra .donde,.barra .lado .opc{display:none}}
+/* Índice */
+.indice{position:fixed;inset:0 0 60px 0;background:var(--bg);overflow-y:auto;z-index:20;padding:28px max(20px,env(safe-area-inset-left,0px))}
+.indice-cont{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+.indice h2{font-size:1.6rem}
+.indice .grupo{display:flex;flex-direction:column;gap:8px}
+.indice .grupo h3{font-size:1.05rem;color:var(--muted)}
+.indice .lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.indice .lista button{font:inherit;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;color:var(--fg);display:flex;gap:10px}
+.indice .lista button span{font-family:var(--mono);color:var(--muted)}
+.indice .lista button.actual{border-color:var(--hi);background:var(--on-soft)}
+
+</style>
+</head>
+<body>
+
+<div class="deck" id="deck">
+<div class="slide pg0" data-sec="0" data-titulo="Portada" data-lugar="Inicio" role="group" aria-roledescription="diapositiva" aria-label="1: Portada"><div class="slide-inner"><div class="portada">
+  <span class="eyebrow">Digitalización · 4º ESO · Dispositivos digitales, sistemas operativos y de comunicación</span>
+  <h1 class="titulo-portada">Un ordenador por dentro</h1>
+  <p class="lead">Desde los ceros y unos hasta Internet.</p>
+  <ol class="indice-portada"><li><button class="ir-sec" data-sec="1"><span class="num">1</span>¿Por qué se crearon los ordenadores?</button></li><li><button class="ir-sec" data-sec="2"><span class="num">2</span>¿Cómo representan la información?</button></li><li><button class="ir-sec" data-sec="3"><span class="num">3</span>La arquitectura Von Neumann</button></li><li><button class="ir-sec" data-sec="4"><span class="num">4</span>Un ordenador por capas</button></li><li><button class="ir-sec" data-sec="5"><span class="num">5</span>¿Cómo se comunican los dispositivos?</button></li></ol>
+</div></div></div>
+<div class="slide pg1 divisoria" data-sec="1" data-titulo="¿Por qué se crearon los ordenadores?" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="2: ¿Por qué se crearon los ordenadores?"><div class="slide-inner"><div class="divisor"><span class="num-grande">1</span><h1>¿Por qué se crearon los ordenadores?</h1><p class="lead">Para hacer cálculos largos más rápido y con menos errores que las personas. Antes, «computadora» era el nombre de una persona que hacía cálculos a mano.</p></div></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1890" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="3: Cuatro momentos · 1890"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito ahora">1890</span><span class="hito">1940–1945</span><span class="hito">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/HollerithMachine.CHM.jpg?width=480" alt="Réplica de la máquina tabuladora de Hollerith" ><svg class="ilus" data-ilus="tarjeta" viewBox="0 0 220 160" role="img" aria-label="Una tarjeta perforada"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:HollerithMachine.CHM.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1890</span><h2>Contar a toda la población</h2><p class="mom-desc">Herman Hollerith crea una máquina que lee tarjetas perforadas para contar el censo de Estados Unidos.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>El censo anterior se contó a mano y tardó años. Con tarjetas, una máquina contaba mucho más rápido. La empresa de Hollerith acabó formando parte de IBM.</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1940–1945" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="4: Cuatro momentos · 1940–1945"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito ahora">1940–1945</span><span class="hito">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/EnigmaMachine.jpg?width=480" alt="Máquina Enigma" ><svg class="ilus" data-ilus="enigma" viewBox="0 0 220 160" role="img" aria-label="Una máquina de cifrar como Enigma"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:EnigmaMachine.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1940–1945</span><h2>Descifrar mensajes secretos</h2><p class="mom-desc">Durante la Segunda Guerra Mundial, Alan Turing y su equipo construyen máquinas para descifrar los mensajes de la máquina alemana Enigma.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>Enigma cambiaba su código cada día y había millones de combinaciones posibles. Probarlas a mano era imposible a tiempo.</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1945" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="5: Cuatro momentos · 1945"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito">1940–1945</span><span class="hito ahora">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/ENIAC_Penn1.jpg?width=480" alt="Paneles del ENIAC expuestos en la Universidad de Pensilvania" ><svg class="ilus" data-ilus="eniac" viewBox="0 0 220 160" role="img" aria-label="El ENIAC ocupaba una sala entera"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1945</span><h2>El ENIAC y la idea de Von Neumann</h2><p class="mom-desc">El ENIAC (Electronic Numerical Integrator and Computer) calcula trayectorias de proyectiles. Pesaba unas 27 toneladas y ocupaba una sala entera. Ese mismo año, John von Neumann describe cómo guardar el programa en la memoria.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>Una persona tardaba horas en calcular una sola trayectoria. El ENIAC lo hacía en segundos. La idea de Von Neumann es la que siguen los ordenadores actuales (sección 3).</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · Hoy" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="6: Cuatro momentos · Hoy"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito">1940–1945</span><span class="hito">1945</span><span class="hito ahora">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/Android_smartphone.jpg?width=480" alt="Un teléfono móvil inteligente" ><svg class="ilus" data-ilus="movil" viewBox="0 0 220 160" role="img" aria-label="Un móvil"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:Android_smartphone.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">Hoy</span><h2>Un ordenador en el bolsillo</h2><p class="mom-desc">Llevamos ordenadores en el móvil, el coche, la lavadora y el reloj.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hace falta hoy?</button><p hidden>Ya no solo calculamos. Comunicamos, guardamos fotos y música, jugamos y controlamos aparatos. Pero por dentro sigue haciendo lo mismo: cálculos muy simples, muy rápido.</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="El ENIAC frente a un móvil" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="7: El ENIAC frente a un móvil"><div class="slide-inner"><section aria-labelledby="p1-t2">
+  <h2 id="p1-t2">El ENIAC frente a un móvil</h2>
+  <div class="vs">
+    <div class="card"><h3>ENIAC (1945)</h3><span class="big">27 toneladas</span><p>Unas 5.000 sumas por segundo. Ocupaba una sala.</p></div>
+    <div class="card"><h3>Un móvil actual</h3><span class="big">unos 200 gramos</span><p>Miles de millones de operaciones por segundo. Cabe en la mano.</p></div>
+  </div>
+  <div class="key"><strong>Nota.</strong> Los ordenadores nacieron para calcular. Hoy hacen muchas más cosas, pero por dentro siguen haciendo lo mismo: cálculos muy sencillos, a gran velocidad.</div>
+</section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="¿Qué ordenadores hay en clase?" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="8: ¿Qué ordenadores hay en clase?"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p1-t-reto">
+  <span class="sello-reto">Reto</span>
+  <h2 id="p1-t-reto">¿Qué ordenadores hay en clase?</h2>
+  <div class="key"><strong>La pista.</strong> Un aparato es un ordenador si tiene un procesador que sigue las instrucciones de un programa: recibe datos, los procesa y da un resultado.</div>
+  <p>Mira a tu alrededor. Para cada objeto, decide: ¿es un ordenador o no?</p>
+  <div class="reto" id="reto"></div>
+  <div class="controls" style="align-items:center">
+    <span class="mono" id="reto-marcador" aria-live="polite">Aciertos: 0 de 0</span>
+    <button class="btn alt" id="reto-todas">Ver todas las respuestas</button>
+    <button class="btn alt" id="reto-reset">Empezar de nuevo</button>
+  </div>
+</section></div></div>
+<div class="slide pg2 divisoria" data-sec="2" data-titulo="¿Cómo representan la información?" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="9: ¿Cómo representan la información?"><div class="slide-inner"><div class="divisor"><span class="num-grande">2</span><h1>¿Cómo representan la información?</h1><p class="lead">Un ordenador solo distingue dos estados: hay corriente o no hay corriente. Con eso guarda textos, fotos, canciones y programas.</p></div></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="10: Mensaje secreto"><div class="slide-inner"><section><h2>Un mensaje para hoy</h2>
+
+<div class="aviso-secreto">
+  <strong>Mensaje secreto</strong>
+  <div class="secreto"><span>01001000</span><span>01001111</span><span>01001100</span><span>01000001</span></div>
+  <p class="note">Hoy alguien nos ha dejado este mensaje. Al final de la clase sabrás leerlo.</p>
+</div>
+
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="¿Por qué ceros y unos?" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="11: ¿Por qué ceros y unos?"><div class="slide-inner"><section aria-labelledby="p2-t0">
+  <span class="eyebrow">Para empezar · Interruptores</span>
+  <h2 id="p2-t0">¿Por qué ceros y unos?</h2>
+  <p>Dentro de un ordenador hay circuitos con interruptores. Un interruptor solo puede estar de dos formas: <strong>abierto</strong>, y no pasa corriente (0), o <strong>cerrado</strong>, y pasa corriente (1). Pulsa los interruptores.</p>
+  <div class="panel"><h3>Con 1 interruptor</h3><p class="note">¿Cuántas cosas distintas puede decir esta bombilla?</p><div class="circuito" data-n="1"></div></div></section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Con 2 interruptores" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="12: Con 2 interruptores"><div class="slide-inner"><section><h2>Con 2 interruptores</h2><div class="panel"><h3>Con 2 interruptores</h3><p class="note">Antes de probar: ¿cuántas combinaciones creéis que hay?</p><div class="circuito" data-n="2"></div></div></section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Con 3 interruptores" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="13: Con 3 interruptores"><div class="slide-inner"><section><h2>Con 3 interruptores</h2><div class="panel"><h3>Con 3 interruptores</h3><p class="note">¿Y ahora? Buscad todas.</p><div class="circuito" data-n="3"></div></div><div class="key">
+    <strong>Cada interruptor nuevo duplica las posibilidades:</strong> 1 interruptor da 2, 2 dan 4, 3 dan 8. ¿Cuántas habrá con 8 interruptores?
+    <div style="margin-top:10px"><button class="btn" id="ocho-btn">Ver la respuesta</button>
+    <p id="ocho-res" hidden>2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = <strong>256</strong>. Ocho interruptores forman un <strong>byte</strong>. Un procesador tiene miles de millones de interruptores diminutos, llamados <strong>transistores</strong>.</p></div>
+  </div>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="De combinaciones a números" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="14: De combinaciones a números"><div class="slide-inner"><section aria-labelledby="p2-t-contar">
+  <span class="eyebrow">Paso intermedio · Contar en binario</span>
+  <h2 id="p2-t-contar">De combinaciones a números</h2>
+  <p>Cada combinación de bombillas se puede numerar. Vamos a contar con 3 bombillas, como un cuentakilómetros: cuando una bombilla ya está encendida y hay que sumar, se apaga y se enciende la de su izquierda.</p>
+  <div class="panel contador">
+    <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
+      <div class="tres" aria-hidden="true">
+        <div class="bb"><span class="lamp" id="l2"></span><span class="d" id="d2">0</span><span class="w">vale 4</span></div>
+        <div class="bb"><span class="lamp" id="l1"></span><span class="d" id="d1">0</span><span class="w">vale 2</span></div>
+        <div class="bb"><span class="lamp" id="l0"></span><span class="d" id="d0">0</span><span class="w">vale 1</span></div>
+        <span class="igual" id="cnt-dec">= 0</span>
+      </div>
+      <div class="controls"><button class="btn" id="cnt-mas">Sumar 1</button><button class="btn alt" id="cnt-reset">Volver a 0</button></div>
+      <p id="cnt-txt" aria-live="polite">Pulsa «Sumar 1».</p>
+    </div>
+    <table class="cuenta-tabla" aria-label="Números del 0 al 7 en binario">
+      <thead><tr><th>Número</th><th>Binario</th></tr></thead>
+      <tbody id="cnt-tabla"></tbody>
+    </table>
+  </div>
+  </section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Cada posición tiene un valor" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="15: Cada posición tiene un valor"><div class="slide-inner"><section><h2>Cada posición tiene un valor</h2>
+  <p>Con nuestros números de siempre ya hacemos lo mismo. Lo que cambia es cuánto vale cada posición.</p>
+  <div class="posiciones">
+    <div class="pos">
+      <strong>Nuestros números (base 10)</strong>
+      <div class="cifras">
+        <div class="cifra-c"><small>centenas</small><b>3</b><span>× 100</span></div>
+        <div class="cifra-c"><small>decenas</small><b>4</b><span>× 10</span></div>
+        <div class="cifra-c"><small>unidades</small><b>5</b><span>× 1</span></div>
+      </div>
+      <p class="cuenta-pos">300 + 40 + 5 = <strong>345</strong></p>
+      <p class="note">Cada posición vale 10 veces más que la de su derecha.</p>
+    </div>
+    <div class="pos bin">
+      <strong>Binario (base 2)</strong>
+      <div class="cifras">
+        <div class="cifra-c"><small>cuatros</small><b>1</b><span>× 4</span></div>
+        <div class="cifra-c"><small>doses</small><b>0</b><span>× 2</span></div>
+        <div class="cifra-c"><small>unos</small><b>1</b><span>× 1</span></div>
+      </div>
+      <p class="cuenta-pos">4 + 0 + 1 = <strong>5</strong></p>
+      <p class="note">Cada posición vale el doble que la de su derecha.</p>
+    </div>
+  </div>
+  <div class="key"><strong>Por eso, con 8 bombillas,</strong> las posiciones valen 128, 64, 32, 16, 8, 4, 2 y 1. Vamos a probarlo.</div>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Practica con 3 bombillas" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="16: Practica con 3 bombillas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-practica">
+  <span class="sello-reto">Reto</span>
+  <h2 id="p2-t-practica">Practica con 3 bombillas</h2>
+  <p>Recuerda: con 3 bombillas, las posiciones valen 4, 2 y 1. Escribe tus respuestas y pulsa «Comprobar».</p>
+  <p class="parte-reto">1. ¿Qué número es?</p>
+  <div class="ejercicios" id="ej-a"></div>
+  <p class="parte-reto">2. ¿Cómo se escribe en binario?</p>
+  <div class="ejercicios" id="ej-b"></div>
+  <p class="parte-reto">3. Para pensar</p>
+  <div class="ejercicios" id="ej-c"></div>
+  <div class="controls">
+    <button class="btn" id="ej-comprobar">Comprobar</button>
+    <button class="btn alt" id="ej-sol">Ver soluciones</button>
+    <button class="btn alt" id="ej-borrar">Borrar</button>
+  </div>
+  <p id="ej-res" aria-live="polite"></p>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Ocho bombillas, un byte" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="17: Ocho bombillas, un byte"><div class="slide-inner"><section aria-labelledby="p2-t1">
+  <span class="eyebrow">Parte 1 · El bit</span>
+  <h2 id="p2-t1">Ocho bombillas, un byte</h2>
+  <p>Cada bombilla es un <strong>bit</strong> (de <em>binary digit</em>, dígito binario). Encendida vale 1 y apagada vale 0. Ocho bits forman un <strong>byte</strong>. Pulsa las bombillas.</p>
+  <div class="panel">
+    <div class="bulbs" id="bulbs"></div>
+    <div class="readout">
+      <div><small>En binario</small><span class="big" id="r-bin"></span></div>
+      <div><small>Como número</small><span class="big" id="r-dec"></span><span class="note mono" id="r-sum"></span></div>
+      <div><small>Como letra</small><span class="big" id="r-chr"></span></div>
+    </div>
+    <div class="key"><strong>La idea clave.</strong> Los mismos ocho bits pueden ser un número, una letra o un trozo de una foto. El ordenador no lo sabe por los bits. Lo sabe el programa que los lee.</div>
+    <p class="note">Cada bombilla vale el doble que la de su derecha (1, 2, 4, 8…). Con 8 bits hay 256 combinaciones, del 0 al 255.</p>
+  </div>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Cada letra tiene un número" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="18: Cada letra tiene un número"><div class="slide-inner"><section aria-labelledby="p2-t2">
+  <span class="eyebrow">Parte 2 · Texto</span>
+  <h2 id="p2-t2">Cada letra tiene un número</h2>
+  <p>Existe una tabla acordada por todo el mundo que da un número a cada carácter. La más antigua es <abbr title="American Standard Code for Information Interchange">ASCII</abbr>. Hoy se usa <abbr title="Unicode Transformation Format, 8 bits">UTF-8</abbr>, que incluye también la ñ, las tildes y los emojis.</p>
+  <div class="panel">
+    <h3>La tabla de las letras mayúsculas</h3>
+    <div class="letras" id="letras"></div>
+    <p class="note">El espacio es el 32 (00100000). Las minúsculas tienen otros números: la a es el 97 y la z el 122.</p>
+  </div>
+  </section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Escribe tu nombre" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="19: Escribe tu nombre"><div class="slide-inner"><section><h2>Escribe tu nombre</h2><p>Ahora escribe tu nombre y mira cómo lo guarda el ordenador.</p>
+  <div class="panel">
+    <label for="txt" class="note">Texto</label>
+    <input type="text" id="txt" value="Hola clase de digitalización" maxlength="40" autocomplete="off">
+    <div class="chars" id="chars"></div>
+    <p class="note" id="txt-sum"></p>
+    <p class="note">Las letras en morado ocupan más de un byte. La ñ y las vocales con tilde no estaban en ASCII, así que UTF-8 las guarda con 2 bytes. Un emoji ocupa 4.</p>
+  </div>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Una imagen es una cuadrícula de puntos" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="20: Una imagen es una cuadrícula de puntos"><div class="slide-inner"><section aria-labelledby="p2-t3">
+  <span class="eyebrow">Parte 3 · Imágenes</span>
+  <h2 id="p2-t3">Una imagen es una cuadrícula de puntos</h2>
+  <p>Cada punto se llama <strong>píxel</strong> (de <em>picture element</em>). En una imagen en blanco y negro, cada píxel es un bit. Pulsa los cuadros para dibujar.</p>
+  <div class="panel">
+    <div class="imgrow">
+      <div class="grid" id="grid" role="group" aria-label="Cuadrícula de 8 por 8 píxeles"></div>
+      <div class="rows" id="rows" aria-live="polite"></div>
+    </div>
+    <p class="note">Esta imagen tiene 8 × 8 = 64 píxeles, es decir 64 bits u 8 bytes. Una foto de móvil de 12 megapíxeles tiene unos 12 millones de píxeles.</p>
+  </div>
+  </section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="¿Y los colores?" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="21: ¿Y los colores?"><div class="slide-inner"><section><h2>¿Y los colores?</h2>
+  <p>Cada píxel de color mezcla tres luces: rojo, verde y azul (<abbr title="Red, Green, Blue: rojo, verde, azul">RGB</abbr>). Cada luz usa un byte, de 0 a 255. Son 24 bits por píxel.</p>
+  <div class="panel">
+    <div class="color">
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+        <div class="sl"><label for="cr">Rojo</label><input id="cr" type="range" min="0" max="255" value="255"><span id="vr"></span></div>
+        <div class="sl"><label for="cg">Verde</label><input id="cg" type="range" min="0" max="255" value="138"><span id="vg"></span></div>
+        <div class="sl"><label for="cb">Azul</label><input id="cb" type="range" min="0" max="255" value="101"><span id="vb"></span></div>
+      </div>
+      <div class="swatch" id="swatch" aria-label="Color resultante"></div>
+    </div>
+    <p class="note">Con 24 bits hay 256 × 256 × 256 = 16.777.216 colores posibles.</p>
+  </div>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="El sonido se mide muchas veces por segundo" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="22: El sonido se mide muchas veces por segundo"><div class="slide-inner"><section aria-labelledby="p2-t4">
+  <span class="eyebrow">Parte 4 · Sonido</span>
+  <h2 id="p2-t4">El sonido se mide muchas veces por segundo</h2>
+  <p>El sonido es una onda continua. Para guardarlo, el ordenador mide su altura muchas veces por segundo (<strong>muestreo</strong>) y redondea cada medida a un número entero (<strong>cuantificación</strong>). Mueve los controles y compara la onda original con la guardada.</p>
+  <div class="panel">
+    <canvas id="wave" aria-label="Onda de sonido original y su versión digital"></canvas>
+    <div class="ctrls">
+      <label for="ns">Muestras por oscilación · <span class="mono" id="v-ns"></span><input id="ns" type="range" min="4" max="48" value="10"></label>
+      <label for="nb">Bits por muestra · <span class="mono" id="v-nb"></span><input id="nb" type="range" min="1" max="6" value="3"></label>
+    </div>
+    <p class="note mono" id="samples"></p>
+    <p class="note">Más muestras y más bits dan un sonido más fiel, pero ocupan más. La calidad de un CD (disco compacto) toma 44.100 muestras por segundo y usa 16 bits por muestra.</p>
+  </div>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Las instrucciones también son números" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="23: Las instrucciones también son números"><div class="slide-inner"><section aria-labelledby="p2-t5">
+  <span class="eyebrow">Parte 5 · Programas</span>
+  <h2 id="p2-t5">Las instrucciones también son números</h2>
+  <p>Un programa es una lista de instrucciones, y también se guarda en binario. Una parte de los bits dice <strong>qué hacer</strong> (código de operación) y otra dice <strong>con qué casilla de memoria</strong> (dirección). Este es el programa que veremos dentro del ordenador de juguete.</p>
+  <div class="panel">
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Casilla</th><th>Instrucción</th><th>Qué hace</th><th>En binario</th></tr></thead>
+        <tbody id="prog"></tbody>
+      </table>
+    </div>
+    <p class="note">Código inventado para la clase: 3 bits de operación (<span style="background:var(--a-soft);padding:0 4px;border-radius:4px">naranja</span>) y 5 bits de dirección (<span style="background:var(--b-soft);padding:0 4px;border-radius:4px">verde</span>). Cada familia de procesadores reales tiene su propio código.</p>
+  </div>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="De bits a gigabytes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="24: De bits a gigabytes"><div class="slide-inner"><section aria-labelledby="p2-t6">
+  <span class="eyebrow">Parte 6 · Cuánto ocupa</span>
+  <h2 id="p2-t6">De bits a gigabytes</h2>
+  <div class="units">
+    <div class="unit"><span class="u">bit</span><span class="eq">0 o 1</span><span>Un interruptor</span></div>
+    <div class="unit"><span class="u">byte</span><span class="eq">8 bits</span><span>Una letra</span></div>
+    <div class="unit"><span class="u">kilobyte (kB)</span><span class="eq">1.000 bytes</span><span>Un mensaje de texto largo</span></div>
+    <div class="unit"><span class="u">megabyte (MB)</span><span class="eq">1.000 kB</span><span>Una foto de móvil, unos 2–5 MB</span></div>
+    <div class="unit"><span class="u">gigabyte (GB)</span><span class="eq">1.000 MB</span><span>Una película, unos 1–4 GB</span></div>
+    <div class="unit"><span class="u">terabyte (TB)</span><span class="eq">1.000 GB</span><span>Un disco duro de ordenador</span></div>
+  </div>
+  <p class="note">A veces se usa 1.024 en lugar de 1.000. Por eso un disco de 1 TB aparece en Windows con unos 931 GB.</p>
+</section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Descifra el mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="25: Descifra el mensaje secreto"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-reto">
+  <span class="sello-reto">Reto</span>
+  <h2 id="p2-t-reto">Descifra el mensaje secreto</h2>
+  <p>Ya sabes leer binario. Pasa cada byte a número y busca qué letra es. Recuerda: cada posición vale 128, 64, 32, 16, 8, 4, 2 y 1, y se suman las que tienen un 1.</p>
+  <div class="bytes-reto" id="bytes-reto"></div>
+  <div class="controls">
+    <button class="btn" id="reto-comprobar">Comprobar</button>
+    <button class="btn alt" id="reto-tabla">Ver la tabla de letras</button>
+    <button class="btn alt" id="reto-sol">Ver la solución</button>
+  </div>
+  <div class="tabla" id="tabla-letras" hidden></div>
+  <p class="aviso-reto" id="reto-res" aria-live="polite"></p>
+</section></div></div>
+<div class="slide pg3 divisoria" data-sec="3" data-titulo="La arquitectura Von Neumann" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="26: La arquitectura Von Neumann"><div class="slide-inner"><div class="divisor"><span class="num-grande">3</span><h1>La arquitectura Von Neumann</h1><p class="lead">Primero las piezas, después el ordenador montado, luego qué pasa dentro al hacer una suma y, por último, un zoom a la CPU.</p></div></div></div>
+<div class="slide pg3" data-sec="3" data-titulo="Las piezas del hardware" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="27: Las piezas del hardware"><div class="slide-inner"><section aria-labelledby="p3-t2">
+    <h2 id="p3-t2">Las piezas del hardware</h2>
+  <p>Casi todos los ordenadores siguen la <strong>arquitectura Von Neumann</strong> (1945). La idea clave es que el programa y los datos se guardan juntos en la misma memoria. Para entender cada pieza, piensa en una cocina.</p>
+  <div class="parts">
+    <div class="part" style="--c:var(--cpu)"><h3><abbr title="Central Processing Unit, unidad central de procesamiento">CPU</abbr></h3><p>Lee las instrucciones una a una y las ejecuta. Tiene dentro la unidad de control y la <abbr title="Arithmetic Logic Unit, unidad aritmético-lógica">ALU</abbr>.</p><p class="an">En la cocina, <strong>el cocinero</strong>. Lee la receta y hace cada paso.</p></div>
+    <div class="part" style="--c:var(--mem)"><h3>Memoria <abbr title="Random Access Memory, memoria de acceso aleatorio">RAM</abbr></h3><p>Guarda el programa y los datos que se usan ahora. Es rápida, pero se borra al apagar.</p><p class="an">En la cocina, <strong>la encimera</strong>. Ahí está lo que estás usando.</p></div>
+    <div class="part" style="--c:var(--mem)"><h3>Almacenamiento</h3><p>Disco duro o <abbr title="Solid State Drive, unidad de estado sólido">SSD</abbr>. Guarda archivos y programas aunque apagues. Es más lento que la RAM.</p><p class="an">En la cocina, <strong>la despensa</strong>. Allí está todo, pero hay que ir a buscarlo.</p></div>
+    <div class="part" style="--c:var(--io)"><h3>Entrada y salida</h3><p>Entrada: teclado, ratón, micrófono, pantalla táctil. Salida: pantalla, altavoces, impresora.</p><p class="an">En la cocina, <strong>los pedidos que llegan y los platos que salen</strong>.</p></div>
+    <div class="part" style="--c:var(--bus)"><h3>Buses</h3><p>Cables y pistas de la placa base por donde viajan datos, direcciones y órdenes entre las piezas.</p><p class="an">En la cocina, <strong>el pasillo</strong> por donde se mueve todo.</p></div>
+    <div class="part" style="--c:var(--fg)"><h3>Placa base y fuente</h3><p>La placa base une todas las piezas. La fuente de alimentación les da energía.</p><p class="an">En la cocina, <strong>el edificio y la instalación eléctrica</strong>.</p></div>
+  </div>
+</section></div></div>
+<div class="slide pg3" data-sec="3" data-titulo="Un ordenador montado" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="28: Un ordenador montado"><div class="slide-inner"><section aria-labelledby="p3-t-mont">
+  <h2 id="p3-t-mont">Un ordenador montado</h2>
+  <p>Así quedan las piezas dentro de la caja. Pulsa cada una. Con el botón ves a qué parte de la arquitectura Von Neumann corresponde.</p>
+  <div class="controls"><button class="btn alt" id="vn-btn" aria-pressed="false">Ver como Von Neumann</button></div>
+  <div class="montado">
+    <div class="pcwrap"><svg class="pc" id="pc1" viewBox="0 0 900 520" role="group" aria-label="Ordenador montado con monitor, teclado y la caja abierta"></svg></div>
+    <div class="fichap" id="ficha-pc" aria-live="polite"></div>
+  </div>
+  <div class="leyenda" aria-hidden="true">
+    <span><i style="background:var(--cpu-soft)"></i>Procesa (CPU)</span>
+    <span><i style="background:var(--mem-soft)"></i>Guarda (memoria y almacenamiento)</span>
+    <span><i style="background:var(--io-soft)"></i>Entrada y salida</span>
+    <span><i style="background:var(--bus)"></i>Buses</span>
+  </div>
+</section></div></div>
+<div class="slide pg3" data-sec="3" data-titulo="¿Qué pasa cuando sumas 5 + 3?" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="29: ¿Qué pasa cuando sumas 5 + 3?"><div class="slide-inner"><section aria-labelledby="t-suma">
+  <h2 id="t-suma">¿Qué pasa cuando sumas 5 + 3?</h2>
+  <p>Abres la calculadora y sumas dos números. Sigue el recorrido de los datos entre las piezas, paso a paso.</p>
+  <div class="controls">
+    <label>Primer número <input type="number" class="num-in" id="sa" min="0" max="99" value="5"></label>
+    <label>Segundo número <input type="number" class="num-in" id="sb" min="0" max="99" value="3"></label>
+  </div>
+  <div class="suma-panel">
+    <div class="pcwrap"><svg class="pc" id="pc2" viewBox="0 0 900 520" role="img" aria-label="Recorrido de los datos al hacer una suma"></svg></div>
+    <div class="estado">
+      <div class="caja-e"><span class="paso-n" id="s-n">Paso 0 de 9</span><p id="s-txt" aria-live="polite">Pulsa «Siguiente paso» para empezar.</p></div>
+      <div class="caja-e"><strong>Memoria RAM</strong><ul id="s-ram"><li>(vacía)</li></ul></div>
+      <div class="caja-e"><strong>CPU</strong><p class="mono" id="s-cpu">—</p></div>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn" id="s-sig">Siguiente paso</button>
+    <button class="btn alt" id="s-reset">Empezar de nuevo</button>
+  </div>
+  <div class="key"><strong>Fíjate.</strong> La CPU no guarda los datos: los trae de la RAM, los procesa y los devuelve. Y todo viaja por los buses. Esa es la idea de Von Neumann: programa y datos en la misma memoria.</div>
+</section></div></div>
+<div class="slide pg3" data-sec="3" data-titulo="Zoom: dentro de la CPU" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="30: Zoom: dentro de la CPU"><div class="slide-inner"><section aria-labelledby="p3-t3">
+    <h2 id="p3-t3">Zoom: dentro de la CPU</h2>
+  <p>Ahora entramos en la CPU para ver el programa de la suma instrucción a instrucción. Este ordenador de juguete suma dos números. Cada instrucción pasa por tres fases, siempre las mismas: <strong>buscar, decodificar y ejecutar</strong>. Cambia los números de las casillas 7 y 8 si quieres.</p>
+  <div class="sim">
+    <div class="board">
+      <div class="box cpu" id="cpu">
+        <h3>CPU <span>procesador</span></h3>
+        <div class="cpu-inner">
+          <div class="unit" id="u-pc"><span class="name"><abbr title="Program Counter, contador de programa">PC</abbr> · contador</span><span class="val" id="v-pc">0</span><span class="note">¿Qué casilla toca?</span></div>
+          <div class="unit" id="u-acc"><span class="name">Acumulador</span><span class="val" id="v-acc">0</span><span class="note">Resultado de trabajo</span></div>
+          <div class="unit wide" id="u-ir"><span class="name"><abbr title="Instruction Register, registro de instrucción">IR</abbr> · instrucción actual</span><span class="val" id="v-ir">—</span></div>
+          <div class="unit" id="u-cu"><span class="name">Unidad de control</span><span class="note">Lee y da órdenes</span></div>
+          <div class="unit" id="u-alu"><span class="name"><abbr title="Arithmetic Logic Unit, unidad aritmético-lógica">ALU</abbr></span><span class="note">Hace las cuentas</span></div>
+        </div>
+      </div>
+      <div class="busv" id="bus">BUS</div>
+      <div class="box memory" id="memory">
+        <h3>Memoria <span>RAM</span></h3>
+        <div class="cells" id="cells"></div>
+      </div>
+    </div>
+    <div class="io">
+      <div class="box" id="in"><h3>Entrada <span>teclado</span></h3><p class="note">Los números que escribes en las casillas 7 y 8 entran por aquí.</p></div>
+      <div class="box" id="out"><h3>Salida <span>pantalla</span></h3><div class="screen" id="screen" aria-live="polite"></div></div>
+    </div>
+    <div class="cycle" aria-hidden="true"><span id="c0">1 · Buscar</span><span id="c1">2 · Decodificar</span><span id="c2">3 · Ejecutar</span></div>
+    <div class="narr"><span class="phase" id="phase">Listo</span><p id="narr" aria-live="polite">Pulsa «Siguiente paso». El contador de programa empieza en 0, así que la CPU irá a buscar la instrucción de la casilla 0.</p></div>
+    <div class="controls">
+      <button class="btn" id="step">Siguiente paso</button>
+      <button class="btn alt" id="auto">Reproducir solo</button>
+      <button class="btn alt" id="reset">Empezar de nuevo</button>
+    </div>
+    <p class="note">Un ordenador real hace este ciclo miles de millones de veces por segundo. Un procesador de 3 GHz (gigahercios) marca 3.000 millones de pulsos de reloj cada segundo.</p>
+  </div>
+</section></div></div>
+<div class="slide pg3" data-sec="3" data-titulo="Haz que el ordenador calcule 4 × 3" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="31: Haz que el ordenador calcule 4 × 3"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p3-t-reto">
+  <span class="sello-reto">Reto</span>
+  <h2 id="p3-t-reto">Haz que el ordenador calcule 4 × 3</h2>
+  <p>Este ordenador <strong>no sabe multiplicar</strong>. Solo sabe sumar. Escribe un programa en la memoria que muestre en la pantalla el resultado de 4 × 3. El 4 ya está guardado en la casilla 7.</p>
+  <div class="reglas" aria-label="Instrucciones disponibles"><span>CARGAR</span><span>SUMAR</span><span>GUARDAR</span><span>MOSTRAR</span><span>PARAR</span></div>
+  <div class="editor">
+    <div class="memo" id="memo" aria-label="Memoria del programa"></div>
+    <div class="cpu-reto">
+      <strong>CPU</strong>
+      <div class="regs"><span>Acumulador <b id="r-acc">0</b></span><span>Pantalla <span class="pantalla-reto" id="r-pant" aria-live="polite"></span></span></div>
+      <div class="controls">
+        <button class="btn" id="r-run">Ejecutar</button>
+        <button class="btn alt" id="r-pista">Pista</button>
+        <button class="btn alt" id="r-sol">Ver una solución</button>
+        <button class="btn alt" id="r-borrar">Borrar</button>
+      </div>
+      <p class="veredicto" id="r-ver" aria-live="polite"></p>
+      <ol class="registro" id="r-log" start="1"></ol>
+    </div>
+  </div>
+  <div class="key" id="r-extra" hidden><strong>Y ahora piensa:</strong> ¿cuántas instrucciones harían falta para calcular 4 × 100 así? Unas 100. Por eso los procesadores reales tienen instrucciones para <strong>repetir</strong> un trozo del programa (bucles), en lugar de escribirlo muchas veces.</div>
+</section></div></div>
+<div class="slide pg4 divisoria" data-sec="4" data-titulo="Un ordenador por capas" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="32: Un ordenador por capas"><div class="slide-inner"><div class="divisor"><span class="num-grande">4</span><h1>Un ordenador por capas</h1><p class="lead">Tú usas aplicaciones. Las aplicaciones se ejecutan sobre el sistema operativo. El sistema operativo decide cómo usar el hardware.</p></div></div></div>
+<div class="slide pg4" data-sec="4" data-titulo="Las capas de un ordenador" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="33: Las capas de un ordenador"><div class="slide-inner"><section aria-labelledby="p4-t1">
+    <h2 id="p4-t1">Las capas de un ordenador</h2>
+  <p>Cada capa usa la de abajo y no necesita saber cómo funciona por dentro. Pulsa una capa.</p>
+  <div class="layers">
+    <div class="stack" role="group" aria-label="Capas">
+      <button class="layer l-user" data-k="user" aria-pressed="true"><b>Usuario</b><small>tú</small></button>
+      <button class="layer l-app" data-k="app" aria-pressed="false"><b>Aplicaciones</b><small>software</small></button>
+      <button class="layer l-os" data-k="os" aria-pressed="false"><b>Sistema operativo</b><small>software</small></button>
+      <button class="layer l-hw" data-k="hw" aria-pressed="false"><b>Hardware</b><small>lo que se toca</small></button>
+    </div>
+    <div class="explain" id="explain" aria-live="polite"></div>
+  </div>
+</section></div></div>
+<div class="slide pg4" data-sec="4" data-titulo="Haz de sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="34: Haz de sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t2">
+  <h2 id="p4-t2">Haz de sistema operativo</h2>
+  <p>Este móvil tiene una CPU que solo atiende a una aplicación cada vez y una memoria con 8 huecos. Abre y cierra aplicaciones y mira cómo el sistema operativo reparte los recursos.</p>
+  <div class="panel capas-sim">
+    <div class="banda b-app">
+      <div class="banda-cab"><span class="banda-nom">Aplicaciones</span><span class="banda-que">Piden recursos. Pulsa para abrir o cerrar.</span></div>
+      <div class="apps" id="apps" role="group" aria-label="Aplicaciones"></div>
+    </div>
+    <div class="flecha-capa" aria-hidden="true">↓ piden memoria y turnos de CPU</div>
+    <div class="banda b-so">
+      <div class="banda-cab"><span class="banda-nom">Sistema operativo</span><span class="banda-que">Decide quién usa cada recurso y cuándo.</span></div>
+      <p class="log" id="log" aria-live="polite">Abre una aplicación para empezar.</p>
+      <div class="speed"><label for="spd">Turnos por segundo</label><input id="spd" type="range" min="1" max="20" value="2"><span class="mono" id="spdtxt"></span></div>
+    </div>
+    <div class="flecha-capa" aria-hidden="true">↓ asigna</div>
+    <div class="banda b-hw">
+      <div class="banda-cab"><span class="banda-nom">Hardware</span><span class="banda-que">Hace el trabajo.</span></div>
+      <div class="hw">
+        <div class="box cpu"><h3>CPU</h3><span class="note">Ahora atiende a:</span><span class="turn" id="turn" aria-live="off">—</span><span class="note" id="share"></span></div>
+        <div class="box ram"><h3>Memoria RAM <span class="note" id="ramtxt"></span></h3><div class="slots" id="slots"></div></div>
+      </div>
+    </div>
+    <div class="key"><strong>Fíjate.</strong> Empieza con pocos turnos por segundo: verás cómo la CPU va de una aplicación a otra. Después súbelos: parece que todas funcionan a la vez. Eso es la <strong>multitarea</strong>.</div>
+  </div>
+</section></div></div>
+<div class="slide pg4" data-sec="4" data-titulo="Qué hace el sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="35: Qué hace el sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t3">
+  <h2 id="p4-t3">Qué hace el sistema operativo</h2>
+  <div class="osgrid">
+    <div class="os"><h3>Reparte la CPU</h3><p>Da turnos muy cortos a cada programa.</p></div>
+    <div class="os"><h3>Reparte la memoria</h3><p>Decide cuánta memoria recibe cada programa y cierra alguno si se llena.</p></div>
+    <div class="os"><h3>Organiza los archivos</h3><p>Guarda los archivos en carpetas dentro del disco.</p></div>
+    <div class="os"><h3>Controla los dispositivos</h3><p>Habla con la impresora, la cámara o el wifi mediante drivers (controladores).</p></div>
+    <div class="os"><h3>Gestiona usuarios</h3><p>Cada usuario tiene sus archivos y sus permisos. El administrador puede instalar programas.</p></div>
+    <div class="os"><h3>Muestra la interfaz</h3><p>Ventanas, iconos y menús para que puedas usarlo.</p></div>
+  </div>
+  <p>Ejemplos de sistemas operativos: <strong>Windows</strong>, <strong>macOS</strong> y <strong>Linux</strong> en ordenadores; <strong>Android</strong> (basado en Linux) e <strong>iOS</strong> en móviles.</p>
+</section></div></div>
+<div class="slide pg4" data-sec="4" data-titulo="Espía a tu sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="36: Espía a tu sistema operativo"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p4-t-reto">
+  <span class="sello-reto">Reto</span>
+  <h2 id="p4-t-reto">Espía a tu sistema operativo</h2>
+  <p>El <strong>Administrador de tareas</strong> muestra cómo reparte el sistema operativo la CPU y la memoria entre las aplicaciones. Ábrelo en tu ordenador y completa las misiones.</p>
+  <div class="abrir">
+    <div><strong>En Windows</strong><span>Pulsa <kbd>Ctrl</kbd> + <kbd>Mayús</kbd> + <kbd>Esc</kbd>.</span></div>
+    <div><strong>En Linux</strong><span>Abre el menú de aplicaciones y busca <em>Monitor del sistema</em>.</span></div>
+  </div>
+  <ol class="misiones"><li><b>Antes de nada</b><span>Cierra todas las aplicaciones menos el Administrador de tareas y el navegador con esta página. Apunta cuánta CPU y cuánta memoria se usa.</span>
+      <span class="resp"><label for="m1c">CPU <input type="text" id="m1c" placeholder="%"></label><label for="m1m">Memoria <input type="text" id="m1m" placeholder="%"></label></span></li><li><b>Cuenta los procesos</b><span>En <em>Procesos</em>, mira la lista. Hay muchos programas funcionando aunque tú no los hayas abierto: son procesos en segundo plano.</span>
+      <span class="resp"><label for="m2">¿Cuántos procesos ves, más o menos? <input type="text" id="m2"></label></span></li><li><b>Pon un vídeo</b><span>Abre una pestaña nueva y reproduce un vídeo. Vuelve al Administrador de tareas.</span>
+      <span class="resp"><label for="m3c">CPU <input type="text" id="m3c" placeholder="%"></label><label for="m3m">Memoria <input type="text" id="m3m" placeholder="%"></label></span></li></ol></section></div></div>
+<div class="slide pg4" data-sec="4" data-titulo="Espía a tu sistema operativo (2)" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="37: Espía a tu sistema operativo (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>Espía a tu sistema operativo (continuación)</h2><ol class="misiones" style="counter-reset:m 3"><li><b>Abre más pestañas</b><span>Abre 5 pestañas más en el navegador. ¿Qué sube más, la CPU o la memoria?</span>
+      <span class="resp"><label for="m4">Respuesta <input type="text" id="m4" class="largo"></label></span></li><li><b>Mira el hardware</b><span>En Windows, ve a <em>Rendimiento</em>. En Linux, a <em>Recursos</em>. Busca cuántos núcleos tiene la CPU y cuánta memoria RAM hay en total.</span>
+      <span class="resp"><label for="m5n">Núcleos <input type="text" id="m5n"></label><label for="m5r">RAM total <input type="text" id="m5r" placeholder="GB"></label></span></li><li><b>Cierra una aplicación desde aquí</b><span>Abre la Calculadora. Después, búscala en la lista del Administrador de tareas y pulsa <em>Finalizar tarea</em> (en Linux, <em>Finalizar proceso</em>). ¿Qué ha pasado?</span>
+      <span class="resp"><label for="m6">Respuesta <input type="text" id="m6" class="largo"></label></span></li></ol>
+  <div class="key"><strong>Cuidado.</strong> Finaliza solo la Calculadora. No cierres procesos que no conozcas: algunos son del propio sistema operativo.</div>
+  <div class="revela">
+    <strong>Para pensar: al pulsar Finalizar tarea, ¿quién ha cerrado la Calculadora?</strong>
+    <button class="btn" id="reto-ver">Ver la respuesta</button>
+    <p id="reto-resp" hidden>Tú lo has pedido, pero lo ha hecho el <strong>sistema operativo</strong>. Ha parado el programa y ha liberado su memoria y sus turnos de CPU para las demás aplicaciones. Es lo mismo que hacías en el simulador.</p>
+  </div>
+</section></div></div>
+<div class="slide pg5 divisoria" data-sec="5" data-titulo="¿Cómo se comunican los dispositivos?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="38: ¿Cómo se comunican los dispositivos?"><div class="slide-inner"><div class="divisor"><span class="num-grande">5</span><h1>¿Cómo se comunican los dispositivos?</h1><p class="lead">Cuando envías un mensaje, sale de tu móvil, cruza tu casa, viaja por Internet troceado en paquetes y llega a otro aparato. Vamos a seguir ese viaje.</p></div></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="El viaje de un mensaje" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="39: El viaje de un mensaje"><div class="slide-inner"><section aria-labelledby="p5-t1">
+  <h2 id="p5-t1">El viaje de un mensaje</h2>
+  <div class="viaje">
+    <div class="etapa dev"><b>Tu móvil</b><small>escribe el mensaje</small></div>
+    <span class="paso-flecha">wifi</span>
+    <div class="etapa net"><b>Router de casa</b><small>lo saca a Internet</small></div>
+    <span class="paso-flecha">fibra</span>
+    <div class="etapa net"><b>Internet</b><small>muchos routers</small></div>
+    <span class="paso-flecha">&nbsp;</span>
+    <div class="etapa"><b>Servidor</b><small>de la aplicación</small></div>
+    <span class="paso-flecha">&nbsp;</span>
+    <div class="etapa dev"><b>Móvil de tu amigo</b><small>lo recibe</small></div>
+  </div>
+  <p>Una <strong>red</strong> son aparatos conectados para compartir información. <strong>Internet</strong> es una red de redes: une millones de redes de todo el mundo.</p>
+</section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="La red de tu casa" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="40: La red de tu casa"><div class="slide-inner"><section aria-labelledby="p5-t2">
+  <h2 id="p5-t2">La red de tu casa</h2>
+  <p>Pulsa cada parte del dibujo.</p>
+  <div class="casa">
+    <svg class="mapa" id="mapa" viewBox="0 0 700 400" role="group" aria-label="Red de una casa conectada a Internet">
+      <polyline class="tejado" points="30,150 190,42 350,150"/>
+      <rect class="muro" x="50" y="150" width="280" height="225" rx="4"/>
+      <text class="t" x="190" y="125">Tu casa</text>
+      <rect class="disp" x="78" y="176" width="30" height="52" rx="5"/><text x="93" y="246">móvil</text>
+      <rect class="disp" x="232" y="180" width="70" height="44" rx="3"/><line x1="222" y1="228" x2="312" y2="228" stroke="currentColor" style="stroke:var(--fg)" stroke-width="2.5"/><text x="267" y="246">portátil</text>
+      <rect class="disp" x="70" y="268" width="82" height="50" rx="3"/><text x="111" y="298">tele</text>
+      <rect class="disp" x="82" y="330" width="56" height="24" rx="4"/><text x="110" y="370">consola</text>
+
+      <g class="zona" data-k="wifi" tabindex="0" role="button" aria-label="Wifi">
+        <rect class="hit" x="118" y="168" width="128" height="104" rx="10"/>
+        <path class="w-wifi" d="M181,276 Q197,258 213,276"/><path class="w-wifi" d="M170,268 Q197,236 224,268"/><path class="w-wifi" d="M159,260 Q197,214 235,260"/>
+        <path class="w-wifi" d="M150,238 Q132,222 112,212" stroke-dasharray="5 6"/><path class="w-wifi" d="M240,238 Q246,232 252,230" stroke-dasharray="5 6"/>
+      </g>
+      <g class="zona" data-k="cable" tabindex="0" role="button" aria-label="Cable de red">
+        <rect class="hit" x="136" y="286" width="40" height="66" rx="8"/>
+        <path class="w-cable" d="M166,312 C150,312 150,302 152,296"/><path class="w-cable" d="M166,322 C150,334 146,342 138,342"/>
+      </g>
+      <g class="zona" data-k="router" tabindex="0" role="button" aria-label="Router">
+        <rect class="hit" x="158" y="270" width="78" height="92" rx="10"/>
+        <rect class="router-box" x="165" y="296" width="64" height="34" rx="6"/>
+        <line x1="176" y1="296" x2="171" y2="278" style="stroke:var(--fg)" stroke-width="2.5"/><line x1="218" y1="296" x2="223" y2="278" style="stroke:var(--fg)" stroke-width="2.5"/>
+        <text class="t" x="197" y="352">router</text>
+      </g>
+      <g class="zona" data-k="fibra" tabindex="0" role="button" aria-label="Fibra óptica">
+        <rect class="hit" x="232" y="226" width="250" height="110" rx="10"/>
+        <path class="w-fibra" d="M229,314 L360,314 C420,314 440,300 466,232"/>
+        <text x="392" y="334">fibra óptica</text>
+      </g>
+      <g class="zona" data-k="internet" tabindex="0" role="button" aria-label="Internet">
+        <rect class="hit" x="430" y="80" width="160" height="130" rx="20"/>
+        <path class="nube" d="M450,186 C420,186 420,146 452,146 C452,112 500,102 514,126 C530,100 580,112 572,148 C600,150 600,186 572,186 Z"/>
+        <text class="t" x="510" y="168">Internet</text>
+      </g>
+      <path class="w-int" d="M572,176 C604,196 612,214 618,238"/>
+      <g class="zona" data-k="servidor" tabindex="0" role="button" aria-label="Servidor">
+        <rect class="hit" x="580" y="228" width="100" height="172" rx="10"/>
+        <rect class="serv" x="590" y="240" width="80" height="130" rx="6"/>
+        <line x1="604" y1="262" x2="656" y2="262" style="stroke:var(--fg)" stroke-width="2"/><line x1="604" y1="290" x2="656" y2="290" style="stroke:var(--fg)" stroke-width="2"/><line x1="604" y1="318" x2="656" y2="318" style="stroke:var(--fg)" stroke-width="2"/>
+        <text class="t" x="630" y="392">servidor</text>
+      </g>
+    </svg>
+    <div class="ficha" id="ficha" aria-live="polite"></div>
+  </div>
+  <div class="q"><button class="btn alt" aria-expanded="false">¿El wifi es lo mismo que Internet?</button><p hidden>No. El wifi conecta tu aparato con el router. El router conecta tu casa con Internet. Puedes tener wifi y no tener Internet si falla la fibra o el router.</p></div>
+</section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Formas de conectarse" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="41: Formas de conectarse"><div class="slide-inner"><section aria-labelledby="p5-t3">
+  <h2 id="p5-t3">Formas de conectarse</h2>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Conexión</th><th>Cómo viajan los datos</th><th>Alcance aproximado</th><th>Para qué se usa</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cable de red</strong> (Ethernet)</td><td>Electricidad por un cable de cobre</td><td>Hasta unos 100 m</td><td>Ordenador de mesa, consola, tele</td></tr>
+        <tr><td><strong>Wifi</strong></td><td>Ondas de radio</td><td>Decenas de metros; las paredes lo frenan</td><td>Móvil y portátil en casa</td></tr>
+        <tr><td><strong>Bluetooth</strong></td><td>Ondas de radio de poca potencia</td><td>Unos 10 m</td><td>Auriculares, reloj, altavoz</td></tr>
+        <tr><td><strong>Fibra óptica</strong></td><td>Luz por un hilo de vidrio</td><td>Kilómetros</td><td>Llevar Internet hasta tu casa</td></tr>
+        <tr><td><strong>Datos móviles</strong> (4G, 5G)</td><td>Ondas de radio desde una antena</td><td>Kilómetros desde la antena</td><td>Móvil fuera de casa</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Direcciones IP y DNS" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="42: Direcciones IP y DNS"><div class="slide-inner"><section aria-labelledby="p5-t4">
+  <h2 id="p5-t4">Direcciones IP y DNS</h2>
+  <p>Cada aparato conectado tiene una <strong>dirección IP</strong> (Internet Protocol), como la dirección de una casa. Pero tú escribes nombres como <span class="mono">juego.es</span>. El <strong>DNS</strong> (Domain Name System) traduce el nombre a la IP, como la agenda de contactos del móvil.</p>
+  <div class="panel">
+    <div class="row">
+      <label for="sitio">Quiero entrar en</label>
+      <select id="sitio"><option value="juego.es">juego.es</option><option value="clase.es">clase.es</option><option value="musica.es">musica.es</option></select>
+      <button class="btn" id="dns-go">Siguiente paso</button>
+      <button class="btn alt" id="dns-reset">Empezar de nuevo</button>
+    </div>
+    <div class="dns">
+      <div class="actor" id="a-movil"><b>Tu móvil</b><span class="note mono">192.168.1.10</span><div class="bocadillo" id="b-movil"></div></div>
+      <div class="actor" id="a-dns"><b>Servidor DNS</b><span class="note">la agenda de Internet</span><div class="bocadillo" id="b-dns"></div></div>
+      <div class="actor" id="a-web"><b>Servidor de la web</b><span class="note mono" id="ip-web"></span><div class="bocadillo" id="b-web"></div></div>
+    </div>
+    <p class="note" id="dns-narra" aria-live="polite">Elige una web y pulsa «Siguiente paso».</p>
+  </div>
+  <div class="key"><strong>IP privada e IP pública.</strong> Dentro de casa, el router da a cada aparato una IP privada, como 192.168.1.10. Hacia fuera, toda la casa sale a Internet con una sola IP pública, la del router.</div>
+</section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="¿Qué hace un router?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="43: ¿Qué hace un router?"><div class="slide-inner"><section aria-labelledby="p5-t5">
+  <h2 id="p5-t5">¿Qué hace un router?</h2>
+  <p>Un router recibe paquetes y mira su dirección de destino. Según su tabla, decide por qué salida enviarlos. Pulsa para que llegue un paquete.</p>
+  <div class="panel rt">
+    <div class="bloque" style="display:flex;flex-direction:column;gap:12px">
+      <div class="paquete" id="rt-pkt" aria-live="polite"><span>Esperando paquetes…</span></div>
+      <button class="btn" id="rt-go">Llega un paquete</button>
+      <p class="note" id="rt-narra" aria-live="polite"></p>
+    </div>
+    <table id="rt-tabla">
+      <thead><tr><th>Si la IP empieza por…</th><th>Salida</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">192.168.1.…</td><td>A · dentro de casa</td></tr>
+        <tr><td class="mono">203.0.113.…</td><td>B · hacia Europa</td></tr>
+        <tr><td class="mono">198.51.100.…</td><td>C · hacia América</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Los paquetes" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="44: Los paquetes"><div class="slide-inner"><section aria-labelledby="p5-t6">
+  <h2 id="p5-t6">Los paquetes</h2>
+  <p>Los datos no viajan enteros. Se dividen en <strong>paquetes</strong>, cada uno con la IP de origen, la de destino y su número. Pueden ir por caminos distintos y llegar desordenados. El destino los ordena y pide los que faltan.</p>
+  <div class="panel">
+    <div class="row"><input type="text" id="msg" maxlength="60" value="Todo en un ordenador son ceros y unos" aria-label="Mensaje"></div>
+    <div class="row"><button class="btn" id="send">Enviar</button><label><input type="checkbox" id="lose"> Perder un paquete por el camino</label></div>
+    <div class="netbox"><svg class="net" id="net" viewBox="0 0 900 320" role="img" aria-label="Mapa de routers entre tu móvil y el servidor"></svg></div>
+    <div><span class="note">Paquetes en el orden en que llegan:</span><div class="recv" id="recv"></div></div>
+    <div><span class="note">Mensaje reconstruido:</span><div class="final" id="final" aria-live="polite"></div></div>
+    <p class="note" id="status" aria-live="polite">Pulsa «Enviar».</p>
+  </div>
+</section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Configura el wifi de casa" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="45: Configura el wifi de casa"><div class="slide-inner"><section aria-labelledby="p5-t7">
+  <h2 id="p5-t7">Configura el wifi de casa</h2>
+  <p>El router tiene una página de configuración. Desde ahí se cambia el nombre de la red, la contraseña y otras opciones. Prueba a configurar este router de ejemplo.</p>
+  <div class="panel panel-router">
+    <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+      <div class="campo"><label for="ssid">Nombre de la red (SSID)</label><input type="text" id="ssid" value="MOVISTAR_8F2A" maxlength="32"></div>
+      <div class="campo"><label for="pass">Contraseña</label><input type="text" id="pass" value="12345678" maxlength="63"></div>
+      <div class="campo"><label for="seg">Seguridad</label>
+        <select id="seg"><option value="wpa3">WPA3 (la más segura)</option><option value="wpa2">WPA2</option><option value="abierta">Abierta, sin contraseña</option></select></div>
+      <label class="toggle"><input type="checkbox" id="inv"> Activar red de invitados</label>
+      <p class="note">SSID significa Service Set Identifier. WPA significa Wi-Fi Protected Access.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;min-width:0">
+      <h3>Revisión de seguridad</h3>
+      <div class="medidor" aria-hidden="true"><span id="med"></span></div>
+      <p id="veredicto" aria-live="polite"><strong></strong></p>
+      <div id="checks" style="display:flex;flex-direction:column;gap:8px"></div>
+    </div>
+  </div>
+</section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Descubre el viaje de tus paquetes" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="46: Descubre el viaje de tus paquetes"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p5-t-reto">
+  <span class="sello-reto">Reto</span>
+  <h2 id="p5-t-reto">Descubre el viaje de tus paquetes</h2>
+  <p>Con unos comandos puedes ver tu dirección IP, preguntar al DNS, enviar paquetes y ver los routers por los que pasan. Abre la terminal y escribe cada comando. Después pulsa <kbd>Intro</kbd>.</p>
+  <div class="abrir">
+    <div><strong>En Windows</strong><span>Pulsa la tecla <kbd>Windows</kbd>, escribe <em>cmd</em> y pulsa <kbd>Intro</kbd>.</span></div>
+    <div><strong>En Linux</strong><span>Pulsa <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>.</span></div>
+  </div>
+  <ol class="misiones"><li><b>¿Cuál es tu dirección IP?</b><span>Busca la línea <em>Dirección IPv4</em> (en Linux, el primer número que aparece). Es la IP privada que te ha dado el router.</span>
+      <span class="cmds"><span class="cmd"><span class="note">Windows</span><code>ipconfig</code><button type="button" data-copia="ipconfig">Copiar</button></span><span class="cmd"><span class="note">Linux</span><code>hostname -I</code><button type="button" data-copia="hostname -I">Copiar</button></span></span>
+      <span class="resp"><label for="q1">Mi IP <input type="text" id="q1" placeholder="192.168…"></label></span></li><li><b>Pregunta al DNS</b><span>Pide al DNS la dirección IP de Wikipedia. Mira la línea <em>Address</em> o <em>Dirección</em> del final.</span>
+      <span class="cmds"><span class="cmd"><span class="note">Windows y Linux</span><code>nslookup wikipedia.org</code><button type="button" data-copia="nslookup wikipedia.org">Copiar</button></span></span>
+      <span class="resp"><label for="q2">IP de Wikipedia <input type="text" id="q2"></label></span></li></ol></section></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Descubre el viaje de tus paquetes (2)" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="47: Descubre el viaje de tus paquetes (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>Descubre el viaje de tus paquetes (continuación)</h2><ol class="misiones" style="counter-reset:m 2"><li><b>Envía paquetes</b><span>El comando ping envía 4 paquetes pequeños y mide cuánto tardan en ir y volver, en milisegundos (ms).</span>
+      <span class="cmds"><span class="cmd"><span class="note">Windows</span><code>ping google.es</code><button type="button" data-copia="ping google.es">Copiar</button></span><span class="cmd"><span class="note">Linux</span><code>ping -c 4 google.es</code><button type="button" data-copia="ping -c 4 google.es">Copiar</button></span></span>
+      <span class="resp"><label for="q3a">Paquetes perdidos <input type="text" id="q3a"></label><label for="q3b">Tiempo medio <input type="text" id="q3b" placeholder="ms"></label></span></li><li><b>Sigue el viaje</b><span>Este comando muestra cada router por el que pasan tus paquetes hasta Wikipedia. Cada línea es un router. Tarda un poco: espera a que termine.</span>
+      <span class="cmds"><span class="cmd"><span class="note">Windows</span><code>tracert wikipedia.org</code><button type="button" data-copia="tracert wikipedia.org">Copiar</button></span><span class="cmd"><span class="note">Linux</span><code>tracepath wikipedia.org</code><button type="button" data-copia="tracepath wikipedia.org">Copiar</button></span></span>
+      <span class="resp"><label for="q4">¿Cuántos routers (saltos)? <input type="text" id="q4"></label></span></li></ol>
+  <div class="key"><strong>Si algo no responde:</strong> algunas redes, como la del instituto, bloquean ping o tracert por seguridad. Si salen asteriscos (*) o «Tiempo de espera agotado», no es un error tuyo. Estos comandos solo leen información: no cambian nada del ordenador.</div>
+  <div class="revela">
+    <strong>Para pensar: el primer router de la lista de la misión 4, ¿cuál es?</strong>
+    <button class="btn" id="red-ver">Ver la respuesta</button>
+    <p id="red-resp" hidden>Es el <strong>router de tu casa o del instituto</strong>: siempre es la primera parada. Después vienen los routers de tu compañía de Internet y de otras redes, hasta llegar al servidor. Es el mismo viaje que viste en el simulador de paquetes.</p>
+  </div>
+</section></div></div>
+</div>
+<div class="indice" id="indice" hidden><div class="indice-cont"><div class="fila" style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h2>Índice de diapositivas</h2><button class="btn alt" id="cerrar-indice">Cerrar</button></div><div id="indice-grupos" style="display:flex;flex-direction:column;gap:22px"></div></div></div>
+<nav class="barra" aria-label="Navegación de diapositivas">
+  <span class="progreso" id="prog"></span>
+  <span class="donde" id="donde"></span>
+  <div class="centro"><button id="ant" aria-label="Diapositiva anterior">←</button><span class="cont" id="cont" aria-live="polite"></span><button id="sig" aria-label="Diapositiva siguiente">→</button></div>
+  <div class="lado"><button id="btn-indice">Índice</button><button id="btn-pc" class="opc">Pantalla completa</button></div>
+</nav>
+<script>// Circuitos con 1, 2 y 3 interruptores para descubrir cuántas combinaciones hay.
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, a, p) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+
+  function circuito(caja) {
+    const n = +caja.dataset.n;
+    const W = 110 + n * 150, H = 270, XB = 50, YT = 40, YB = 235;
+    const estado = Array(n).fill(0);
+    const vistas = new Set();
+
+    const svg = mk("svg", { viewBox: `0 0 ${W} ${H}`, class: "circ", role: "group", "aria-label": `Circuito con ${n} interruptor${n > 1 ? "es" : ""}` });
+    caja.appendChild(svg);
+    const ramas = [];
+    const xr = i => 140 + i * 150;
+    // Pila
+    const cables = mk("g", {}, svg);
+    // Tramos comunes: el tramo k lleva corriente si hay algún interruptor cerrado desde la rama k en adelante
+    const tramos = [];
+    for (let k = 0; k < n; k++) {
+      const x0 = k === 0 ? XB : xr(k - 1), x1 = xr(k);
+      tramos.push([k, mk("path", { d: k === 0 ? `M${XB},118 L${XB},${YT} L${x1},${YT}` : `M${x0},${YT} L${x1},${YT}`, class: "cable" }, cables)]);
+      tramos.push([k, mk("path", { d: k === 0 ? `M${XB},140 L${XB},${YB} L${x1},${YB}` : `M${x0},${YB} L${x1},${YB}`, class: "cable" }, cables)]);
+    }
+    mk("line", { x1: XB - 20, y1: 118, x2: XB + 20, y2: 118, class: "pila" }, svg);
+    mk("line", { x1: XB - 11, y1: 140, x2: XB + 11, y2: 140, class: "pila", "stroke-width": 7 }, svg);
+    const tp = mk("text", { x: XB + 30, y: 122, class: "signo" }, svg); tp.textContent = "+";
+    const tn = mk("text", { x: XB + 22, y: 146, class: "signo" }, svg); tn.textContent = "−";
+    const tpila = mk("text", { x: XB + 22, y: 172, class: "rotulo", "text-anchor": "start" }, svg); tpila.textContent = "pila";
+
+    for (let i = 0; i < n; i++) {
+      const x = xr(i);
+      const c1 = mk("path", { d: `M${x},${YT} L${x},82`, class: "cable" }, svg);
+      const c2 = mk("path", { d: `M${x},118 L${x},150`, class: "cable" }, svg);
+      const c3 = mk("path", { d: `M${x},194 L${x},${YB}`, class: "cable" }, svg);
+      // Interruptor
+      const g = mk("g", { class: "inter", tabindex: "0", role: "switch", "aria-checked": "false", "aria-label": `Interruptor ${i + 1}` }, svg);
+      mk("rect", { x: x - 34, y: 70, width: 68, height: 60, rx: 10, class: "hit" }, g);
+      mk("circle", { cx: x, cy: 82, r: 5, class: "borne" }, g);
+      mk("circle", { cx: x, cy: 118, r: 5, class: "borne" }, g);
+      const palanca = mk("line", { x1: x, y1: 82, x2: x + 24, y2: 112, class: "palanca" }, g);
+      const ti = mk("text", { x: x - 40, y: 104, class: "rotulo", "text-anchor": "end" }, svg); ti.textContent = `I${i + 1}`;
+      // Bombilla
+      const halo = mk("circle", { cx: x, cy: 172, r: 34, class: "halo" }, svg);
+      const bulbo = mk("circle", { cx: x, cy: 172, r: 22, class: "bulbo" }, svg);
+      mk("path", { d: `M${x - 10},180 L${x - 5},166 L${x},180 L${x + 5},166 L${x + 10},180`, class: "filamento" }, svg);
+      const bit = mk("text", { x: x + 42, y: 178, class: "bitnum" }, svg); bit.textContent = "0";
+      ramas.push({ g, palanca, halo, bulbo, bit, cables: [c1, c2, c3], x });
+      const cambiar = () => { estado[i] ^= 1; pinta(); };
+      g.addEventListener("click", cambiar);
+      g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); cambiar(); } });
+    }
+
+    const total = 2 ** n;
+    const lista = document.createElement("div"); lista.className = "combos";
+    const cuenta = document.createElement("p"); cuenta.className = "cuenta"; cuenta.setAttribute("aria-live", "polite");
+    caja.append(cuenta, lista);
+
+    function pinta() {
+      ramas.forEach((r, i) => {
+        const on = !!estado[i];
+        r.palanca.setAttribute("x2", on ? r.x : r.x + 24);
+        r.palanca.setAttribute("y2", on ? 118 : 112);
+        r.g.setAttribute("aria-checked", on);
+        r.bulbo.classList.toggle("on", on); r.halo.classList.toggle("on", on);
+        r.cables.forEach(c => c.classList.toggle("on", on));
+        r.bit.textContent = estado[i];
+      });
+      tramos.forEach(([k, c]) => c.classList.toggle("on", estado.slice(k).some(Boolean)));
+      const c = estado.join("");
+      if (!vistas.has(c)) { vistas.add(c); const s = document.createElement("span"); s.className = "combo"; s.dataset.c = c; s.textContent = c; lista.appendChild(s); }
+      lista.querySelectorAll(".combo").forEach(s => s.classList.toggle("ahora", s.dataset.c === c));
+      cuenta.innerHTML = vistas.size === total
+        ? `<strong>¡Todas! Con ${n} interruptor${n > 1 ? "es" : ""} hay ${total} combinaciones.</strong>`
+        : `Combinaciones encontradas: <strong>${vistas.size}</strong>. ¿Hay más? Prueba otras.`;
+    }
+    pinta();
+  }
+  document.querySelectorAll(".circuito[data-n]").forEach(circuito);
+
+  const b = document.getElementById("ocho-btn");
+  if (b) b.addEventListener("click", () => { document.getElementById("ocho-res").hidden = false; b.hidden = true; });
+})();
+</script>
+<script>// Ordenador montado (pulsable) y recorrido de los datos en una suma.
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const mk = (tag, a, p) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+  const T = (p, x, y, txt, cls) => { const e = mk("text", { x, y, class: cls || "" }, p); e.textContent = txt; return e; };
+  const $ = id => document.getElementById(id);
+
+  const PIEZAS = {
+    cpu: { n: "Procesador (CPU)", r: "CPU", d: "Ejecuta las instrucciones del programa una a una. Dentro tiene la unidad de control y la ALU (unidad aritmético-lógica), que hace las cuentas. Lleva un ventilador porque se calienta." },
+    ram: { n: "Memoria RAM", r: "Memoria", d: "Guarda el programa que se está usando y sus datos. La CPU lee y escribe aquí todo el rato. Se borra al apagar." },
+    ssd: { n: "Disco SSD", r: "Almacenamiento", d: "Guarda los programas y archivos aunque apagues. Al abrir un programa, se copia del disco a la RAM. SSD significa Solid State Drive." },
+    gpu: { n: "Tarjeta gráfica", r: "Salida", d: "Recibe de la CPU lo que hay que mostrar, calcula la imagen y la envía al monitor." },
+    monitor: { n: "Monitor", r: "Salida", d: "Muestra la imagen que le envía la tarjeta gráfica." },
+    teclado: { n: "Teclado", r: "Entrada", d: "Convierte cada tecla en un código binario y lo envía al ordenador por el cable USB (Universal Serial Bus)." },
+    raton: { n: "Ratón", r: "Entrada", d: "Envía al ordenador sus movimientos y sus clics." },
+    buses: { n: "Buses", r: "Buses", d: "Las pistas de la placa base, en morado. Por ellas viajan los datos, las direcciones y las órdenes entre las piezas." },
+    placa: { n: "Placa base", r: "Une todo", d: "La placa donde se conectan todas las piezas. Contiene los buses." },
+    fuente: { n: "Fuente de alimentación", r: "Energía", d: "Convierte la corriente del enchufe en la que necesitan las piezas." }
+  };
+  const RUTAS = {
+    ssd2ram: [[815, 120], [815, 150], [755, 220], [631, 220], [631, 210]],
+    kbd2ram: [[240, 330], [330, 330], [360, 330], [360, 150], [470, 150], [570, 130], [610, 130]],
+    ram2cpu: [[610, 130], [570, 130]],
+    cpu2ram: [[570, 130], [610, 130]],
+    cpu2gpu: [[520, 180], [520, 240]],
+    gpu2mon: [[380, 265], [300, 265], [240, 140]]
+  };
+
+  function ventilador(g, cx, cy, r) {
+    mk("circle", { cx, cy, r, class: "fan" }, g);
+    for (let i = 0; i < 4; i++) {
+      const a = i * Math.PI / 2;
+      mk("path", { d: `M${cx},${cy} Q${cx + Math.cos(a) * r * .9},${cy + Math.sin(a) * r * .2} ${cx + Math.cos(a + .9) * r * .85},${cy + Math.sin(a + .9) * r * .85}`, class: "aspa" }, g);
+    }
+  }
+  function rol(g, x, y, txt) {
+    const r = mk("g", { class: "rol" }, g); const w = txt.length * 7.4 + 16;
+    mk("rect", { x: x - w / 2, y: y - 13, width: w, height: 19, rx: 9 }, r); T(r, x, y + 1, txt);
+  }
+
+  function construir(svg, interactivo) {
+    const P = {};
+    const pieza = k => {
+      const g = mk("g", { class: "pieza", "data-k": k }, svg);
+      if (interactivo) { g.setAttribute("tabindex", "0"); g.setAttribute("role", "button"); g.setAttribute("aria-label", PIEZAS[k].n); }
+      P[k] = g; return g;
+    };
+    mk("rect", { x: 300, y: 20, width: 580, height: 480, rx: 10, class: "caja" }, svg);
+    let g = pieza("placa"); mk("rect", { x: 330, y: 40, width: 420, height: 330, rx: 6, class: "placa" }, g); T(g, 395, 62, "placa base", "nom");
+    g = pieza("buses");
+    ["M570,130 L610,130", "M520,180 L520,240", "M330,330 L360,330 L360,150 L470,150", "M755,220 L631,220 L631,210", "M380,265 L330,265"].forEach(d => mk("path", { d, class: "bus" }, g));
+    rol(g, 360, 245, "BUS");
+    mk("path", { d: "M815,120 L815,150 L755,220", class: "cable" }, svg);
+    mk("path", { d: "M240,330 L330,330", class: "cable" }, svg);
+    mk("path", { d: "M330,265 L300,265 L240,140", class: "cable" }, svg);
+    mk("path", { d: "M270,380 Q282,352 300,346", class: "cable" }, svg);
+    g = pieza("cpu"); mk("rect", { x: 470, y: 80, width: 100, height: 100, rx: 6, class: "p-cpu" }, g); ventilador(g, 520, 130, 34); T(g, 520, 200, "CPU", "nom"); rol(g, 520, 72, "CPU");
+    g = pieza("ram"); mk("rect", { x: 603, y: 64, width: 56, height: 152, rx: 4, fill: "transparent", class: "hit" }, g);
+    mk("rect", { x: 610, y: 70, width: 16, height: 140, rx: 2, class: "p-ram" }, g); mk("rect", { x: 636, y: 70, width: 16, height: 140, rx: 2, class: "p-ram" }, g);
+    T(g, 700, 145, "RAM", "nom"); rol(g, 634, 56, "MEMORIA");
+    g = pieza("gpu"); mk("rect", { x: 380, y: 240, width: 320, height: 50, rx: 6, class: "p-gpu" }, g); ventilador(g, 450, 265, 18); ventilador(g, 530, 265, 18);
+    T(g, 625, 270, "tarjeta gráfica", "nom"); rol(g, 625, 232, "SALIDA");
+    g = pieza("ssd"); mk("rect", { x: 770, y: 60, width: 90, height: 60, rx: 6, class: "p-ssd" }, g); T(g, 815, 95, "SSD", "nom"); rol(g, 815, 50, "ALMACENAMIENTO");
+    g = pieza("fuente"); mk("rect", { x: 320, y: 395, width: 210, height: 90, rx: 6, class: "p-fuente" }, g); ventilador(g, 478, 440, 28); T(g, 385, 445, "fuente", "nom"); rol(g, 425, 388, "ENERGÍA");
+    g = pieza("monitor"); mk("rect", { x: 20, y: 40, width: 220, height: 150, rx: 8, class: "p-io" }, g);
+    mk("rect", { x: 34, y: 54, width: 192, height: 122, rx: 4, fill: "var(--bg)", stroke: "var(--fg)", "stroke-width": 1.5 }, g);
+    const pantalla = T(g, 130, 128, "", "pantalla-txt");
+    mk("path", { d: "M130,190 L130,214 M90,216 L170,216", stroke: "var(--fg)", "stroke-width": 3, fill: "none" }, g);
+    T(g, 130, 236, "monitor", "nom"); rol(g, 130, 30, "SALIDA");
+    g = pieza("teclado"); mk("rect", { x: 20, y: 300, width: 220, height: 62, rx: 6, class: "p-io" }, g);
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 10; c++) mk("rect", { x: 32 + c * 20, y: 310 + r * 16, width: 14, height: 11, rx: 2, fill: "var(--surface)", class: "tecla" }, g);
+    T(g, 130, 382, "teclado", "nom"); rol(g, 130, 290, "ENTRADA");
+    g = pieza("raton"); mk("ellipse", { cx: 270, cy: 400, rx: 14, ry: 20, class: "p-io" }, g); T(g, 270, 442, "ratón", "nom"); rol(g, 270, 462, "ENTRADA");
+    const punto = mk("g", { class: "punto", style: "display:none" }, svg);
+    mk("circle", { cx: 0, cy: 0, r: 9 }, punto);
+    const etiq = mk("rect", { x: 14, y: -12, width: 60, height: 22, rx: 6 }, punto);
+    const etiqT = T(punto, 20, 4, "");
+    return { P, pantalla, punto, etiq, etiqT };
+  }
+
+  // ---------- 1. Ordenador montado ----------
+  const svg1 = $("pc1");
+  if (svg1) {
+    const pc = construir(svg1, true);
+    const ficha = $("ficha-pc");
+    const ver = k => {
+      Object.values(pc.P).forEach(g => g.classList.toggle("sel", g.dataset.k === k));
+      ficha.innerHTML = `<span class="rolb">${PIEZAS[k].r}</span><h3>${PIEZAS[k].n}</h3><p>${PIEZAS[k].d}</p>`;
+    };
+    svg1.addEventListener("click", e => { const g = e.target.closest(".pieza"); if (g) ver(g.dataset.k); });
+    svg1.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { const g = e.target.closest(".pieza"); if (g) { e.preventDefault(); ver(g.dataset.k); } } });
+    ver("cpu");
+    const vb = $("vn-btn");
+    vb.addEventListener("click", () => {
+      const on = svg1.classList.toggle("vn");
+      vb.setAttribute("aria-pressed", on); vb.textContent = on ? "Ocultar Von Neumann" : "Ver como Von Neumann";
+    });
+  }
+
+  // ---------- 2. Recorrido de una suma ----------
+  const svg2 = $("pc2");
+  if (!svg2) return;
+  const pc = construir(svg2, false);
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const bin = n => n.toString(2).padStart(8, "0");
+  let paso = 0, ram = [], anim = null;
+
+  function pasos() {
+    const a = +$("sa").value || 0, b = +$("sb").value || 0, s = a + b;
+    return [
+      { t: "Abres la calculadora. El programa estaba guardado en el disco y se copia a la RAM.", hi: ["ssd", "ram"], ruta: "ssd2ram", e: "programa", ram: ["Programa: calculadora"] },
+      { t: `Escribes ${a}. El teclado envía el código de la tecla y el dato se guarda en la RAM. También aparece en la pantalla.`, hi: ["teclado", "ram"], ruta: "kbd2ram", e: String(a), ram: [`Dato: ${a}`], pant: String(a) },
+      { t: `Escribes + y ${b}. También se guardan en la RAM.`, hi: ["teclado", "ram"], ruta: "kbd2ram", e: `+ ${b}`, ram: ["Operación: +", `Dato: ${b}`], pant: `${a}+${b}` },
+      { t: "Pulsas =. La CPU busca en la RAM la siguiente instrucción del programa: SUMAR.", hi: ["ram", "cpu"], ruta: "ram2cpu", e: "SUMAR", cpu: "Instrucción: SUMAR" },
+      { t: `La CPU trae por el bus los dos datos que va a sumar: ${a} y ${b}.`, hi: ["ram", "cpu", "buses"], ruta: "ram2cpu", e: `${a} y ${b}`, cpu: `Instrucción: SUMAR · datos: ${a} y ${b}` },
+      { t: `La ALU, dentro de la CPU, hace la suma en binario.`, hi: ["cpu"], ruta: null, cpu: `ALU: ${bin(a)} + ${bin(b)} = ${bin(s)} (${s})` },
+      { t: `La CPU guarda el resultado, ${s}, en la RAM.`, hi: ["cpu", "ram"], ruta: "cpu2ram", e: String(s), ram: [`Resultado: ${s}`] },
+      { t: "La CPU pide a la tarjeta gráfica que dibuje el resultado.", hi: ["cpu", "gpu"], ruta: "cpu2gpu", e: String(s) },
+      { t: `La tarjeta gráfica envía la imagen al monitor. Ves el ${s}.`, hi: ["gpu", "monitor"], ruta: "gpu2mon", e: "imagen", pant: String(s) }
+    ];
+  }
+  function mover(ruta, etiqueta) {
+    if (anim) cancelAnimationFrame(anim);
+    const pts = RUTAS[ruta];
+    pc.etiqT.textContent = etiqueta;
+    pc.etiq.setAttribute("width", etiqueta.length * 8.2 + 14);
+    pc.punto.style.display = "";
+    const seg = []; let L = 0;
+    for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(d); L += d; }
+    const dur = reduce ? 1 : Math.max(900, L * 3.2); let t0 = null;
+    const pos = f => { let d = f * L, i = 0; while (i < seg.length - 1 && d > seg[i]) { d -= seg[i]; i++; }
+      const k = seg[i] ? Math.min(1, d / seg[i]) : 1, a = pts[i], b = pts[i + 1];
+      pc.punto.setAttribute("transform", `translate(${a[0] + (b[0] - a[0]) * k},${a[1] + (b[1] - a[1]) * k})`); };
+    const frame = ts => { if (t0 === null) t0 = ts; const f = Math.min(1, (ts - t0) / dur); pos(f); if (f < 1) anim = requestAnimationFrame(frame); };
+    anim = requestAnimationFrame(frame);
+  }
+  function pintarRam(nuevos) {
+    $("s-ram").innerHTML = ram.length ? ram.map(x => `<li${nuevos.includes(x) ? ' class="nuevo"' : ""}>${x}</li>`).join("") : "<li>(vacía)</li>";
+  }
+  function reiniciar() {
+    if (anim) cancelAnimationFrame(anim);
+    const a = Math.min(99, Math.max(0, +$("sa").value || 0)), b = Math.min(99, Math.max(0, +$("sb").value || 0));
+    $("sa").value = a; $("sb").value = b;
+    $("t-suma").textContent = `¿Qué pasa cuando sumas ${a} + ${b}?`;
+    paso = 0; ram = [];
+    Object.values(pc.P).forEach(g => g.classList.remove("on"));
+    pc.punto.style.display = "none"; pc.pantalla.textContent = "";
+    $("s-n").textContent = "Paso 0 de 9"; $("s-txt").textContent = "Pulsa «Siguiente paso» para empezar.";
+    $("s-cpu").textContent = "—"; pintarRam([]); $("s-sig").disabled = false;
+  }
+  $("s-sig").addEventListener("click", () => {
+    const L = pasos(); if (paso >= L.length) return;
+    const p = L[paso];
+    Object.values(pc.P).forEach(g => g.classList.toggle("on", p.hi.includes(g.dataset.k)));
+    if (p.ruta) mover(p.ruta, p.e); else pc.punto.style.display = "none";
+    if (p.ram) ram.push(...p.ram);
+    pintarRam(p.ram || []);
+    if (p.cpu) $("s-cpu").textContent = p.cpu;
+    if (p.pant) pc.pantalla.textContent = p.pant;
+    paso++;
+    $("s-n").textContent = `Paso ${paso} de ${L.length}`; $("s-txt").textContent = p.t;
+    if (paso === L.length) $("s-sig").disabled = true;
+  });
+  $("s-reset").addEventListener("click", reiniciar);
+  ["sa", "sb"].forEach(id => $(id).addEventListener("change", reiniciar));
+  reiniciar();
+})();
+</script>
+<script>/* Sección 1 */
+(function(){
+
+document.querySelectorAll(".pg1 .q button").forEach(b => b.addEventListener("click", () => {
+  const p = b.nextElementSibling; p.hidden = !p.hidden;
+  b.setAttribute("aria-expanded", !p.hidden);
+}));
+
+/* Ilustraciones de los cuatro momentos */
+(function(){
+const NS="http://www.w3.org/2000/svg";
+const mk=(tag,a,p)=>{const e=document.createElementNS(NS,tag);for(const k in a)e.setAttribute(k,a[k]);p.appendChild(e);return e;};
+const D={
+ tarjeta(s){
+  mk("path",{d:"M14,30 L196,30 L206,40 L206,132 L14,132 Z",class:"papel"},s);
+  let seed=3;const r=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+  for(let c=0;c<24;c++)for(let f=0;f<8;f++){ if(r()<0.22) mk("rect",{x:22+c*7.4,y:42+f*11,width:3.6,height:7,class:"agujero"},s); }
+  const t=mk("text",{x:110,y:150},s);t.textContent="cada agujero es un dato";
+ },
+ enigma(s){
+  mk("rect",{x:20,y:20,width:180,height:128,rx:6,class:"madera"},s);
+  [70,110,150].forEach((x,i)=>{mk("rect",{x:x-12,y:28,width:24,height:22,rx:3,class:"metal"},s);const t=mk("text",{x,y:43},s);t.textContent="QWE"[i];});
+  const filas=[9,8,9];
+  filas.forEach((n,f)=>{for(let i=0;i<n;i++){mk("circle",{cx:40+i*17+(f===1?8:0),cy:66+f*14,r:5.5,class:(f===0&&i===4)?"luzon":"luz"},s);}});
+  filas.forEach((n,f)=>{for(let i=0;i<n;i++){mk("circle",{cx:40+i*17+(f===1?8:0),cy:112+f*12,r:5.5,class:"tecla"},s);}});
+  mk("line",{x1:28,y1:100,x2:192,y2:100,class:"tinta"},s);
+ },
+ eniac(s){
+  for(let i=0;i<6;i++){const x=10+i*34;mk("rect",{x,y:22,width:30,height:112,class:"armario"},s);
+   for(let f=0;f<5;f++){mk("rect",{x:x+4,y:28+f*20,width:22,height:14,class:"panel"},s);
+    for(let k=0;k<3;k++)mk("circle",{cx:x+9+k*6,cy:35+f*20,r:1.8,class:(i+f+k)%4===0?"luzon":"luz"},s);}}
+  mk("line",{x1:4,y1:134,x2:216,y2:134,class:"tinta"},s);
+  mk("circle",{cx:200,cy:108,r:4.5,class:"persona"},s);
+  mk("path",{d:"M200,113 L200,124 M200,124 L196,134 M200,124 L204,134 M195,117 L205,117",class:"tinta"},s);
+  const t=mk("text",{x:110,y:152},s);t.textContent="27 toneladas · una sala";
+ },
+ movil(s){
+  mk("rect",{x:78,y:12,width:64,height:132,rx:12,class:"cuerpo"},s);
+  mk("rect",{x:84,y:24,width:52,height:104,rx:4,class:"pantalla"},s);
+  const cols=["var(--a)","var(--b)","var(--on)","var(--c)","var(--hi)","var(--b)","var(--on)","var(--a)","var(--c)","var(--hi)","var(--a)","var(--b)"];
+  cols.forEach((c,i)=>mk("rect",{x:89+(i%3)*15,y:30+Math.floor(i/3)*17,width:11,height:11,rx:3,fill:c,class:"app"},s));
+  mk("line",{x1:100,y1:136,x2:120,y2:136,class:"tinta"},s);
+  const t=mk("text",{x:110,y:156},s);t.textContent="unos 200 gramos";
+ }};
+document.querySelectorAll(".pg1 svg[data-ilus]").forEach(s=>D[s.dataset.ilus](s));
+})();
+
+/* Reto: ¿qué ordenadores hay en clase? */
+(function(){
+const OBJ=[
+ ["Calculadora",true,"Tiene un procesador sencillo con un único programa: hacer cuentas."],
+ ["Móvil",true,"Es un ordenador completo: procesador, memoria, sistema operativo y aplicaciones."],
+ ["Torre del ordenador del aula",true,"Es el ordenador «de toda la vida». Dentro están la CPU, la RAM y el disco."],
+ ["Portátil",true,"Un ordenador con la pantalla, el teclado y la batería en una sola pieza."],
+ ["Reloj inteligente (smartwatch)",true,"Lleva un procesador y un sistema operativo, y ejecuta aplicaciones."],
+ ["Impresora",true,"Tiene un procesador que recibe los datos del documento y controla cómo se imprime."],
+ ["Router wifi",true,"Es un ordenador especializado: su programa decide por dónde enviar cada paquete."],
+ ["Pantalla digital de la clase",true,"Lleva dentro un procesador y un sistema operativo, como un ordenador, para mostrar contenidos y usar aplicaciones."],
+ ["Reloj de agujas",false,"Funciona con engranajes o un circuito sencillo. No ejecuta programas."],
+ ["Lámpara del techo",false,"Solo se enciende y se apaga con el interruptor. No procesa datos."],
+ ["Libro de texto",false,"Guarda información, pero no la procesa."],
+ ["Bolígrafo",false,"No tiene ningún circuito."]];
+const caja=document.getElementById("reto"), marc=document.getElementById("reto-marcador");
+let resp={};
+const mezcla=a=>{const b=a.slice();for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;};
+function pinta(orden){
+  caja.innerHTML="";
+  orden.forEach(o=>{
+    const d=document.createElement("div");d.className="obj";
+    d.innerHTML=`<h3>${o[0]}</h3><div class="sino"><button class="btn alt">Sí</button><button class="btn alt">No</button></div><p class="res" aria-live="polite" hidden></p>`;
+    const [si,no]=d.querySelectorAll("button");
+    const responder=v=>{ if(o[0] in resp) return; resp[o[0]]=(v===o[1]); mostrar(d,o,v===o[1]); cuenta(); };
+    si.addEventListener("click",()=>responder(true)); no.addEventListener("click",()=>responder(false));
+    caja.appendChild(d);
+  });
+}
+function mostrar(d,o,ok){
+  d.classList.add(ok===null?"bien":ok?"bien":"mal");
+  d.querySelector(".sino").hidden=true;
+  const r=d.querySelector(".res");r.hidden=false;
+  r.innerHTML=`<b>${ok===null?"":ok?"¡Bien! ":"No. "}${o[1]?"Sí es un ordenador.":"No es un ordenador."}</b> ${o[2]}`;
+}
+function cuenta(){const n=Object.keys(resp).length,b=Object.values(resp).filter(Boolean).length;marc.textContent=`Aciertos: ${b} de ${n}`;}
+let orden=mezcla(OBJ);
+function reset(){resp={};orden=mezcla(OBJ);pinta(orden);cuenta();}
+document.getElementById("reto-reset").addEventListener("click",reset);
+document.getElementById("reto-todas").addEventListener("click",()=>{
+  [...caja.children].forEach((d,i)=>{const o=orden[i];if(!(o[0] in resp))mostrar(d,o,null);});
+});
+reset();
+})();
+
+})();</script>
+<script>/* Sección 2 */
+(function(){
+
+/* Parte 1: bombillas */
+const weights=[128,64,32,16,8,4,2,1];
+let bits=[0,1,0,0,0,0,0,1];
+const bulbsEl=document.getElementById("bulbs");
+weights.forEach((w,i)=>{
+  const b=document.createElement("button");
+  b.className="bulb"; b.setAttribute("aria-label",`Bit que vale ${w}`);
+  b.innerHTML=`<span class="lamp"></span><span class="bit"></span><span class="w">${w}</span>`;
+  b.addEventListener("click",()=>{bits[i]^=1;renderBits();});
+  bulbsEl.appendChild(b);
+});
+function renderBits(){
+  [...bulbsEl.children].forEach((b,i)=>{b.classList.toggle("lit",!!bits[i]);b.querySelector(".bit").textContent=bits[i];b.setAttribute("aria-pressed",!!bits[i]);});
+  const n=bits.reduce((s,b,i)=>s+b*weights[i],0);
+  document.getElementById("r-bin").textContent=bits.join("");
+  document.getElementById("r-dec").textContent=n;
+  const parts=weights.filter((w,i)=>bits[i]);
+  document.getElementById("r-sum").textContent=parts.length?parts.join(" + ")+" = "+n:"todas apagadas";
+  document.getElementById("r-chr").textContent=(n>=33&&n<=126)?`«${String.fromCharCode(n)}»`:(n===32?"(espacio)":"—");
+}
+renderBits();
+
+/* Parte 2: texto */
+const enc=new TextEncoder();
+const bin8=n=>n.toString(2).padStart(8,"0");
+function renderText(){
+  const t=document.getElementById("txt").value;
+  const box=document.getElementById("chars"); box.innerHTML="";
+  let total=0;
+  for(const c of t){
+    const bytes=[...enc.encode(c)]; total+=bytes.length;
+    const d=document.createElement("div"); d.className="ch"+(bytes.length>1?" multi":"");
+    d.innerHTML=`<span class="l">${c===" "?"␣":c.replace(/</g,"&lt;")}</span><span class="n">${bytes.length} byte${bytes.length>1?"s":""}</span>`+bytes.map(b=>`<span class="bin">${bin8(b)}</span>`).join("");
+    box.appendChild(d);
+  }
+  const chars=[...t].length;
+  document.getElementById("txt-sum").textContent=`${chars} caracteres · ${total} bytes · ${total*8} bits`;
+}
+document.getElementById("txt").addEventListener("input",renderText);
+renderText();
+
+/* Parte 3: imagen */
+const smile=["00111100","01000010","10100101","10000001","10100101","10011001","01000010","00111100"];
+let px=smile.map(r=>r.split("").map(Number));
+const grid=document.getElementById("grid");
+for(let r=0;r<8;r++)for(let c=0;c<8;c++){
+  const b=document.createElement("button"); b.className="px"; b.setAttribute("aria-label",`Fila ${r+1}, columna ${c+1}`);
+  b.addEventListener("click",()=>{px[r][c]^=1;renderGrid();});
+  grid.appendChild(b);
+}
+function renderGrid(){
+  [...grid.children].forEach((b,i)=>{const v=px[Math.floor(i/8)][i%8];b.classList.toggle("b",!!v);b.setAttribute("aria-pressed",!!v);});
+  document.getElementById("rows").innerHTML=px.map(r=>`<div>${r.join("")}</div>`).join("");
+}
+renderGrid();
+function renderColor(){
+  const r=+cr.value,g=+cg.value,b=+cb.value;
+  vr.textContent=bin8(r); vg.textContent=bin8(g); vb.textContent=bin8(b);
+  document.getElementById("swatch").style.background=`rgb(${r},${g},${b})`;
+}
+const cr=document.getElementById("cr"),cg=document.getElementById("cg"),cb=document.getElementById("cb");
+const vr=document.getElementById("vr"),vg=document.getElementById("vg"),vb=document.getElementById("vb");
+[cr,cg,cb].forEach(s=>s.addEventListener("input",renderColor)); renderColor();
+
+/* Parte 4: audio */
+const cv=document.getElementById("wave"), ns=document.getElementById("ns"), nb=document.getElementById("nb");
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const signal=x=>Math.sin(2*Math.PI*x)*0.7+Math.sin(6*Math.PI*x)*0.25;
+function drawWave(){
+  const dpr=window.devicePixelRatio||1, W=cv.clientWidth, H=cv.clientHeight;
+  cv.width=W*dpr; cv.height=H*dpr; const g=cv.getContext("2d"); g.setTransform(dpr,0,0,dpr,0,0);
+  const n=+ns.value, bitsN=+nb.value, levels=2**bitsN;
+  document.getElementById("v-ns").textContent=n;
+  document.getElementById("v-nb").textContent=`${bitsN} (${levels} niveles)`;
+  const pad=14, top=pad, h=H-2*pad, cycles=2;
+  const y=v=>top+h*(1-(v+1)/2);
+  g.clearRect(0,0,W,H);
+  g.strokeStyle=css("--line"); g.lineWidth=1;
+  for(let l=0;l<levels;l++){const v=-1+2*l/(levels-1);g.beginPath();g.moveTo(0,y(v));g.lineTo(W,y(v));g.stroke();}
+  g.strokeStyle=css("--muted"); g.lineWidth=2; g.setLineDash([5,5]); g.beginPath();
+  for(let px2=0;px2<=W;px2++){const v=signal(px2/W*cycles); px2?g.lineTo(px2,y(v)):g.moveTo(px2,y(v));}
+  g.stroke(); g.setLineDash([]);
+  const total=n*cycles, codes=[];
+  g.strokeStyle=css("--hi"); g.lineWidth=3; g.beginPath();
+  for(let i=0;i<=total;i++){
+    const x=i/total*W, v=signal(i/total*cycles);
+    const q=Math.round((v+1)/2*(levels-1)); codes.push(q);
+    const qv=-1+2*q/(levels-1);
+    if(i===0) g.moveTo(x,y(qv)); else { g.lineTo(x,g._py); g.lineTo(x,y(qv)); }
+    g._py=y(qv);
+  }
+  g.stroke();
+  g.fillStyle=css("--hi");
+  for(let i=0;i<=total;i++){const x=i/total*W,q=codes[i];g.beginPath();g.arc(x,y(-1+2*q/(levels-1)),4,0,7);g.fill();}
+  const shown=codes.slice(0,12).map(c=>c.toString(2).padStart(bitsN,"0")).join(" ");
+  document.getElementById("samples").textContent=`Lo que se guarda: ${shown}${codes.length>12?" …":""}`;
+}
+[ns,nb].forEach(s=>s.addEventListener("input",drawWave));
+window.addEventListener("resize",drawWave);
+try{matchMedia("(prefers-color-scheme: dark)").addEventListener("change",drawWave);}catch(e){}
+drawWave();
+
+/* Parte 5: programa */
+const ops={PARAR:0,CARGAR:1,SUMAR:2,GUARDAR:3,MOSTRAR:4};
+const prog=[["CARGAR",7,"Copia al acumulador el número de la casilla 7"],["SUMAR",8,"Suma el número de la casilla 8"],["GUARDAR",9,"Guarda el resultado en la casilla 9"],["MOSTRAR",9,"Muestra en pantalla la casilla 9"],["PARAR",0,"Termina"]];
+document.getElementById("prog").innerHTML=prog.map(([o,a,t],i)=>`<tr><td class="mono">${i}</td><td class="mono">${o}${o==="PARAR"?"":" "+a}</td><td>${t}</td><td class="code"><span class="op">${ops[o].toString(2).padStart(3,"0")}</span> <span class="ad">${a.toString(2).padStart(5,"0")}</span></td></tr>`).join("");
+
+/* Reto: descifrar HOLA */
+(function(){
+const P="HOLA", caja=document.getElementById("bytes-reto"), res=document.getElementById("reto-res");
+const cards=[...P].map((c,i)=>{const n=c.charCodeAt(0);
+  const d=document.createElement("div");d.className="byte-card";
+  d.innerHTML=`<span class="bin">${n.toString(2).padStart(8,"0")}</span>
+  <label for="rn${i}">Número <input type="number" id="rn${i}" min="0" max="255"></label>
+  <label for="rl${i}">Letra <input type="text" id="rl${i}" maxlength="1" autocomplete="off"></label>`;
+  caja.appendChild(d);return {d,n,c,num:d.querySelector("#rn"+i),let:d.querySelector("#rl"+i)};});
+const tabla=document.getElementById("tabla-letras");
+tabla.innerHTML=Array.from({length:26},(_,i)=>`<span>${String.fromCharCode(65+i)} = ${65+i}</span>`).join("");
+document.getElementById("reto-tabla").addEventListener("click",e=>{tabla.hidden=!tabla.hidden;e.currentTarget.textContent=tabla.hidden?"Ver la tabla de letras":"Ocultar la tabla";});
+document.getElementById("reto-comprobar").addEventListener("click",()=>{
+  let ok=0;cards.forEach(k=>{const b=+k.num.value===k.n&&k.let.value.trim().toUpperCase()===k.c;k.d.classList.toggle("bien",b);k.d.classList.toggle("mal",!b);if(b)ok++;});
+  res.innerHTML=ok===cards.length?'<span class="solucion">¡HOLA!</span> Has leído el mensaje como lo lee un ordenador.':`Tienes ${ok} de ${cards.length} bien. Revisa las tarjetas en naranja.`;
+});
+document.getElementById("reto-sol").addEventListener("click",()=>{
+  cards.forEach(k=>{k.num.value=k.n;k.let.value=k.c;k.d.classList.add("bien");k.d.classList.remove("mal");});
+  res.innerHTML='<span class="solucion">HOLA</span> 72 = H, 79 = O, 76 = L, 65 = A.';
+});
+})();
+
+/* Contador binario de 3 bombillas */
+(function(){
+let n=0;const tb=document.getElementById("cnt-tabla");
+tb.innerHTML=Array.from({length:8},(_,i)=>`<tr id="cr${i}"><td>${i}</td><td>${i.toString(2).padStart(3,"0")}</td></tr>`).join("");
+const txt=document.getElementById("cnt-txt");
+function pinta(msg){
+  for(let b=0;b<3;b++){const on=(n>>b)&1;document.getElementById("l"+b).classList.toggle("on",!!on);document.getElementById("d"+b).textContent=on;}
+  document.getElementById("cnt-dec").textContent="= "+n;
+  for(let i=0;i<8;i++){const r=document.getElementById("cr"+i);r.classList.toggle("ahora",i===n);r.classList.toggle("futuro",i>n);}
+  txt.textContent=msg;
+}
+document.getElementById("cnt-mas").addEventListener("click",()=>{
+  if(n===7){pinta("Con 3 bombillas solo llegamos al 7. Para contar más, necesitamos otra bombilla.");return;}
+  n++;const bits=n.toString(2).padStart(3,"0");
+  pinta(n===1?"001 = 1. Se enciende la bombilla de la derecha.":n===2?"010 = 2. La de la derecha ya estaba encendida: se apaga y se enciende la siguiente.":`${bits} = ${n}.`);
+});
+document.getElementById("cnt-reset").addEventListener("click",()=>{n=0;pinta("Pulsa «Sumar 1».");});
+pinta("Pulsa «Sumar 1».");
+})();
+/* Tabla de letras */
+document.getElementById("letras").innerHTML=Array.from({length:26},(_,i)=>{const n=65+i;return `<div class="letra"><b>${String.fromCharCode(n)}</b><span>${n}</span><small>${n.toString(2).padStart(8,"0")}</small></div>`;}).join("");
+
+/* Reto: practicar con 3 bombillas */
+(function(){
+const EJ={
+ "ej-a":[["011","3"],["110","6"],["100","4"],["111","7"]].map(([q,r])=>({q,r,et:"Número",tipo:"num"})),
+ "ej-b":[["5","101"],["2","010"],["1","001"]].map(([q,r])=>({q,r,et:"Binario",tipo:"bin"})),
+ "ej-c":[{q:"El número más grande con 3 bombillas",r:"7",et:"Número",tipo:"num",largo:true},{q:"¿Y con 4 bombillas?",r:"15",et:"Número",tipo:"num",largo:true,pista:"La cuarta bombilla vale 8: 8 + 4 + 2 + 1."}]};
+const todos=[];
+for(const id in EJ){const caja=document.getElementById(id);
+  EJ[id].forEach((e,k)=>{const d=document.createElement("div");d.className="ej";const iid=`${id}-${k}`;
+    d.innerHTML=`<span class="enunc"${e.largo?' style="font-family:var(--body);font-size:1.05rem;letter-spacing:0"':""}>${e.q}</span><label for="${iid}">${e.et} <input type="text" id="${iid}" maxlength="4" autocomplete="off" inputmode="numeric"></label><span class="sol"></span>`;
+    caja.appendChild(d);todos.push({...e,d,inp:d.querySelector("input"),sol:d.querySelector(".sol")});});}
+const norm=(v,tipo)=>{v=v.trim();if(tipo==="bin")return v.padStart(3,"0");return String(parseInt(v,10));};
+document.getElementById("ej-comprobar").addEventListener("click",()=>{let ok=0;
+  todos.forEach(e=>{const b=e.inp.value.trim()!==""&&norm(e.inp.value,e.tipo)===e.r;e.d.classList.toggle("bien",b);e.d.classList.toggle("mal",!b);e.sol.textContent=b?"¡Bien!":(e.pista&&e.inp.value?e.pista:"Revísalo.");if(b)ok++;});
+  document.getElementById("ej-res").innerHTML=ok===todos.length?"<strong>¡Todo bien!</strong> Ya sabes leer y escribir en binario.":`Tienes ${ok} de ${todos.length} bien.`;});
+document.getElementById("ej-sol").addEventListener("click",()=>{todos.forEach(e=>{e.inp.value=e.r;e.d.classList.add("bien");e.d.classList.remove("mal");e.sol.textContent=e.pista||"";});document.getElementById("ej-res").textContent="";});
+document.getElementById("ej-borrar").addEventListener("click",()=>{todos.forEach(e=>{e.inp.value="";e.d.classList.remove("bien","mal");e.sol.textContent="";});document.getElementById("ej-res").textContent="";});
+})();
+
+})();</script>
+<script>/* Sección 3 */
+(function(){
+/* Simulador */
+const program = [
+  {op:"CARGAR",a:7,txt:"Copia al acumulador el número de la casilla 7"},
+  {op:"SUMAR",a:8,txt:"Suma al acumulador el número de la casilla 8"},
+  {op:"GUARDAR",a:9,txt:"Guarda el acumulador en la casilla 9"},
+  {op:"MOSTRAR",a:9,txt:"Envía a la pantalla el número de la casilla 9"},
+  {op:"PARAR",a:null,txt:"Fin del programa"}
+];
+let mem, pc, acc, ir, phase, halted, timer=null;
+const cellsEl = document.getElementById("cells");
+function initMem(){
+  const a = +(document.getElementById("d7")?.value ?? 5) || 0;
+  const b = +(document.getElementById("d8")?.value ?? 3) || 0;
+  mem = Array(10).fill(null);
+  program.forEach((p,i)=>mem[i]=p);
+  mem[7]=a; mem[8]=b; mem[9]=0;
+}
+function fmt(p){ return p.a===null ? p.op : `${p.op} ${p.a}`; }
+function renderCells(){
+  const v7 = mem[7], v8 = mem[8];
+  cellsEl.innerHTML = "";
+  for(let i=0;i<10;i++){
+    const ad = document.createElement("div"); ad.className="addr"; ad.textContent=i;
+    const c = document.createElement("div"); c.className="cell"; c.id="m"+i;
+    const v = mem[i];
+    if(i===7||i===8){
+      c.innerHTML = `<input id="d${i}" type="number" aria-label="Dato de la casilla ${i}" value="${i===7?v7:v8}"><em>dato</em>`;
+    } else if(v && typeof v==="object"){
+      c.innerHTML = `<span>${fmt(v)}</span><em>instrucción</em>`;
+    } else if(v===null){
+      c.innerHTML = `<span style="color:var(--muted)">·</span>`;
+    } else {
+      c.innerHTML = `<span>${v}</span><em>resultado</em>`;
+    }
+    cellsEl.append(ad,c);
+  }
+  cellsEl.querySelectorAll("input").forEach(inp=>inp.addEventListener("input",()=>{
+    const n = +inp.value || 0; mem[+inp.id.slice(1)] = n;
+  }));
+}
+function clearHi(){ document.querySelectorAll(".pg3 .on").forEach(e=>e.classList.remove("on")); }
+function hi(...ids){ ids.forEach(id=>{ const e=document.getElementById(id); if(e){ e.classList.remove("on"); void e.offsetWidth; e.classList.add("on"); } }); }
+function setRegs(){
+  document.getElementById("v-pc").textContent = pc;
+  document.getElementById("v-acc").textContent = acc;
+  document.getElementById("v-ir").textContent = ir ? fmt(ir) : "—";
+}
+function say(ph, txt){
+  const p = document.getElementById("phase");
+  const names = ["Buscar","Decodificar","Ejecutar"];
+  p.textContent = ph===null ? "Fin" : names[ph];
+  p.className = "phase" + (ph===null ? "" : " p"+ph);
+  [0,1,2].forEach(i=>document.getElementById("c"+i).classList.toggle("now", i===ph));
+  document.getElementById("narr").textContent = txt;
+}
+function setMem9(v){
+  mem[9]=v;
+  document.getElementById("m9").innerHTML = `<span>${v}</span><em>resultado</em>`;
+}
+function step(){
+  if(halted) return;
+  clearHi();
+  if(phase===0){
+    ir = mem[pc];
+    hi("u-pc","bus","m"+pc,"u-ir");
+    say(0, `La unidad de control mira el contador (PC = ${pc}) y trae por el bus la instrucción de la casilla ${pc}: «${fmt(ir)}». Después suma 1 al contador.`);
+    pc++; phase=1;
+  } else if(phase===1){
+    hi("u-cu","u-ir");
+    say(1, `La unidad de control interpreta la instrucción. «${fmt(ir)}» significa: ${ir.txt.toLowerCase()}.`);
+    phase=2;
+  } else {
+    const a = ir.a;
+    if(ir.op==="CARGAR"){ acc = mem[a]; hi("m"+a,"bus","u-acc"); say(2,`Viaja por el bus el ${mem[a]} de la casilla ${a} y se guarda en el acumulador.`); }
+    else if(ir.op==="SUMAR"){ const old=acc; acc = acc + mem[a]; hi("m"+a,"bus","u-alu","u-acc"); say(2,`Llega el ${mem[a]} de la casilla ${a}. La ALU calcula ${old} + ${mem[a]} = ${acc} y lo deja en el acumulador.`); }
+    else if(ir.op==="GUARDAR"){ setMem9(acc); hi("u-acc","bus","m"+a); say(2,`El ${acc} sale del acumulador, viaja por el bus y se escribe en la casilla ${a} de la memoria.`); }
+    else if(ir.op==="MOSTRAR"){ document.getElementById("screen").textContent = mem[a]; hi("m"+a,"bus","out"); say(2,`El ${mem[a]} de la casilla ${a} se envía a la salida. Aparece en la pantalla.`); }
+    else { halted=true; hi("u-cu"); say(null,"La CPU encuentra la instrucción PARAR y se detiene. El programa ha terminado. Pulsa «Empezar de nuevo» para probar otros números."); stopAuto(); document.getElementById("step").disabled=true; }
+    phase=0;
+  }
+  setRegs();
+}
+function reset(){
+  stopAuto(); clearHi();
+  initMem(); pc=0; acc=0; ir=null; phase=0; halted=false;
+  renderCells(); setRegs();
+  document.getElementById("screen").textContent="";
+  document.getElementById("step").disabled=false;
+  say(-1,"Pulsa «Siguiente paso». El contador de programa empieza en 0, así que la CPU irá a buscar la instrucción de la casilla 0.");
+  document.getElementById("phase").textContent="Listo";
+}
+function stopAuto(){ if(timer){clearInterval(timer);timer=null;} document.getElementById("auto").textContent="Reproducir solo"; }
+document.getElementById("step").addEventListener("click",()=>{stopAuto();step();});
+document.getElementById("reset").addEventListener("click",reset);
+document.getElementById("auto").addEventListener("click",()=>{
+  if(timer){stopAuto();return;}
+  if(halted) reset();
+  document.getElementById("auto").textContent="Pausa";
+  step(); timer=setInterval(step,2600);
+});
+reset();
+
+/* Reto: 4 × 3 solo con sumas */
+(function(){
+const OPS=["","CARGAR","SUMAR","GUARDAR","MOSTRAR","PARAR"], CON_DIR=["CARGAR","SUMAR","GUARDAR","MOSTRAR"];
+const PROG=7, memo=document.getElementById("memo"), lineas=[];
+const $=id=>document.getElementById(id);
+for(let i=0;i<10;i++){
+  const d=document.createElement("div");d.className="linea";d.id="ml"+i;
+  if(i<PROG){
+    d.innerHTML=`<span class="n">${i}</span><select id="op${i}" aria-label="Instrucción de la casilla ${i}">${OPS.map(o=>`<option value="${o}">${o||"(vacía)"}</option>`).join("")}</select><select id="ad${i}" aria-label="Casilla a la que se refiere la instrucción ${i}">${Array.from({length:10},(_,k)=>`<option value="${k}">${k}</option>`).join("")}</select>`;
+  } else {
+    d.classList.add("dato");
+    d.innerHTML=`<span class="n">${i}</span><span class="fijo" id="dv${i}"></span>`;
+  }
+  memo.appendChild(d);lineas.push(d);
+}
+const datosIni={7:4,8:null,9:null};
+function pintaDatos(m){[7,8,9].forEach(i=>{$("dv"+i).textContent=m[i]===null||m[i]===undefined?"(vacía)":`${m[i]}${i===7?"  ← el 4":""}`;});}
+function sync(i){const op=$("op"+i).value,ad=$("ad"+i);ad.disabled=!CON_DIR.includes(op);ad.style.visibility=ad.disabled?"hidden":"visible";}
+for(let i=0;i<PROG;i++){$("op"+i).addEventListener("change",()=>{sync(i);limpiar();});$("ad"+i).addEventListener("change",limpiar);sync(i);}
+let timer=null;
+function limpiar(){if(timer){clearTimeout(timer);timer=null;}lineas.forEach(l=>l.classList.remove("on"));$("r-acc").textContent="0";$("r-pant").textContent="";$("r-ver").textContent="";$("r-ver").className="veredicto";$("r-log").innerHTML="";pintaDatos(datosIni);$("r-run").disabled=false;}
+function fin(ok,txt){$("r-ver").className="veredicto "+(ok?"bien":"mal");$("r-ver").innerHTML=txt;$("r-run").disabled=false;if(ok)$("r-extra").hidden=false;}
+function log(t){const li=document.createElement("li");li.textContent=t;$("r-log").appendChild(li);li.scrollIntoView({block:"nearest"});}
+$("r-run").addEventListener("click",()=>{
+  limpiar();$("r-run").disabled=true;
+  const mem={...datosIni};let pc=0,acc=0,pasos=0,pant=null;
+  const lenta=!matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function paso(){
+    lineas.forEach(l=>l.classList.remove("on"));
+    if(pasos++>40)return fin(false,"<strong>El programa no termina.</strong> ¿Has puesto PARAR?");
+    if(pc>=PROG){lineas[pc]&&lineas[pc].classList.add("on");return fin(false,`<strong>La CPU ha llegado a la casilla ${pc}, que es un dato, no una instrucción.</strong> Pon PARAR al final del programa.`);}
+    lineas[pc].classList.add("on");
+    const op=$("op"+pc).value,a=+$("ad"+pc).value;
+    if(!op)return fin(false,`<strong>La casilla ${pc} está vacía.</strong> La CPU no sabe qué hacer. ¿Falta PARAR?`);
+    if(op==="PARAR"){log(`${pc} · PARAR → fin del programa`);
+      if(pant===12)return fin(true,"<strong>¡Conseguido!</strong> 4 + 4 + 4 = 12. Has multiplicado usando solo sumas.");
+      return fin(false,pant===null?"<strong>La pantalla está vacía.</strong> Te falta MOSTRAR el resultado.":`<strong>Ha salido ${pant}, no 12.</strong> Revisa el registro paso a paso.`);}
+    if(CON_DIR.includes(op)&&a<PROG&&op!=="GUARDAR")return fin(false,`<strong>La casilla ${a} es parte del programa, no un dato.</strong> El 4 está en la casilla 7.`);
+    if(op==="CARGAR"){if(mem[a]==null)return fin(false,`<strong>La casilla ${a} está vacía.</strong> No hay nada que cargar.`);acc=mem[a];log(`${pc} · CARGAR ${a} → acumulador = ${acc}`);}
+    else if(op==="SUMAR"){if(mem[a]==null)return fin(false,`<strong>La casilla ${a} está vacía.</strong> No hay nada que sumar.`);const ant=acc;acc+=mem[a];log(`${pc} · SUMAR ${a} → ${ant} + ${mem[a]} = ${acc}`);}
+    else if(op==="GUARDAR"){if(a<PROG)return fin(false,`<strong>No guardes en la casilla ${a}:</strong> ahí está el programa. Usa la 8 o la 9.`);mem[a]=acc;pintaDatos(mem);log(`${pc} · GUARDAR ${a} → casilla ${a} = ${acc}`);}
+    else if(op==="MOSTRAR"){if(mem[a]==null)return fin(false,`<strong>La casilla ${a} está vacía.</strong> Guarda el resultado antes de mostrarlo.`);pant=mem[a];$("r-pant").textContent=pant;log(`${pc} · MOSTRAR ${a} → pantalla: ${pant}`);}
+    $("r-acc").textContent=acc;pc++;
+    timer=setTimeout(paso,lenta?650:0);
+  }
+  paso();
+});
+$("r-pista").addEventListener("click",()=>{$("r-ver").className="veredicto";$("r-ver").innerHTML="<strong>Pista:</strong> 4 × 3 es lo mismo que 4 + 4 + 4. Carga el 4 y súmale el 4 dos veces más.";});
+$("r-sol").addEventListener("click",()=>{
+  const s=[["CARGAR",7],["SUMAR",7],["SUMAR",7],["GUARDAR",9],["MOSTRAR",9],["PARAR",0],["",0]];
+  s.forEach(([o,a],i)=>{$("op"+i).value=o;$("ad"+i).value=a;sync(i);});limpiar();
+  $("r-ver").innerHTML="Esta es una solución. Pulsa «Ejecutar» para comprobarla.";
+});
+$("r-borrar").addEventListener("click",()=>{for(let i=0;i<PROG;i++){$("op"+i).value="";$("ad"+i).value=0;sync(i);}limpiar();$("r-extra").hidden=true;});
+limpiar();
+})();
+
+})();</script>
+<script>/* Sección 4 */
+(function(){
+
+const layers = {
+  user:{t:"Usuario",d:"Eres tú. Das órdenes tocando, escribiendo o hablando. No necesitas saber nada de lo que hay debajo.",ex:"Ejemplo: tocas el icono de una app de música y eliges una canción."},
+  app:{t:"Aplicaciones",d:"Programas hechos para una tarea concreta. Un programa es un conjunto de instrucciones. La app no toca el hardware directamente, se lo pide al sistema operativo.",ex:"Ejemplo: la app de música pide al sistema operativo «lee este archivo» y «manda este sonido al altavoz»."},
+  os:{t:"Sistema operativo (SO)",d:"Es el software que gestiona los recursos del hardware. Decide qué programa usa la CPU en cada momento, cuánta memoria recibe cada uno y quién puede usar cada dispositivo. Ejemplos: Windows, Linux, macOS, Android, iOS.",ex:"Ejemplo: mientras suena la música, el SO reparte turnos de CPU entre la app de música, el navegador y el chat, tan rápido que parece que todo va a la vez."},
+  hw:{t:"Hardware",d:"La parte física: procesador, memoria, disco, pantalla, altavoces. Solo entiende instrucciones muy simples en binario (ceros y unos).",ex:"Ejemplo: el procesador lee los datos de la canción de la memoria y la tarjeta de sonido los convierte en vibraciones del altavoz."}
+};
+const ex = document.getElementById("explain");
+function showLayer(k){
+  const L = layers[k];
+  ex.innerHTML = `<h3>${L.t}</h3><p>${L.d}</p><div class="ex">${L.ex}</div>`;
+  document.querySelectorAll(".pg4 .layer").forEach(b=>b.setAttribute("aria-pressed", b.dataset.k===k));
+}
+document.querySelectorAll(".pg4 .layer").forEach(b=>b.addEventListener("click",()=>showLayer(b.dataset.k)));
+showLayer("user");
+
+
+/* Simulador del sistema operativo */
+const APPS=[
+  {n:"Música",m:1},{n:"Videojuego",m:3},{n:"Navegador",m:2},{n:"WhatsApp",m:1},
+  {n:"Cámara",m:2},{n:"Red social",m:2},{n:"Antivirus",m:1},{n:"Fotos",m:1}];
+const RAM=8; let open=[]; let cur=-1; let tick=null; const runs={};
+const appsEl=document.getElementById("apps"), slotsEl=document.getElementById("slots"), log=document.getElementById("log");
+APPS.forEach((a,i)=>{
+  const b=document.createElement("button"); b.className="app"; b.id="app"+i;
+  b.innerHTML=`<b>${a.n}</b><small>Usa ${a.m} hueco${a.m>1?"s":""} de memoria</small>`;
+  b.setAttribute("aria-pressed","false");
+  b.addEventListener("click",()=>toggle(i)); appsEl.appendChild(b);
+});
+const used=()=>open.reduce((s,i)=>s+APPS[i].m,0);
+function toggle(i){
+  if(open.includes(i)){ open=open.filter(x=>x!==i); log.textContent=`Has cerrado ${APPS[i].n}. El sistema operativo libera su memoria.`; }
+  else{
+    const closed=[];
+    while(used()+APPS[i].m>RAM && open.length){ const old=open.shift(); closed.push(APPS[old].n); }
+    open.push(i);
+    log.textContent = closed.length
+      ? `La memoria estaba llena. Para abrir ${APPS[i].n}, el sistema operativo ha cerrado ${closed.join(" y ")}, que llevaba${closed.length>1?"n":""} más tiempo abierta${closed.length>1?"s":""}.`
+      : `Has abierto ${APPS[i].n}. El sistema operativo le da ${APPS[i].m} hueco${APPS[i].m>1?"s":""} de memoria y la añade a la lista de turnos.`;
+  }
+  render(); restart();
+}
+function render(){
+  APPS.forEach((a,i)=>{const b=document.getElementById("app"+i); b.classList.toggle("open",open.includes(i)); b.setAttribute("aria-pressed",open.includes(i));});
+  slotsEl.innerHTML=""; let k=0;
+  open.forEach(i=>{for(let j=0;j<APPS[i].m;j++){const s=document.createElement("div");s.className="slot used";s.textContent=APPS[i].n;slotsEl.appendChild(s);k++;}});
+  for(;k<RAM;k++){const s=document.createElement("div");s.className="slot";s.textContent="libre";slotsEl.appendChild(s);}
+  document.getElementById("ramtxt").textContent=`· ${used()} de ${RAM} huecos`;
+  document.getElementById("share").textContent=open.length?`Cada aplicación recibe 1 de cada ${open.length} turnos.`:"";
+}
+function step(){
+  document.querySelectorAll(".pg4 .app.run").forEach(e=>e.classList.remove("run"));
+  if(!open.length){ document.getElementById("turn").textContent="—"; cur=-1; return; }
+  cur=(cur+1)%open.length; const i=open[cur];
+  document.getElementById("turn").textContent=APPS[i].n;
+  document.getElementById("app"+i).classList.add("run");
+}
+const spd=document.getElementById("spd");
+function restart(){ if(tick) clearInterval(tick); const v=+spd.value; document.getElementById("spdtxt").textContent=v+" turnos/s"; tick=setInterval(step,1000/v); step(); }
+spd.addEventListener("input",restart);
+render(); restart();
+
+document.getElementById("reto-ver").addEventListener("click",e=>{document.getElementById("reto-resp").hidden=false;e.currentTarget.hidden=true;});
+
+})();</script>
+<script>/* Sección 5 */
+(function(){
+
+document.querySelectorAll(".pg5 .q button").forEach(b=>b.addEventListener("click",()=>{const p=b.nextElementSibling;p.hidden=!p.hidden;b.setAttribute("aria-expanded",!p.hidden);}));
+
+/* ---- Mapa de la casa ---- */
+const PARTES={
+  router:["Router","Conecta los aparatos de casa entre sí y con Internet. Da a cada aparato una IP privada y reparte los paquetes. Suele incluir el wifi."],
+  wifi:["Wifi","Conexión sin cables, por ondas de radio, entre tu aparato y el router. Tiene un nombre de red y una contraseña. Las paredes la debilitan."],
+  cable:["Cable de red (Ethernet)","Conexión con cable entre un aparato y el router. Es más estable y rápida que el wifi. Va bien para la consola o la tele."],
+  fibra:["Fibra óptica","Lleva Internet desde la central de tu compañía hasta tu router. Los datos viajan como pulsos de luz por un hilo de vidrio."],
+  internet:["Internet","Una red de redes. Millones de routers de todo el mundo se pasan los paquetes unos a otros hasta su destino."],
+  servidor:["Servidor","Un ordenador que guarda una web, un juego o tus mensajes, y responde a quien se conecta. Puede estar en otro país."]};
+const ficha=document.getElementById("ficha");
+function verParte(k){
+  document.querySelectorAll(".pg5 .zona").forEach(z=>z.classList.toggle("sel",z.dataset.k===k));
+  ficha.innerHTML=`<span class="tipo">Parte de la red</span><h3>${PARTES[k][0]}</h3><p>${PARTES[k][1]}</p>`;
+}
+document.querySelectorAll(".pg5 .zona").forEach(z=>{
+  z.addEventListener("click",()=>verParte(z.dataset.k));
+  z.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();verParte(z.dataset.k);}});
+});
+verParte("router");
+
+/* ---- DNS ---- */
+const AGENDA={"juego.es":"203.0.113.7","clase.es":"192.0.2.44","musica.es":"198.51.100.20"};
+let dnsPaso=0;
+const sel=document.getElementById("sitio");
+const B=id=>document.getElementById(id);
+function dnsReset(){dnsPaso=0;["b-movil","b-dns","b-web"].forEach(i=>B(i).textContent="");B("ip-web").textContent="IP: ?";
+  document.querySelectorAll(".pg5 .actor").forEach(a=>a.classList.remove("on"));B("dns-narra").textContent="Elige una web y pulsa «Siguiente paso».";B("dns-go").disabled=false;}
+function dnsSig(){
+  const n=sel.value, ip=AGENDA[n];
+  document.querySelectorAll(".pg5 .actor").forEach(a=>a.classList.remove("on"));
+  if(dnsPaso===0){B("a-movil").classList.add("on");B("b-movil").textContent=`«¿Cuál es la IP de ${n}?»`;B("dns-narra").textContent="1. Tu móvil no sabe dónde está la web. Pregunta al servidor DNS.";}
+  else if(dnsPaso===1){B("a-dns").classList.add("on");B("b-dns").innerHTML=`«${n} es <span class="mono-ip">${ip}</span>»`;B("dns-narra").textContent="2. El DNS busca el nombre en su agenda y responde con la IP.";}
+  else if(dnsPaso===2){B("a-movil").classList.add("on");B("b-movil").innerHTML=`Paquetes con destino <span class="mono-ip">${ip}</span>`;B("dns-narra").textContent="3. Tu móvil escribe esa IP en cada paquete y los envía.";}
+  else{B("a-web").classList.add("on");B("ip-web").textContent="IP: "+ip;B("b-web").textContent="«Aquí tienes la página.»";B("dns-narra").textContent="4. Los paquetes llegan al servidor de la web, que responde. Todo esto pasa en milisegundos.";B("dns-go").disabled=true;}
+  dnsPaso++;
+}
+B("dns-go").addEventListener("click",dnsSig);B("dns-reset").addEventListener("click",dnsReset);sel.addEventListener("change",dnsReset);dnsReset();
+
+/* ---- Router ---- */
+const RT=[["192.168.1.",0,"A"],["203.0.113.",1,"B"],["198.51.100.",2,"C"]];
+const filas=[...document.querySelectorAll(".pg5 #rt-tabla tbody tr")];
+B("rt-go").addEventListener("click",()=>{
+  const r=RT[Math.floor(Math.random()*3)], ip=r[0]+(2+Math.floor(Math.random()*250));
+  B("rt-pkt").innerHTML=`<span>Para:</span><b>${ip}</b>`;
+  filas.forEach((f,i)=>f.classList.toggle("on",i===r[1]));
+  B("rt-narra").textContent=`Empieza por ${r[0]}, así que sale por la salida ${r[2]}.`;
+});
+
+/* ---- Paquetes ---- */
+const NS="http://www.w3.org/2000/svg", svg=document.getElementById("net");
+const N={A:{x:70,y:160,t:"Tu móvil",ip:"192.168.1.10",k:"end"},R1:{x:220,y:160,t:"Router de casa",ip:"",k:"router"},
+  M1:{x:390,y:60,t:"Router",ip:"",k:"router"},M2:{x:390,y:160,t:"Router",ip:"",k:"router"},M3:{x:390,y:260,t:"Router",ip:"",k:"router"},
+  M4:{x:560,y:100,t:"Router",ip:"",k:"router"},M5:{x:560,y:220,t:"Router",ip:"",k:"router"},
+  R2:{x:700,y:160,t:"Router destino",ip:"",k:"router"},B:{x:835,y:160,t:"Servidor",ip:"203.0.113.5",k:"end"}};
+const E=[["A","R1"],["R1","M1"],["R1","M2"],["R1","M3"],["M1","M4"],["M2","M4"],["M2","M5"],["M3","M5"],["M4","R2"],["M5","R2"],["R2","B"]];
+const el=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);return e;};
+E.forEach(([a,b])=>svg.appendChild(el("line",{x1:N[a].x,y1:N[a].y,x2:N[b].x,y2:N[b].y,class:"edge"})));
+for(const id in N){const n=N[id];const g=el("g",{class:"node "+n.k});const w=n.k==="end"?110:96;
+  g.appendChild(el("rect",{x:n.x-w/2,y:n.y-22,width:w,height:n.ip?50:40,rx:10}));
+  const t=el("text",{x:n.x,y:n.y+3});t.textContent=n.t;g.appendChild(t);
+  if(n.ip){const t2=el("text",{x:n.x,y:n.y+20,class:"ip"});t2.textContent=n.ip;g.appendChild(t2);}
+  svg.appendChild(g);}
+const pktLayer=el("g",{});svg.appendChild(pktLayer);
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+function route(){const m=pick(["M1","M2","M3"]);const next={M1:["M4"],M2:["M4","M5"],M3:["M5"]}[m];return ["A","R1",m,pick(next),"R2","B"];}
+let running=false;
+const recv=B("recv"),final=B("final"),status=B("status"),sendBtn=B("send");
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+function fly(p,onDone,lost){
+  const pts=p.path.map(k=>N[k]);
+  const g=el("g",{class:"pkt"});g.appendChild(el("rect",{x:-14,y:-12,width:28,height:24,rx:5}));
+  const t=el("text",{x:0,y:4});t.textContent=p.n;g.appendChild(t);pktLayer.appendChild(g);
+  const segDur=reduce?60:(420+Math.random()*520);const total=segDur*(pts.length-1);const lostAt=lost?total*0.5:Infinity;let start=null;
+  g.setAttribute("transform",`translate(${pts[0].x},${pts[0].y})`);
+  function frame(ts){
+    if(start===null)start=ts+p.delay;
+    const e=Math.max(0,ts-start);
+    if(e>=lostAt){g.remove();onDone(p,true);return;}
+    if(e>=total){g.remove();onDone(p,false);return;}
+    const s=Math.floor(e/segDur),f=(e%segDur)/segDur,a=pts[s],b=pts[s+1];
+    g.setAttribute("transform",`translate(${a.x+(b.x-a.x)*f},${a.y+(b.y-a.y)*f})`);
+    requestAnimationFrame(frame);}
+  requestAnimationFrame(frame);
+}
+function send(){
+  if(running)return;
+  const words=B("msg").value.trim().split(/\s+/).filter(Boolean);
+  if(!words.length){status.textContent="Escribe un mensaje antes de enviarlo.";return;}
+  running=true;sendBtn.disabled=true;recv.innerHTML="";final.textContent="";
+  const total=words.length;const lostIdx=B("lose").checked&&total>1?Math.floor(Math.random()*total):-1;
+  status.textContent=`El mensaje se ha dividido en ${total} paquetes. Cada uno lleva el origen, el destino y su número.`;
+  const got={};let pending=total;
+  const arrive=(p,lost)=>{
+    if(lost){status.textContent=`El paquete ${p.n} se ha perdido por el camino.`;}
+    else{got[p.n]=p.w;const c=document.createElement("span");c.className="chip";c.innerHTML=`<b>${p.n}/${total}</b>${p.w.replace(/</g,"&lt;")}`;recv.appendChild(c);}
+    if(--pending===0)finish();
+  };
+  const finish=()=>{
+    const missing=[];for(let i=1;i<=total;i++)if(!(i in got))missing.push(i);
+    if(missing.length){status.textContent=`Falta el paquete ${missing[0]}. El servidor pide que se reenvíe y tu móvil lo envía otra vez.`;
+      pending=missing.length;missing.forEach((n,k)=>fly({n,w:words[n-1],path:route(),delay:300+k*200},arrive,false));return;}
+    final.textContent=Array.from({length:total},(_,i)=>got[i+1]).join(" ");
+    status.textContent="Han llegado todos los paquetes. El servidor los ordena por su número y reconstruye el mensaje.";
+    running=false;sendBtn.disabled=false;
+  };
+  words.forEach((w,i)=>fly({n:i+1,w,path:route(),delay:i*(reduce?20:260)},arrive,i===lostIdx));
+}
+sendBtn.addEventListener("click",send);
+
+/* ---- Panel del router ---- */
+function revisar(){
+  const ssid=B("ssid").value, pass=B("pass").value, seg=B("seg").value, inv=B("inv").checked;
+  const abierta=seg==="abierta";
+  const c=[
+    [!/^(movistar|vodafone|orange|digi|jazztel|livebox|mifibra|masmovil|o2)/i.test(ssid),"Has cambiado el nombre de fábrica","El nombre de fábrica dice qué router tienes. Cámbialo por uno tuyo."],
+    [!/\d{1,3}\s*[ºª]|calle|c\/|piso|apellido/i.test(ssid)&&ssid.trim().length>0,"El nombre no da datos personales","No pongas tu dirección ni tu apellido en el nombre de la red."],
+    [!abierta,"La red tiene contraseña","Una red abierta deja entrar a cualquiera."],
+    [seg==="wpa3","Usa WPA3","WPA3 es el cifrado más seguro. WPA2 vale si el router no tiene WPA3."],
+    [abierta||pass.length>=12,"Contraseña de 12 caracteres o más",`Ahora tiene ${pass.length}.`],
+    [abierta||(/[a-z]/i.test(pass)&&/\d/.test(pass)&&/[^a-z0-9]/i.test(pass)),"Mezcla letras, números y símbolos","Mezclar tipos de caracteres la hace más difícil de adivinar."],
+    [abierta||!/^(1234|0000|password|contraseña|qwerty)/i.test(pass),"No es una contraseña típica","Las contraseñas como 12345678 son las primeras que se prueban."],
+    [inv,"Red de invitados activada","Así tus visitas usan Internet sin entrar en la red donde están tus aparatos."]];
+  const ok=abierta?c.filter((x,i)=>[0,1,2,3,7].includes(i)&&x[0]).length:c.filter(x=>x[0]).length;
+  const tot=abierta?5:8, pct=abierta?10:Math.round(ok/tot*100);
+  B("checks").innerHTML=c.filter((x,i)=>!abierta||[0,1,2,3,7].includes(i)).map(x=>`<div class="check ${x[0]?"ok":"ko"}"><i>${x[0]?"✓":"✗"}</i><span><strong>${x[1]}</strong>${x[0]?"":"<br>"+x[2]}</span></div>`).join("");
+  const m=B("med");m.style.width=pct+"%";m.style.background=pct>=85?"var(--b)":pct>=50?"var(--on)":"var(--a)";
+  B("veredicto").innerHTML=`<strong>${abierta?"Red abierta: cualquiera puede entrar.":pct>=85?"Red bien protegida.":pct>=50?"Mejorable.":"Red poco segura."}</strong>`;
+}
+["ssid","pass","seg","inv"].forEach(id=>B(id).addEventListener("input",revisar));B("seg").addEventListener("change",revisar);B("inv").addEventListener("change",revisar);revisar();
+
+/* Reto: copiar comandos y ver respuesta */
+document.querySelectorAll(".pg5 [data-copia]").forEach(b=>b.addEventListener("click",()=>{
+  const txt=b.dataset.copia, ok=()=>{b.textContent="Copiado";setTimeout(()=>b.textContent="Copiar",1500);};
+  try{navigator.clipboard.writeText(txt).then(ok,()=>{const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);});}
+  catch(e){const r=document.createRange();r.selectNodeContents(b.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);}
+}));
+document.getElementById("red-ver").addEventListener("click",e=>{document.getElementById("red-resp").hidden=false;e.currentTarget.hidden=true;});
+
+})();</script>
+<script>
+/* ===== Control de las diapositivas ===== */
+(function(){
+const slides=[...document.querySelectorAll(".slide")];
+const total=slides.length;
+let i=0;
+const $=id=>document.getElementById(id);
+function zoom(){const z=Math.max(1,Math.min(1.55,Math.min(innerWidth/1180,(innerHeight-60)/780)));document.documentElement.style.setProperty("--z",z.toFixed(3));}
+function ir(n,desdeHash){
+  n=Math.max(0,Math.min(total-1,n));
+  slides[i].classList.remove("activa");slides[n].classList.add("activa");slides[n].scrollTop=0;i=n;
+  $("cont").textContent=`${i+1} / ${total}`;
+  $("prog").style.width=((i+1)/total*100)+"%";
+  $("donde").textContent=slides[i].dataset.lugar;
+  $("ant").disabled=i===0;$("sig").disabled=i===total-1;
+  if(!desdeHash){try{history.replaceState(null,"","#d"+(i+1));}catch(e){}}
+  ajusta();
+  window.dispatchEvent(new Event("resize"));
+}
+function ajusta(){
+  const s=slides[i], inner=s.firstElementChild; inner.style.zoom="";
+  const r=s.scrollHeight/s.clientHeight;
+  if(r>1.01){const z=parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--z"))||1;inner.style.zoom=Math.max(0.85,z/r*0.99).toFixed(3);}
+}
+function deHash(){const m=/^#d(\d+)$/.exec(location.hash);return m?(+m[1]-1):0;}
+$("ant").addEventListener("click",()=>ir(i-1));
+$("sig").addEventListener("click",()=>ir(i+1));
+document.addEventListener("keydown",e=>{
+  const t=e.target, tag=(t.tagName||"").toLowerCase();
+  if(tag==="input"||tag==="select"||tag==="textarea"||t.isContentEditable)return;
+  if(e.altKey||e.ctrlKey||e.metaKey)return;
+  if(!$("indice").hidden&&e.key==="Escape"){$("indice").hidden=true;return;}
+  if(e.key==="ArrowRight"||e.key==="PageDown"||(e.key===" "&&tag!=="button")){e.preventDefault();ir(i+1);}
+  else if(e.key==="ArrowLeft"||e.key==="PageUp"){e.preventDefault();ir(i-1);}
+  else if(e.key==="Home"){ir(0);}else if(e.key==="End"){ir(total-1);}
+});
+// Índice
+function pintaIndice(){
+  const grupos={};slides.forEach((s,k)=>{(grupos[s.dataset.sec]=grupos[s.dataset.sec]||[]).push(k);});
+  const nom={"0":"Inicio"};document.querySelectorAll(".ir-sec").forEach(b=>nom[b.dataset.sec]=b.textContent.replace(/^\d/,"").trim());
+  $("indice-grupos").innerHTML=Object.keys(grupos).map(g=>`<div class="grupo"><h3>${g==="0"?"Inicio":g+" · "+nom[g]}</h3><div class="lista">${grupos[g].map(k=>`<button data-k="${k}" class="${k===i?"actual":""}"><span>${k+1}</span>${slides[k].dataset.titulo}</button>`).join("")}</div></div>`).join("");
+}
+$("btn-indice").addEventListener("click",()=>{const ix=$("indice");if(ix.hidden){pintaIndice();ix.hidden=false;}else ix.hidden=true;});
+$("indice").addEventListener("click",e=>{const b=e.target.closest("button[data-k]");if(b){$("indice").hidden=true;ir(+b.dataset.k);}});
+$("cerrar-indice").addEventListener("click",()=>{$("indice").hidden=true;});
+document.querySelectorAll(".ir-sec").forEach(b=>b.addEventListener("click",()=>{const k=slides.findIndex(s=>s.dataset.sec===b.dataset.sec);ir(k);}));
+$("btn-pc").addEventListener("click",()=>{
+  try{ if(document.fullscreenElement){document.exitFullscreen();} else {const r=document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen(); if(r&&r.catch)r.catch(()=>{});} }catch(e){}
+});
+window.addEventListener("hashchange",()=>ir(deHash(),true));
+window.addEventListener("resize",()=>{zoom();});
+zoom();
+slides[0].classList.add("activa");
+ir(deHash(),true);
+})();
+</script>
+
+
+</body>
+</html>
