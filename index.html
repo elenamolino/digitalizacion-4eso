@@ -546,7 +546,7 @@ body{padding:0!important}
 .slide-inner{margin:auto;width:100%;max-width:1120px;padding:32px max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px));zoom:var(--z,1);display:flex;flex-direction:column;gap:22px}
 .slide-inner > section{gap:18px}
 .slide-inner h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
-.titulo-portada{font-size:clamp(2.6rem,7vw,4.6rem)!important}
+.titulo-portada{font-size:clamp(2.2rem,5.2vw,3.8rem)!important}
 .portada{display:flex;flex-direction:column;gap:18px}
 .indice-portada{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
 .ir-sec{font:inherit;font-size:1.15rem;display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 16px;cursor:pointer;color:var(--fg)}
@@ -563,12 +563,15 @@ body{padding:0!important}
 .hito.ahora{color:var(--fg);border-bottom-color:var(--c);background:var(--c-soft);border-radius:8px 8px 0 0}
 .mom-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:center}
 @media (max-width:760px){.mom-grid{grid-template-columns:minmax(0,1fr)}}
+.mom-grid.sin-foto{grid-template-columns:minmax(0,1fr);max-width:820px}
 .pg1 .momento .fig{max-width:none;width:100%}
 .pg1 .momento .ilus,.pg1 .momento .foto-real{max-width:none;width:100%;aspect-ratio:11/8;height:auto;border-radius:16px;background:var(--surface);border:1px solid var(--line);object-fit:cover}
 .mom-txt{display:flex;flex-direction:column;gap:14px;min-width:0}
 .mom-año{font-family:var(--display);font-weight:800;font-size:clamp(3rem,6vw,4.6rem);line-height:1;color:var(--c)}
 .mom-desc{font-size:1.2rem}
 .pg1 .momento .q{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px}
+
+.sello-reto{transform:none!important}
 /* Barra inferior */
 .barra{position:fixed;left:0;right:0;bottom:0;height:60px;background:var(--surface);border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;
   padding:0 max(12px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(12px,env(safe-area-inset-left,0px))}
@@ -597,16 +600,15 @@ body{padding:0!important}
 
 <div class="deck" id="deck">
 <div class="slide pg0" data-sec="0" data-titulo="Portada" data-lugar="Inicio" role="group" aria-roledescription="diapositiva" aria-label="1: Portada"><div class="slide-inner"><div class="portada">
-  <span class="eyebrow">Digitalización · 4º ESO · Dispositivos digitales, sistemas operativos y de comunicación</span>
-  <h1 class="titulo-portada">Un ordenador por dentro</h1>
-  <p class="lead">Desde los ceros y unos hasta Internet.</p>
+  <h1 class="titulo-portada">Dispositivos digitales, sistemas operativos y de comunicación</h1>
+  <p class="lead">Digitalización, 4º ESO</p>
   <ol class="indice-portada"><li><button class="ir-sec" data-sec="1"><span class="num">1</span>¿Por qué se crearon los ordenadores?</button></li><li><button class="ir-sec" data-sec="2"><span class="num">2</span>¿Cómo representan la información?</button></li><li><button class="ir-sec" data-sec="3"><span class="num">3</span>La arquitectura Von Neumann</button></li><li><button class="ir-sec" data-sec="4"><span class="num">4</span>Un ordenador por capas</button></li><li><button class="ir-sec" data-sec="5"><span class="num">5</span>¿Cómo se comunican los dispositivos?</button></li></ol>
 </div></div></div>
 <div class="slide pg1 divisoria" data-sec="1" data-titulo="¿Por qué se crearon los ordenadores?" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="2: ¿Por qué se crearon los ordenadores?"><div class="slide-inner"><div class="divisor"><span class="num-grande">1</span><h1>¿Por qué se crearon los ordenadores?</h1><p class="lead">Para hacer cálculos largos más rápido y con menos errores que las personas. Antes, «computadora» era el nombre de una persona que hacía cálculos a mano.</p></div></div></div>
-<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1890" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="3: Cuatro momentos · 1890"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito ahora">1890</span><span class="hito">1940–1945</span><span class="hito">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/HollerithMachine.CHM.jpg?width=480" alt="Réplica de la máquina tabuladora de Hollerith" ><svg class="ilus" data-ilus="tarjeta" viewBox="0 0 220 160" role="img" aria-label="Una tarjeta perforada"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:HollerithMachine.CHM.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1890</span><h2>Contar a toda la población</h2><p class="mom-desc">Herman Hollerith crea una máquina que lee tarjetas perforadas para contar el censo de Estados Unidos.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>El censo anterior se contó a mano y tardó años. Con tarjetas, una máquina contaba mucho más rápido. La empresa de Hollerith acabó formando parte de IBM.</p></div></div></div></section></div></div>
-<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1940–1945" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="4: Cuatro momentos · 1940–1945"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito ahora">1940–1945</span><span class="hito">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/EnigmaMachine.jpg?width=480" alt="Máquina Enigma" ><svg class="ilus" data-ilus="enigma" viewBox="0 0 220 160" role="img" aria-label="Una máquina de cifrar como Enigma"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:EnigmaMachine.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1940–1945</span><h2>Descifrar mensajes secretos</h2><p class="mom-desc">Durante la Segunda Guerra Mundial, Alan Turing y su equipo construyen máquinas para descifrar los mensajes de la máquina alemana Enigma.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>Enigma cambiaba su código cada día y había millones de combinaciones posibles. Probarlas a mano era imposible a tiempo.</p></div></div></div></section></div></div>
-<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1945" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="5: Cuatro momentos · 1945"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito">1940–1945</span><span class="hito ahora">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/ENIAC_Penn1.jpg?width=480" alt="Paneles del ENIAC expuestos en la Universidad de Pensilvania" ><svg class="ilus" data-ilus="eniac" viewBox="0 0 220 160" role="img" aria-label="El ENIAC ocupaba una sala entera"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1945</span><h2>El ENIAC y la idea de Von Neumann</h2><p class="mom-desc">El ENIAC (Electronic Numerical Integrator and Computer) calcula trayectorias de proyectiles. Pesaba unas 27 toneladas y ocupaba una sala entera. Ese mismo año, John von Neumann describe cómo guardar el programa en la memoria.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>Una persona tardaba horas en calcular una sola trayectoria. El ENIAC lo hacía en segundos. La idea de Von Neumann es la que siguen los ordenadores actuales (sección 3).</p></div></div></div></section></div></div>
-<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · Hoy" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="6: Cuatro momentos · Hoy"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito">1940–1945</span><span class="hito">1945</span><span class="hito ahora">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" hidden onload="this.hidden=false;this.nextElementSibling.hidden=true;this.parentNode.querySelector('figcaption').hidden=false" src="https://commons.wikimedia.org/wiki/Special:FilePath/Android_smartphone.jpg?width=480" alt="Un teléfono móvil inteligente" ><svg class="ilus" data-ilus="movil" viewBox="0 0 220 160" role="img" aria-label="Un móvil"></svg><figcaption hidden>Foto: <a href="https://commons.wikimedia.org/wiki/File:Android_smartphone.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">Hoy</span><h2>Un ordenador en el bolsillo</h2><p class="mom-desc">Llevamos ordenadores en el móvil, el coche, la lavadora y el reloj.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hace falta hoy?</button><p hidden>Ya no solo calculamos. Comunicamos, guardamos fotos y música, jugamos y controlamos aparatos. Pero por dentro sigue haciendo lo mismo: cálculos muy simples, muy rápido.</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1890" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="3: Cuatro momentos · 1890"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito ahora">1890</span><span class="hito">1940–1945</span><span class="hito">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" src="https://commons.wikimedia.org/wiki/Special:FilePath/HollerithMachine.CHM.jpg?width=480" alt="Réplica de la máquina tabuladora de Hollerith" onerror="this.closest('.mom-grid').classList.add('sin-foto');this.closest('figure').hidden=true"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:HollerithMachine.CHM.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1890</span><h2>El censo de Estados Unidos</h2><p class="mom-desc">Herman Hollerith crea una máquina que lee tarjetas perforadas para contar el censo de Estados Unidos.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>El censo anterior se contó a mano y tardó años. Con tarjetas, una máquina contaba mucho más rápido. La empresa de Hollerith acabó formando parte de IBM.</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1940–1945" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="4: Cuatro momentos · 1940–1945"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito ahora">1940–1945</span><span class="hito">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" src="https://commons.wikimedia.org/wiki/Special:FilePath/EnigmaMachine.jpg?width=480" alt="Máquina Enigma" onerror="this.closest('.mom-grid').classList.add('sin-foto');this.closest('figure').hidden=true"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:EnigmaMachine.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1940–1945</span><h2>La máquina Enigma</h2><p class="mom-desc">Durante la Segunda Guerra Mundial, Alan Turing y su equipo construyen máquinas para descifrar los mensajes de la máquina alemana Enigma.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>Enigma cambiaba su código cada día y había millones de combinaciones posibles. Probarlas a mano era imposible a tiempo.</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · 1945" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="5: Cuatro momentos · 1945"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito">1940–1945</span><span class="hito ahora">1945</span><span class="hito">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" src="https://commons.wikimedia.org/wiki/Special:FilePath/ENIAC_Penn1.jpg?width=480" alt="Paneles del ENIAC expuestos en la Universidad de Pensilvania" onerror="this.closest('.mom-grid').classList.add('sin-foto');this.closest('figure').hidden=true"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:ENIAC_Penn1.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">1945</span><h2>El ENIAC y la idea de Von Neumann</h2><p class="mom-desc">El ENIAC (Electronic Numerical Integrator and Computer) calcula trayectorias de proyectiles. Pesaba unas 27 toneladas y ocupaba una sala entera. Ese mismo año, John von Neumann describe cómo guardar el programa en la memoria.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hacía falta?</button><p hidden>Una persona tardaba horas en calcular una sola trayectoria. El ENIAC lo hacía en segundos. La idea de Von Neumann es la que siguen los ordenadores actuales (sección 3).</p></div></div></div></section></div></div>
+<div class="slide pg1" data-sec="1" data-titulo="Cuatro momentos · Hoy" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="6: Cuatro momentos · Hoy"><div class="slide-inner"><section class="momento"><div class="hitos" aria-label="Línea del tiempo"><span class="hito">1890</span><span class="hito">1940–1945</span><span class="hito">1945</span><span class="hito ahora">Hoy</span></div><div class="mom-grid"><figure class="fig"><img class="foto-real" src="https://commons.wikimedia.org/wiki/Special:FilePath/Android_smartphone.jpg?width=480" alt="Un teléfono móvil inteligente" onerror="this.closest('.mom-grid').classList.add('sin-foto');this.closest('figure').hidden=true"><figcaption>Foto: <a href="https://commons.wikimedia.org/wiki/File:Android_smartphone.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></figcaption></figure><div class="mom-txt"><span class="mom-año">Hoy</span><h2>El móvil</h2><p class="mom-desc">Llevamos ordenadores en el móvil, el coche, la lavadora y el reloj.</p><div class="q"><button class="btn alt" aria-expanded="false">¿Para qué hace falta hoy?</button><p hidden>Ya no solo calculamos. Comunicamos, guardamos fotos y música, jugamos y controlamos aparatos. Pero por dentro sigue haciendo lo mismo: cálculos muy simples, muy rápido.</p></div></div></div></section></div></div>
 <div class="slide pg1" data-sec="1" data-titulo="El ENIAC frente a un móvil" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="7: El ENIAC frente a un móvil"><div class="slide-inner"><section aria-labelledby="p1-t2">
   <h2 id="p1-t2">El ENIAC frente a un móvil</h2>
   <div class="vs">
@@ -618,8 +620,8 @@ body{padding:0!important}
 <div class="slide pg1" data-sec="1" data-titulo="¿Qué ordenadores hay en clase?" data-lugar="1 · ¿Por qué se crearon los ordenadores?" role="group" aria-roledescription="diapositiva" aria-label="8: ¿Qué ordenadores hay en clase?"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p1-t-reto">
   <span class="sello-reto">Reto</span>
   <h2 id="p1-t-reto">¿Qué ordenadores hay en clase?</h2>
-  <div class="key"><strong>La pista.</strong> Un aparato es un ordenador si tiene un procesador que sigue las instrucciones de un programa: recibe datos, los procesa y da un resultado.</div>
-  <p>Mira a tu alrededor. Para cada objeto, decide: ¿es un ordenador o no?</p>
+  <div class="key">Un aparato es un ordenador si tiene un procesador que sigue las instrucciones de un programa: recibe datos, los procesa y da un resultado.</div>
+  <p>Indica si cada objeto es un ordenador.</p>
   <div class="reto" id="reto"></div>
   <div class="controls" style="align-items:center">
     <span class="mono" id="reto-marcador" aria-live="polite">Aciertos: 0 de 0</span>
@@ -628,31 +630,27 @@ body{padding:0!important}
   </div>
 </section></div></div>
 <div class="slide pg2 divisoria" data-sec="2" data-titulo="¿Cómo representan la información?" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="9: ¿Cómo representan la información?"><div class="slide-inner"><div class="divisor"><span class="num-grande">2</span><h1>¿Cómo representan la información?</h1><p class="lead">Un ordenador solo distingue dos estados: hay corriente o no hay corriente. Con eso guarda textos, fotos, canciones y programas.</p></div></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="10: Mensaje secreto"><div class="slide-inner"><section><h2>Un mensaje para hoy</h2>
+<div class="slide pg2" data-sec="2" data-titulo="Mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="10: Mensaje secreto"><div class="slide-inner"><section><h2>Mensaje secreto</h2>
 
 <div class="aviso-secreto">
-  <strong>Mensaje secreto</strong>
-  <div class="secreto"><span>01001000</span><span>01001111</span><span>01001100</span><span>01000001</span></div>
-  <p class="note">Hoy alguien nos ha dejado este mensaje. Al final de la clase sabrás leerlo.</p>
+    <div class="secreto"><span>01001000</span><span>01001111</span><span>01001100</span><span>01000001</span></div>
 </div>
 
 </section></div></div>
 <div class="slide pg2" data-sec="2" data-titulo="¿Por qué ceros y unos?" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="11: ¿Por qué ceros y unos?"><div class="slide-inner"><section aria-labelledby="p2-t0">
-  <span class="eyebrow">Para empezar · Interruptores</span>
   <h2 id="p2-t0">¿Por qué ceros y unos?</h2>
   <p>Dentro de un ordenador hay circuitos con interruptores. Un interruptor solo puede estar de dos formas: <strong>abierto</strong>, y no pasa corriente (0), o <strong>cerrado</strong>, y pasa corriente (1). Pulsa los interruptores.</p>
-  <div class="panel"><h3>Con 1 interruptor</h3><p class="note">¿Cuántas cosas distintas puede decir esta bombilla?</p><div class="circuito" data-n="1"></div></div></section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Con 2 interruptores" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="12: Con 2 interruptores"><div class="slide-inner"><section><h2>Con 2 interruptores</h2><div class="panel"><h3>Con 2 interruptores</h3><p class="note">Antes de probar: ¿cuántas combinaciones creéis que hay?</p><div class="circuito" data-n="2"></div></div></section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Con 3 interruptores" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="13: Con 3 interruptores"><div class="slide-inner"><section><h2>Con 3 interruptores</h2><div class="panel"><h3>Con 3 interruptores</h3><p class="note">¿Y ahora? Buscad todas.</p><div class="circuito" data-n="3"></div></div><div class="key">
-    <strong>Cada interruptor nuevo duplica las posibilidades:</strong> 1 interruptor da 2, 2 dan 4, 3 dan 8. ¿Cuántas habrá con 8 interruptores?
+  <div class="panel"><h3>Con 1 interruptor</h3><p class="note">¿Cuántas combinaciones hay?</p><div class="circuito" data-n="1"></div></div></section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Con 2 interruptores" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="12: Con 2 interruptores"><div class="slide-inner"><section><h2>Con 2 interruptores</h2><div class="panel"><h3>Con 2 interruptores</h3><p class="note">¿Cuántas combinaciones hay?</p><div class="circuito" data-n="2"></div></div></section></div></div>
+<div class="slide pg2" data-sec="2" data-titulo="Con 3 interruptores" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="13: Con 3 interruptores"><div class="slide-inner"><section><h2>Con 3 interruptores</h2><div class="panel"><h3>Con 3 interruptores</h3><p class="note">¿Cuántas combinaciones hay?</p><div class="circuito" data-n="3"></div></div><div class="key">
+    Cada interruptor nuevo duplica las posibilidades. 1 interruptor da 2 combinaciones, 2 dan 4 y 3 dan 8. ¿Cuántas habrá con 8 interruptores?
     <div style="margin-top:10px"><button class="btn" id="ocho-btn">Ver la respuesta</button>
     <p id="ocho-res" hidden>2 × 2 × 2 × 2 × 2 × 2 × 2 × 2 = <strong>256</strong>. Ocho interruptores forman un <strong>byte</strong>. Un procesador tiene miles de millones de interruptores diminutos, llamados <strong>transistores</strong>.</p></div>
   </div>
 </section></div></div>
 <div class="slide pg2" data-sec="2" data-titulo="De combinaciones a números" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="14: De combinaciones a números"><div class="slide-inner"><section aria-labelledby="p2-t-contar">
-  <span class="eyebrow">Paso intermedio · Contar en binario</span>
   <h2 id="p2-t-contar">De combinaciones a números</h2>
-  <p>Cada combinación de bombillas se puede numerar. Vamos a contar con 3 bombillas, como un cuentakilómetros: cuando una bombilla ya está encendida y hay que sumar, se apaga y se enciende la de su izquierda.</p>
+  <p>Cada combinación de bombillas se puede numerar. Contamos con 3 bombillas, como en un cuentakilómetros. Cuando una bombilla ya está encendida y hay que sumar 1, se apaga y se enciende la de su izquierda.</p>
   <div class="panel contador">
     <div style="display:flex;flex-direction:column;gap:16px;min-width:0">
       <div class="tres" aria-hidden="true">
@@ -671,7 +669,7 @@ body{padding:0!important}
   </div>
   </section></div></div>
 <div class="slide pg2" data-sec="2" data-titulo="Cada posición tiene un valor" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="15: Cada posición tiene un valor"><div class="slide-inner"><section><h2>Cada posición tiene un valor</h2>
-  <p>Con nuestros números de siempre ya hacemos lo mismo. Lo que cambia es cuánto vale cada posición.</p>
+  <p>En el sistema decimal pasa lo mismo, pero cada posición vale distinto.</p>
   <div class="posiciones">
     <div class="pos">
       <strong>Nuestros números (base 10)</strong>
@@ -694,17 +692,17 @@ body{padding:0!important}
       <p class="note">Cada posición vale el doble que la de su derecha.</p>
     </div>
   </div>
-  <div class="key"><strong>Por eso, con 8 bombillas,</strong> las posiciones valen 128, 64, 32, 16, 8, 4, 2 y 1. Vamos a probarlo.</div>
+  <div class="key">Con 8 bombillas, las posiciones valen 128, 64, 32, 16, 8, 4, 2 y 1.</div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Practica con 3 bombillas" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="16: Practica con 3 bombillas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-practica">
+<div class="slide pg2" data-sec="2" data-titulo="Ejercicios con 3 bits" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="16: Ejercicios con 3 bits"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-practica">
   <span class="sello-reto">Reto</span>
-  <h2 id="p2-t-practica">Practica con 3 bombillas</h2>
-  <p>Recuerda: con 3 bombillas, las posiciones valen 4, 2 y 1. Escribe tus respuestas y pulsa «Comprobar».</p>
+  <h2 id="p2-t-practica">Ejercicios con 3 bits</h2>
+  <p>Las posiciones valen 4, 2 y 1.</p>
   <p class="parte-reto">1. ¿Qué número es?</p>
   <div class="ejercicios" id="ej-a"></div>
   <p class="parte-reto">2. ¿Cómo se escribe en binario?</p>
   <div class="ejercicios" id="ej-b"></div>
-  <p class="parte-reto">3. Para pensar</p>
+  <p class="parte-reto">3. Números más grandes</p>
   <div class="ejercicios" id="ej-c"></div>
   <div class="controls">
     <button class="btn" id="ej-comprobar">Comprobar</button>
@@ -713,9 +711,8 @@ body{padding:0!important}
   </div>
   <p id="ej-res" aria-live="polite"></p>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Ocho bombillas, un byte" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="17: Ocho bombillas, un byte"><div class="slide-inner"><section aria-labelledby="p2-t1">
-  <span class="eyebrow">Parte 1 · El bit</span>
-  <h2 id="p2-t1">Ocho bombillas, un byte</h2>
+<div class="slide pg2" data-sec="2" data-titulo="El byte" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="17: El byte"><div class="slide-inner"><section aria-labelledby="p2-t1">
+  <h2 id="p2-t1">El byte</h2>
   <p>Cada bombilla es un <strong>bit</strong> (de <em>binary digit</em>, dígito binario). Encendida vale 1 y apagada vale 0. Ocho bits forman un <strong>byte</strong>. Pulsa las bombillas.</p>
   <div class="panel">
     <div class="bulbs" id="bulbs"></div>
@@ -724,13 +721,12 @@ body{padding:0!important}
       <div><small>Como número</small><span class="big" id="r-dec"></span><span class="note mono" id="r-sum"></span></div>
       <div><small>Como letra</small><span class="big" id="r-chr"></span></div>
     </div>
-    <div class="key"><strong>La idea clave.</strong> Los mismos ocho bits pueden ser un número, una letra o un trozo de una foto. El ordenador no lo sabe por los bits. Lo sabe el programa que los lee.</div>
+    <div class="key">Los mismos ocho bits pueden ser un número, una letra o un trozo de una foto. El ordenador no lo sabe por los bits. Lo sabe el programa que los lee.</div>
     <p class="note">Cada bombilla vale el doble que la de su derecha (1, 2, 4, 8…). Con 8 bits hay 256 combinaciones, del 0 al 255.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Cada letra tiene un número" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="18: Cada letra tiene un número"><div class="slide-inner"><section aria-labelledby="p2-t2">
-  <span class="eyebrow">Parte 2 · Texto</span>
-  <h2 id="p2-t2">Cada letra tiene un número</h2>
+<div class="slide pg2" data-sec="2" data-titulo="El texto en binario" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="18: El texto en binario"><div class="slide-inner"><section aria-labelledby="p2-t2">
+  <h2 id="p2-t2">El texto en binario</h2>
   <p>Existe una tabla acordada por todo el mundo que da un número a cada carácter. La más antigua es <abbr title="American Standard Code for Information Interchange">ASCII</abbr>. Hoy se usa <abbr title="Unicode Transformation Format, 8 bits">UTF-8</abbr>, que incluye también la ñ, las tildes y los emojis.</p>
   <div class="panel">
     <h3>La tabla de las letras mayúsculas</h3>
@@ -738,7 +734,7 @@ body{padding:0!important}
     <p class="note">El espacio es el 32 (00100000). Las minúsculas tienen otros números: la a es el 97 y la z el 122.</p>
   </div>
   </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Escribe tu nombre" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="19: Escribe tu nombre"><div class="slide-inner"><section><h2>Escribe tu nombre</h2><p>Ahora escribe tu nombre y mira cómo lo guarda el ordenador.</p>
+<div class="slide pg2" data-sec="2" data-titulo="El texto en bytes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="19: El texto en bytes"><div class="slide-inner"><section><h2>El texto en bytes</h2><p>Escribe un texto para ver sus bytes.</p>
   <div class="panel">
     <label for="txt" class="note">Texto</label>
     <input type="text" id="txt" value="Hola clase de digitalización" maxlength="40" autocomplete="off">
@@ -747,9 +743,8 @@ body{padding:0!important}
     <p class="note">Las letras en morado ocupan más de un byte. La ñ y las vocales con tilde no estaban en ASCII, así que UTF-8 las guarda con 2 bytes. Un emoji ocupa 4.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Una imagen es una cuadrícula de puntos" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="20: Una imagen es una cuadrícula de puntos"><div class="slide-inner"><section aria-labelledby="p2-t3">
-  <span class="eyebrow">Parte 3 · Imágenes</span>
-  <h2 id="p2-t3">Una imagen es una cuadrícula de puntos</h2>
+<div class="slide pg2" data-sec="2" data-titulo="Las imágenes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="20: Las imágenes"><div class="slide-inner"><section aria-labelledby="p2-t3">
+  <h2 id="p2-t3">Las imágenes</h2>
   <p>Cada punto se llama <strong>píxel</strong> (de <em>picture element</em>). En una imagen en blanco y negro, cada píxel es un bit. Pulsa los cuadros para dibujar.</p>
   <div class="panel">
     <div class="imgrow">
@@ -759,7 +754,7 @@ body{padding:0!important}
     <p class="note">Esta imagen tiene 8 × 8 = 64 píxeles, es decir 64 bits u 8 bytes. Una foto de móvil de 12 megapíxeles tiene unos 12 millones de píxeles.</p>
   </div>
   </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="¿Y los colores?" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="21: ¿Y los colores?"><div class="slide-inner"><section><h2>¿Y los colores?</h2>
+<div class="slide pg2" data-sec="2" data-titulo="El color" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="21: El color"><div class="slide-inner"><section><h2>El color</h2>
   <p>Cada píxel de color mezcla tres luces: rojo, verde y azul (<abbr title="Red, Green, Blue: rojo, verde, azul">RGB</abbr>). Cada luz usa un byte, de 0 a 255. Son 24 bits por píxel.</p>
   <div class="panel">
     <div class="color">
@@ -773,9 +768,8 @@ body{padding:0!important}
     <p class="note">Con 24 bits hay 256 × 256 × 256 = 16.777.216 colores posibles.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="El sonido se mide muchas veces por segundo" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="22: El sonido se mide muchas veces por segundo"><div class="slide-inner"><section aria-labelledby="p2-t4">
-  <span class="eyebrow">Parte 4 · Sonido</span>
-  <h2 id="p2-t4">El sonido se mide muchas veces por segundo</h2>
+<div class="slide pg2" data-sec="2" data-titulo="El sonido" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="22: El sonido"><div class="slide-inner"><section aria-labelledby="p2-t4">
+  <h2 id="p2-t4">El sonido</h2>
   <p>El sonido es una onda continua. Para guardarlo, el ordenador mide su altura muchas veces por segundo (<strong>muestreo</strong>) y redondea cada medida a un número entero (<strong>cuantificación</strong>). Mueve los controles y compara la onda original con la guardada.</p>
   <div class="panel">
     <canvas id="wave" aria-label="Onda de sonido original y su versión digital"></canvas>
@@ -787,9 +781,8 @@ body{padding:0!important}
     <p class="note">Más muestras y más bits dan un sonido más fiel, pero ocupan más. La calidad de un CD (disco compacto) toma 44.100 muestras por segundo y usa 16 bits por muestra.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Las instrucciones también son números" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="23: Las instrucciones también son números"><div class="slide-inner"><section aria-labelledby="p2-t5">
-  <span class="eyebrow">Parte 5 · Programas</span>
-  <h2 id="p2-t5">Las instrucciones también son números</h2>
+<div class="slide pg2" data-sec="2" data-titulo="Las instrucciones" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="23: Las instrucciones"><div class="slide-inner"><section aria-labelledby="p2-t5">
+  <h2 id="p2-t5">Las instrucciones</h2>
   <p>Un programa es una lista de instrucciones, y también se guarda en binario. Una parte de los bits dice <strong>qué hacer</strong> (código de operación) y otra dice <strong>con qué casilla de memoria</strong> (dirección). Este es el programa que veremos dentro del ordenador de juguete.</p>
   <div class="panel">
     <div class="scroll">
@@ -801,9 +794,8 @@ body{padding:0!important}
     <p class="note">Código inventado para la clase: 3 bits de operación (<span style="background:var(--a-soft);padding:0 4px;border-radius:4px">naranja</span>) y 5 bits de dirección (<span style="background:var(--b-soft);padding:0 4px;border-radius:4px">verde</span>). Cada familia de procesadores reales tiene su propio código.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="De bits a gigabytes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="24: De bits a gigabytes"><div class="slide-inner"><section aria-labelledby="p2-t6">
-  <span class="eyebrow">Parte 6 · Cuánto ocupa</span>
-  <h2 id="p2-t6">De bits a gigabytes</h2>
+<div class="slide pg2" data-sec="2" data-titulo="Unidades de medida" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="24: Unidades de medida"><div class="slide-inner"><section aria-labelledby="p2-t6">
+  <h2 id="p2-t6">Unidades de medida</h2>
   <div class="units">
     <div class="unit"><span class="u">bit</span><span class="eq">0 o 1</span><span>Un interruptor</span></div>
     <div class="unit"><span class="u">byte</span><span class="eq">8 bits</span><span>Una letra</span></div>
@@ -814,10 +806,10 @@ body{padding:0!important}
   </div>
   <p class="note">A veces se usa 1.024 en lugar de 1.000. Por eso un disco de 1 TB aparece en Windows con unos 931 GB.</p>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Descifra el mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="25: Descifra el mensaje secreto"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-reto">
+<div class="slide pg2" data-sec="2" data-titulo="Descifrar el mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="25: Descifrar el mensaje secreto"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-reto">
   <span class="sello-reto">Reto</span>
-  <h2 id="p2-t-reto">Descifra el mensaje secreto</h2>
-  <p>Ya sabes leer binario. Pasa cada byte a número y busca qué letra es. Recuerda: cada posición vale 128, 64, 32, 16, 8, 4, 2 y 1, y se suman las que tienen un 1.</p>
+  <h2 id="p2-t-reto">Descifrar el mensaje secreto</h2>
+  <p>Pasa cada byte a número y busca su letra. Cada posición vale 128, 64, 32, 16, 8, 4, 2 y 1, y se suman las que tienen un 1.</p>
   <div class="bytes-reto" id="bytes-reto"></div>
   <div class="controls">
     <button class="btn" id="reto-comprobar">Comprobar</button>
@@ -842,7 +834,7 @@ body{padding:0!important}
 </section></div></div>
 <div class="slide pg3" data-sec="3" data-titulo="Un ordenador montado" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="28: Un ordenador montado"><div class="slide-inner"><section aria-labelledby="p3-t-mont">
   <h2 id="p3-t-mont">Un ordenador montado</h2>
-  <p>Así quedan las piezas dentro de la caja. Pulsa cada una. Con el botón ves a qué parte de la arquitectura Von Neumann corresponde.</p>
+  <p>Las piezas dentro de la caja. Al pulsar una pieza se muestra su función. El botón indica a qué parte de la arquitectura Von Neumann corresponde cada una.</p>
   <div class="controls"><button class="btn alt" id="vn-btn" aria-pressed="false">Ver como Von Neumann</button></div>
   <div class="montado">
     <div class="pcwrap"><svg class="pc" id="pc1" viewBox="0 0 900 520" role="group" aria-label="Ordenador montado con monitor, teclado y la caja abierta"></svg></div>
@@ -855,9 +847,9 @@ body{padding:0!important}
     <span><i style="background:var(--bus)"></i>Buses</span>
   </div>
 </section></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="¿Qué pasa cuando sumas 5 + 3?" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="29: ¿Qué pasa cuando sumas 5 + 3?"><div class="slide-inner"><section aria-labelledby="t-suma">
-  <h2 id="t-suma">¿Qué pasa cuando sumas 5 + 3?</h2>
-  <p>Abres la calculadora y sumas dos números. Sigue el recorrido de los datos entre las piezas, paso a paso.</p>
+<div class="slide pg3" data-sec="3" data-titulo="Recorrido de los datos en la suma 5 + 3" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="29: Recorrido de los datos en la suma 5 + 3"><div class="slide-inner"><section aria-labelledby="t-suma">
+  <h2 id="t-suma">Recorrido de los datos en la suma 5 + 3</h2>
+  <p>Qué hace cada pieza al sumar dos números con la calculadora, paso a paso.</p>
   <div class="controls">
     <label>Primer número <input type="number" class="num-in" id="sa" min="0" max="99" value="5"></label>
     <label>Segundo número <input type="number" class="num-in" id="sb" min="0" max="99" value="3"></label>
@@ -874,11 +866,11 @@ body{padding:0!important}
     <button class="btn" id="s-sig">Siguiente paso</button>
     <button class="btn alt" id="s-reset">Empezar de nuevo</button>
   </div>
-  <div class="key"><strong>Fíjate.</strong> La CPU no guarda los datos: los trae de la RAM, los procesa y los devuelve. Y todo viaja por los buses. Esa es la idea de Von Neumann: programa y datos en la misma memoria.</div>
+  <div class="key">La CPU no guarda los datos: los trae de la RAM, los procesa y los devuelve. Y todo viaja por los buses. Esa es la idea de Von Neumann: programa y datos en la misma memoria.</div>
 </section></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="Zoom: dentro de la CPU" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="30: Zoom: dentro de la CPU"><div class="slide-inner"><section aria-labelledby="p3-t3">
-    <h2 id="p3-t3">Zoom: dentro de la CPU</h2>
-  <p>Ahora entramos en la CPU para ver el programa de la suma instrucción a instrucción. Este ordenador de juguete suma dos números. Cada instrucción pasa por tres fases, siempre las mismas: <strong>buscar, decodificar y ejecutar</strong>. Cambia los números de las casillas 7 y 8 si quieres.</p>
+<div class="slide pg3" data-sec="3" data-titulo="Dentro de la CPU" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="30: Dentro de la CPU"><div class="slide-inner"><section aria-labelledby="p3-t3">
+    <h2 id="p3-t3">Dentro de la CPU</h2>
+  <p>El programa de la suma, instrucción a instrucción. Este ordenador de juguete suma dos números. Cada instrucción pasa por tres fases, siempre las mismas: <strong>buscar, decodificar y ejecutar</strong>. Cambia los números de las casillas 7 y 8 si quieres.</p>
   <div class="sim">
     <div class="board">
       <div class="box cpu" id="cpu">
@@ -911,9 +903,9 @@ body{padding:0!important}
     <p class="note">Un ordenador real hace este ciclo miles de millones de veces por segundo. Un procesador de 3 GHz (gigahercios) marca 3.000 millones de pulsos de reloj cada segundo.</p>
   </div>
 </section></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="Haz que el ordenador calcule 4 × 3" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="31: Haz que el ordenador calcule 4 × 3"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p3-t-reto">
+<div class="slide pg3" data-sec="3" data-titulo="Calcular 4 × 3 solo con sumas" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="31: Calcular 4 × 3 solo con sumas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p3-t-reto">
   <span class="sello-reto">Reto</span>
-  <h2 id="p3-t-reto">Haz que el ordenador calcule 4 × 3</h2>
+  <h2 id="p3-t-reto">Calcular 4 × 3 solo con sumas</h2>
   <p>Este ordenador <strong>no sabe multiplicar</strong>. Solo sabe sumar. Escribe un programa en la memoria que muestre en la pantalla el resultado de 4 × 3. El 4 ya está guardado en la casilla 7.</p>
   <div class="reglas" aria-label="Instrucciones disponibles"><span>CARGAR</span><span>SUMAR</span><span>GUARDAR</span><span>MOSTRAR</span><span>PARAR</span></div>
   <div class="editor">
@@ -947,8 +939,8 @@ body{padding:0!important}
     <div class="explain" id="explain" aria-live="polite"></div>
   </div>
 </section></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="Haz de sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="34: Haz de sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t2">
-  <h2 id="p4-t2">Haz de sistema operativo</h2>
+<div class="slide pg4" data-sec="4" data-titulo="Simulador del sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="34: Simulador del sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t2">
+  <h2 id="p4-t2">Simulador del sistema operativo</h2>
   <p>Este móvil tiene una CPU que solo atiende a una aplicación cada vez y una memoria con 8 huecos. Abre y cierra aplicaciones y mira cómo el sistema operativo reparte los recursos.</p>
   <div class="panel capas-sim">
     <div class="banda b-app">
@@ -969,7 +961,7 @@ body{padding:0!important}
         <div class="box ram"><h3>Memoria RAM <span class="note" id="ramtxt"></span></h3><div class="slots" id="slots"></div></div>
       </div>
     </div>
-    <div class="key"><strong>Fíjate.</strong> Empieza con pocos turnos por segundo: verás cómo la CPU va de una aplicación a otra. Después súbelos: parece que todas funcionan a la vez. Eso es la <strong>multitarea</strong>.</div>
+    <div class="key">Empieza con pocos turnos por segundo: verás cómo la CPU va de una aplicación a otra. Después súbelos: parece que todas funcionan a la vez. A esto se le llama <strong>multitarea</strong>.</div>
   </div>
 </section></div></div>
 <div class="slide pg4" data-sec="4" data-titulo="Qué hace el sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="35: Qué hace el sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t3">
@@ -984,10 +976,10 @@ body{padding:0!important}
   </div>
   <p>Ejemplos de sistemas operativos: <strong>Windows</strong>, <strong>macOS</strong> y <strong>Linux</strong> en ordenadores; <strong>Android</strong> (basado en Linux) e <strong>iOS</strong> en móviles.</p>
 </section></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="Espía a tu sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="36: Espía a tu sistema operativo"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p4-t-reto">
+<div class="slide pg4" data-sec="4" data-titulo="El Administrador de tareas" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="36: El Administrador de tareas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p4-t-reto">
   <span class="sello-reto">Reto</span>
-  <h2 id="p4-t-reto">Espía a tu sistema operativo</h2>
-  <p>El <strong>Administrador de tareas</strong> muestra cómo reparte el sistema operativo la CPU y la memoria entre las aplicaciones. Ábrelo en tu ordenador y completa las misiones.</p>
+  <h2 id="p4-t-reto">El Administrador de tareas</h2>
+  <p>El <strong>Administrador de tareas</strong> muestra cómo reparte el sistema operativo la CPU y la memoria entre las aplicaciones. Ábrelo en tu ordenador y sigue estos pasos.</p>
   <div class="abrir">
     <div><strong>En Windows</strong><span>Pulsa <kbd>Ctrl</kbd> + <kbd>Mayús</kbd> + <kbd>Esc</kbd>.</span></div>
     <div><strong>En Linux</strong><span>Abre el menú de aplicaciones y busca <em>Monitor del sistema</em>.</span></div>
@@ -996,7 +988,7 @@ body{padding:0!important}
       <span class="resp"><label for="m1c">CPU <input type="text" id="m1c" placeholder="%"></label><label for="m1m">Memoria <input type="text" id="m1m" placeholder="%"></label></span></li><li><b>Cuenta los procesos</b><span>En <em>Procesos</em>, mira la lista. Hay muchos programas funcionando aunque tú no los hayas abierto: son procesos en segundo plano.</span>
       <span class="resp"><label for="m2">¿Cuántos procesos ves, más o menos? <input type="text" id="m2"></label></span></li><li><b>Pon un vídeo</b><span>Abre una pestaña nueva y reproduce un vídeo. Vuelve al Administrador de tareas.</span>
       <span class="resp"><label for="m3c">CPU <input type="text" id="m3c" placeholder="%"></label><label for="m3m">Memoria <input type="text" id="m3m" placeholder="%"></label></span></li></ol></section></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="Espía a tu sistema operativo (2)" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="37: Espía a tu sistema operativo (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>Espía a tu sistema operativo (continuación)</h2><ol class="misiones" style="counter-reset:m 3"><li><b>Abre más pestañas</b><span>Abre 5 pestañas más en el navegador. ¿Qué sube más, la CPU o la memoria?</span>
+<div class="slide pg4" data-sec="4" data-titulo="El Administrador de tareas (2)" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="37: El Administrador de tareas (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>El Administrador de tareas (continuación)</h2><ol class="misiones" style="counter-reset:m 3"><li><b>Abre más pestañas</b><span>Abre 5 pestañas más en el navegador. ¿Qué sube más, la CPU o la memoria?</span>
       <span class="resp"><label for="m4">Respuesta <input type="text" id="m4" class="largo"></label></span></li><li><b>Mira el hardware</b><span>En Windows, ve a <em>Rendimiento</em>. En Linux, a <em>Recursos</em>. Busca cuántos núcleos tiene la CPU y cuánta memoria RAM hay en total.</span>
       <span class="resp"><label for="m5n">Núcleos <input type="text" id="m5n"></label><label for="m5r">RAM total <input type="text" id="m5r" placeholder="GB"></label></span></li><li><b>Cierra una aplicación desde aquí</b><span>Abre la Calculadora. Después, búscala en la lista del Administrador de tareas y pulsa <em>Finalizar tarea</em> (en Linux, <em>Finalizar proceso</em>). ¿Qué ha pasado?</span>
       <span class="resp"><label for="m6">Respuesta <input type="text" id="m6" class="largo"></label></span></li></ol>
@@ -1004,12 +996,12 @@ body{padding:0!important}
   <div class="revela">
     <strong>Para pensar: al pulsar Finalizar tarea, ¿quién ha cerrado la Calculadora?</strong>
     <button class="btn" id="reto-ver">Ver la respuesta</button>
-    <p id="reto-resp" hidden>Tú lo has pedido, pero lo ha hecho el <strong>sistema operativo</strong>. Ha parado el programa y ha liberado su memoria y sus turnos de CPU para las demás aplicaciones. Es lo mismo que hacías en el simulador.</p>
+    <p id="reto-resp" hidden>Tú lo has pedido, pero lo ha hecho el <strong>sistema operativo</strong>. Ha parado el programa y ha liberado su memoria y sus turnos de CPU para las demás aplicaciones.</p>
   </div>
 </section></div></div>
-<div class="slide pg5 divisoria" data-sec="5" data-titulo="¿Cómo se comunican los dispositivos?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="38: ¿Cómo se comunican los dispositivos?"><div class="slide-inner"><div class="divisor"><span class="num-grande">5</span><h1>¿Cómo se comunican los dispositivos?</h1><p class="lead">Cuando envías un mensaje, sale de tu móvil, cruza tu casa, viaja por Internet troceado en paquetes y llega a otro aparato. Vamos a seguir ese viaje.</p></div></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="El viaje de un mensaje" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="39: El viaje de un mensaje"><div class="slide-inner"><section aria-labelledby="p5-t1">
-  <h2 id="p5-t1">El viaje de un mensaje</h2>
+<div class="slide pg5 divisoria" data-sec="5" data-titulo="¿Cómo se comunican los dispositivos?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="38: ¿Cómo se comunican los dispositivos?"><div class="slide-inner"><div class="divisor"><span class="num-grande">5</span><h1>¿Cómo se comunican los dispositivos?</h1><p class="lead">Redes, Internet, direcciones IP y paquetes.</p></div></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Recorrido de un mensaje" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="39: Recorrido de un mensaje"><div class="slide-inner"><section aria-labelledby="p5-t1">
+  <h2 id="p5-t1">Recorrido de un mensaje</h2>
   <div class="viaje">
     <div class="etapa dev"><b>Tu móvil</b><small>escribe el mensaje</small></div>
     <span class="paso-flecha">wifi</span>
@@ -1023,8 +1015,8 @@ body{padding:0!important}
   </div>
   <p>Una <strong>red</strong> son aparatos conectados para compartir información. <strong>Internet</strong> es una red de redes: une millones de redes de todo el mundo.</p>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="La red de tu casa" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="40: La red de tu casa"><div class="slide-inner"><section aria-labelledby="p5-t2">
-  <h2 id="p5-t2">La red de tu casa</h2>
+<div class="slide pg5" data-sec="5" data-titulo="La red doméstica" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="40: La red doméstica"><div class="slide-inner"><section aria-labelledby="p5-t2">
+  <h2 id="p5-t2">La red doméstica</h2>
   <p>Pulsa cada parte del dibujo.</p>
   <div class="casa">
     <svg class="mapa" id="mapa" viewBox="0 0 700 400" role="group" aria-label="Red de una casa conectada a Internet">
@@ -1138,8 +1130,8 @@ body{padding:0!important}
     <p class="note" id="status" aria-live="polite">Pulsa «Enviar».</p>
   </div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Configura el wifi de casa" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="45: Configura el wifi de casa"><div class="slide-inner"><section aria-labelledby="p5-t7">
-  <h2 id="p5-t7">Configura el wifi de casa</h2>
+<div class="slide pg5" data-sec="5" data-titulo="Configuración del wifi" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="45: Configuración del wifi"><div class="slide-inner"><section aria-labelledby="p5-t7">
+  <h2 id="p5-t7">Configuración del wifi</h2>
   <p>El router tiene una página de configuración. Desde ahí se cambia el nombre de la red, la contraseña y otras opciones. Prueba a configurar este router de ejemplo.</p>
   <div class="panel panel-router">
     <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
@@ -1158,9 +1150,9 @@ body{padding:0!important}
     </div>
   </div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Descubre el viaje de tus paquetes" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="46: Descubre el viaje de tus paquetes"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p5-t-reto">
+<div class="slide pg5" data-sec="5" data-titulo="Comandos de red" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="46: Comandos de red"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p5-t-reto">
   <span class="sello-reto">Reto</span>
-  <h2 id="p5-t-reto">Descubre el viaje de tus paquetes</h2>
+  <h2 id="p5-t-reto">Comandos de red</h2>
   <p>Con unos comandos puedes ver tu dirección IP, preguntar al DNS, enviar paquetes y ver los routers por los que pasan. Abre la terminal y escribe cada comando. Después pulsa <kbd>Intro</kbd>.</p>
   <div class="abrir">
     <div><strong>En Windows</strong><span>Pulsa la tecla <kbd>Windows</kbd>, escribe <em>cmd</em> y pulsa <kbd>Intro</kbd>.</span></div>
@@ -1171,16 +1163,16 @@ body{padding:0!important}
       <span class="resp"><label for="q1">Mi IP <input type="text" id="q1" placeholder="192.168…"></label></span></li><li><b>Pregunta al DNS</b><span>Pide al DNS la dirección IP de Wikipedia. Mira la línea <em>Address</em> o <em>Dirección</em> del final.</span>
       <span class="cmds"><span class="cmd"><span class="note">Windows y Linux</span><code>nslookup wikipedia.org</code><button type="button" data-copia="nslookup wikipedia.org">Copiar</button></span></span>
       <span class="resp"><label for="q2">IP de Wikipedia <input type="text" id="q2"></label></span></li></ol></section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Descubre el viaje de tus paquetes (2)" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="47: Descubre el viaje de tus paquetes (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>Descubre el viaje de tus paquetes (continuación)</h2><ol class="misiones" style="counter-reset:m 2"><li><b>Envía paquetes</b><span>El comando ping envía 4 paquetes pequeños y mide cuánto tardan en ir y volver, en milisegundos (ms).</span>
+<div class="slide pg5" data-sec="5" data-titulo="Comandos de red (2)" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="47: Comandos de red (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>Comandos de red (continuación)</h2><ol class="misiones" style="counter-reset:m 2"><li><b>Envía paquetes</b><span>El comando ping envía 4 paquetes pequeños y mide cuánto tardan en ir y volver, en milisegundos (ms).</span>
       <span class="cmds"><span class="cmd"><span class="note">Windows</span><code>ping google.es</code><button type="button" data-copia="ping google.es">Copiar</button></span><span class="cmd"><span class="note">Linux</span><code>ping -c 4 google.es</code><button type="button" data-copia="ping -c 4 google.es">Copiar</button></span></span>
       <span class="resp"><label for="q3a">Paquetes perdidos <input type="text" id="q3a"></label><label for="q3b">Tiempo medio <input type="text" id="q3b" placeholder="ms"></label></span></li><li><b>Sigue el viaje</b><span>Este comando muestra cada router por el que pasan tus paquetes hasta Wikipedia. Cada línea es un router. Tarda un poco: espera a que termine.</span>
       <span class="cmds"><span class="cmd"><span class="note">Windows</span><code>tracert wikipedia.org</code><button type="button" data-copia="tracert wikipedia.org">Copiar</button></span><span class="cmd"><span class="note">Linux</span><code>tracepath wikipedia.org</code><button type="button" data-copia="tracepath wikipedia.org">Copiar</button></span></span>
       <span class="resp"><label for="q4">¿Cuántos routers (saltos)? <input type="text" id="q4"></label></span></li></ol>
-  <div class="key"><strong>Si algo no responde:</strong> algunas redes, como la del instituto, bloquean ping o tracert por seguridad. Si salen asteriscos (*) o «Tiempo de espera agotado», no es un error tuyo. Estos comandos solo leen información: no cambian nada del ordenador.</div>
+  <div class="key">Algunas redes, como la del instituto, bloquean ping o tracert por seguridad. Si salen asteriscos (*) o «Tiempo de espera agotado», no es un error tuyo. Estos comandos solo leen información: no cambian nada del ordenador.</div>
   <div class="revela">
     <strong>Para pensar: el primer router de la lista de la misión 4, ¿cuál es?</strong>
     <button class="btn" id="red-ver">Ver la respuesta</button>
-    <p id="red-resp" hidden>Es el <strong>router de tu casa o del instituto</strong>: siempre es la primera parada. Después vienen los routers de tu compañía de Internet y de otras redes, hasta llegar al servidor. Es el mismo viaje que viste en el simulador de paquetes.</p>
+    <p id="red-resp" hidden>Es el <strong>router de tu casa o del instituto</strong>. Después vienen los routers de tu compañía de Internet y de otras redes, hasta llegar al servidor. Es el mismo viaje que viste en el simulador de paquetes.</p>
   </div>
 </section></div></div>
 </div>
@@ -1264,8 +1256,8 @@ body{padding:0!important}
       if (!vistas.has(c)) { vistas.add(c); const s = document.createElement("span"); s.className = "combo"; s.dataset.c = c; s.textContent = c; lista.appendChild(s); }
       lista.querySelectorAll(".combo").forEach(s => s.classList.toggle("ahora", s.dataset.c === c));
       cuenta.innerHTML = vistas.size === total
-        ? `<strong>¡Todas! Con ${n} interruptor${n > 1 ? "es" : ""} hay ${total} combinaciones.</strong>`
-        : `Combinaciones encontradas: <strong>${vistas.size}</strong>. ¿Hay más? Prueba otras.`;
+        ? `<strong>Con ${n} interruptor${n > 1 ? "es" : ""} hay ${total} combinaciones.</strong>`
+        : `Combinaciones encontradas: <strong>${vistas.size}</strong>.`;
     }
     pinta();
   }
@@ -1418,7 +1410,7 @@ body{padding:0!important}
     if (anim) cancelAnimationFrame(anim);
     const a = Math.min(99, Math.max(0, +$("sa").value || 0)), b = Math.min(99, Math.max(0, +$("sb").value || 0));
     $("sa").value = a; $("sb").value = b;
-    $("t-suma").textContent = `¿Qué pasa cuando sumas ${a} + ${b}?`;
+    $("t-suma").textContent = `Recorrido de los datos en la suma ${a} + ${b}`;
     paso = 0; ram = [];
     Object.values(pc.P).forEach(g => g.classList.remove("on"));
     pc.punto.style.display = "none"; pc.pantalla.textContent = "";
@@ -1477,7 +1469,7 @@ const D={
   mk("line",{x1:4,y1:134,x2:216,y2:134,class:"tinta"},s);
   mk("circle",{cx:200,cy:108,r:4.5,class:"persona"},s);
   mk("path",{d:"M200,113 L200,124 M200,124 L196,134 M200,124 L204,134 M195,117 L205,117",class:"tinta"},s);
-  const t=mk("text",{x:110,y:152},s);t.textContent="27 toneladas · una sala";
+  const t=mk("text",{x:110,y:152},s);t.textContent="27 toneladas, una sala";
  },
  movil(s){
   mk("rect",{x:78,y:12,width:64,height:132,rx:12,class:"cuerpo"},s);
@@ -1523,7 +1515,7 @@ function mostrar(d,o,ok){
   d.classList.add(ok===null?"bien":ok?"bien":"mal");
   d.querySelector(".sino").hidden=true;
   const r=d.querySelector(".res");r.hidden=false;
-  r.innerHTML=`<b>${ok===null?"":ok?"¡Bien! ":"No. "}${o[1]?"Sí es un ordenador.":"No es un ordenador."}</b> ${o[2]}`;
+  r.innerHTML=`<b>${ok===null?"":ok?"Correcto. ":"No. "}${o[1]?"Sí es un ordenador.":"No es un ordenador."}</b> ${o[2]}`;
 }
 function cuenta(){const n=Object.keys(resp).length,b=Object.values(resp).filter(Boolean).length;marc.textContent=`Aciertos: ${b} de ${n}`;}
 let orden=mezcla(OBJ);
@@ -1660,7 +1652,7 @@ tabla.innerHTML=Array.from({length:26},(_,i)=>`<span>${String.fromCharCode(65+i)
 document.getElementById("reto-tabla").addEventListener("click",e=>{tabla.hidden=!tabla.hidden;e.currentTarget.textContent=tabla.hidden?"Ver la tabla de letras":"Ocultar la tabla";});
 document.getElementById("reto-comprobar").addEventListener("click",()=>{
   let ok=0;cards.forEach(k=>{const b=+k.num.value===k.n&&k.let.value.trim().toUpperCase()===k.c;k.d.classList.toggle("bien",b);k.d.classList.toggle("mal",!b);if(b)ok++;});
-  res.innerHTML=ok===cards.length?'<span class="solucion">¡HOLA!</span> Has leído el mensaje como lo lee un ordenador.':`Tienes ${ok} de ${cards.length} bien. Revisa las tarjetas en naranja.`;
+  res.innerHTML=ok===cards.length?'<span class="solucion">HOLA</span> Correcto.':`Tienes ${ok} de ${cards.length} bien. Revisa las tarjetas en naranja.`;
 });
 document.getElementById("reto-sol").addEventListener("click",()=>{
   cards.forEach(k=>{k.num.value=k.n;k.let.value=k.c;k.d.classList.add("bien");k.d.classList.remove("mal");});
@@ -1703,8 +1695,8 @@ for(const id in EJ){const caja=document.getElementById(id);
     caja.appendChild(d);todos.push({...e,d,inp:d.querySelector("input"),sol:d.querySelector(".sol")});});}
 const norm=(v,tipo)=>{v=v.trim();if(tipo==="bin")return v.padStart(3,"0");return String(parseInt(v,10));};
 document.getElementById("ej-comprobar").addEventListener("click",()=>{let ok=0;
-  todos.forEach(e=>{const b=e.inp.value.trim()!==""&&norm(e.inp.value,e.tipo)===e.r;e.d.classList.toggle("bien",b);e.d.classList.toggle("mal",!b);e.sol.textContent=b?"¡Bien!":(e.pista&&e.inp.value?e.pista:"Revísalo.");if(b)ok++;});
-  document.getElementById("ej-res").innerHTML=ok===todos.length?"<strong>¡Todo bien!</strong> Ya sabes leer y escribir en binario.":`Tienes ${ok} de ${todos.length} bien.`;});
+  todos.forEach(e=>{const b=e.inp.value.trim()!==""&&norm(e.inp.value,e.tipo)===e.r;e.d.classList.toggle("bien",b);e.d.classList.toggle("mal",!b);e.sol.textContent=b?"Correcto":(e.pista&&e.inp.value?e.pista:"Revísalo.");if(b)ok++;});
+  document.getElementById("ej-res").innerHTML=ok===todos.length?"Todas correctas.":`Tienes ${ok} de ${todos.length} bien.`;});
 document.getElementById("ej-sol").addEventListener("click",()=>{todos.forEach(e=>{e.inp.value=e.r;e.d.classList.add("bien");e.d.classList.remove("mal");e.sol.textContent=e.pista||"";});document.getElementById("ej-res").textContent="";});
 document.getElementById("ej-borrar").addEventListener("click",()=>{todos.forEach(e=>{e.inp.value="";e.d.classList.remove("bien","mal");e.sol.textContent="";});document.getElementById("ej-res").textContent="";});
 })();
@@ -1849,7 +1841,7 @@ $("r-run").addEventListener("click",()=>{
     const op=$("op"+pc).value,a=+$("ad"+pc).value;
     if(!op)return fin(false,`<strong>La casilla ${pc} está vacía.</strong> La CPU no sabe qué hacer. ¿Falta PARAR?`);
     if(op==="PARAR"){log(`${pc} · PARAR → fin del programa`);
-      if(pant===12)return fin(true,"<strong>¡Conseguido!</strong> 4 + 4 + 4 = 12. Has multiplicado usando solo sumas.");
+      if(pant===12)return fin(true,"<strong>Correcto.</strong> 4 + 4 + 4 = 12. Has multiplicado usando solo sumas.");
       return fin(false,pant===null?"<strong>La pantalla está vacía.</strong> Te falta MOSTRAR el resultado.":`<strong>Ha salido ${pant}, no 12.</strong> Revisa el registro paso a paso.`);}
     if(CON_DIR.includes(op)&&a<PROG&&op!=="GUARDAR")return fin(false,`<strong>La casilla ${a} es parte del programa, no un dato.</strong> El 4 está en la casilla 7.`);
     if(op==="CARGAR"){if(mem[a]==null)return fin(false,`<strong>La casilla ${a} está vacía.</strong> No hay nada que cargar.`);acc=mem[a];log(`${pc} · CARGAR ${a} → acumulador = ${acc}`);}
