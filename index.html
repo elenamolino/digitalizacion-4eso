@@ -784,21 +784,7 @@ body{padding:0!important}
   </div>
   <p id="ej8-res" aria-live="polite"></p>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="El byte" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="20: El byte"><div class="slide-inner"><section aria-labelledby="p2-t1">
-  <h2 id="p2-t1">El byte</h2>
-  <p>Cada bombilla es un <strong>bit</strong> (de <em>binary digit</em>, dígito binario). Encendida vale 1 y apagada vale 0. Ocho bits forman un <strong>byte</strong>. Pulsa las bombillas.</p>
-  <div class="panel">
-    <div class="bulbs" id="bulbs"></div>
-    <div class="readout">
-      <div><small>En binario</small><span class="big" id="r-bin"></span></div>
-      <div><small>Como número</small><span class="big" id="r-dec"></span><span class="note mono" id="r-sum"></span></div>
-      <div><small>Como letra</small><span class="big" id="r-chr"></span></div>
-    </div>
-    <div class="key">Los mismos ocho bits pueden ser un número, una letra o un trozo de una foto. El ordenador no lo sabe por los bits. Lo sabe el programa que los lee.</div>
-    <p class="note">Cada bombilla vale el doble que la de su derecha (1, 2, 4, 8…). Con 8 bits hay 256 combinaciones, del 0 al 255.</p>
-  </div>
-</section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="El texto en binario" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="21: El texto en binario"><div class="slide-inner"><section aria-labelledby="p2-t2">
+<div class="slide pg2" data-sec="2" data-titulo="El texto en binario" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="20: El texto en binario"><div class="slide-inner"><section aria-labelledby="p2-t2">
   <h2 id="p2-t2">El texto en binario</h2>
   <p>Existe una tabla acordada por todo el mundo que da un número a cada carácter. La más antigua es <abbr title="American Standard Code for Information Interchange">ASCII</abbr>. Hoy se usa <abbr title="Unicode Transformation Format, 8 bits">UTF-8</abbr>, que incluye también la ñ, las tildes y los emojis.</p>
   <div class="panel">
@@ -807,7 +793,7 @@ body{padding:0!important}
     <p class="note">El espacio es el 32 (00100000). Las minúsculas tienen otros números: la a es el 97 y la z el 122.</p>
   </div>
   </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="El texto en bytes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="22: El texto en bytes"><div class="slide-inner"><section><h2>El texto en bytes</h2><p>Escribe un texto para ver sus bytes.</p>
+<div class="slide pg2" data-sec="2" data-titulo="El texto en bytes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="21: El texto en bytes"><div class="slide-inner"><section><h2>El texto en bytes</h2><p>Escribe un texto para ver sus bytes.</p>
   <div class="panel">
     <label for="txt" class="note">Texto</label>
     <input type="text" id="txt" value="Hola clase de digitalización" maxlength="40" autocomplete="off">
@@ -816,7 +802,7 @@ body{padding:0!important}
     <p class="note">Las letras en morado ocupan más de un byte. La ñ y las vocales con tilde no estaban en ASCII, así que UTF-8 las guarda con 2 bytes. Un emoji ocupa 4.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Las imágenes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="23: Las imágenes"><div class="slide-inner"><section aria-labelledby="p2-t3">
+<div class="slide pg2" data-sec="2" data-titulo="Las imágenes" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="22: Las imágenes"><div class="slide-inner"><section aria-labelledby="p2-t3">
   <h2 id="p2-t3">Las imágenes</h2>
   <p>Cada punto se llama <strong>píxel</strong> (de <em>picture element</em>). En una imagen en blanco y negro, cada píxel es un bit. Pulsa los cuadros para dibujar.</p>
   <div class="panel">
@@ -827,7 +813,7 @@ body{padding:0!important}
     <p class="note">Esta imagen tiene 8 × 8 = 64 píxeles, es decir 64 bits u 8 bytes. Una foto de móvil de 12 megapíxeles tiene unos 12 millones de píxeles.</p>
   </div>
   </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="El color" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="24: El color"><div class="slide-inner"><section><h2>El color</h2>
+<div class="slide pg2" data-sec="2" data-titulo="El color" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="23: El color"><div class="slide-inner"><section><h2>El color</h2>
   <p>Cada píxel de color mezcla tres luces: rojo, verde y azul (<abbr title="Red, Green, Blue: rojo, verde, azul">RGB</abbr>). Cada luz usa un byte, de 0 a 255. Son 24 bits por píxel.</p>
   <div class="panel">
     <div class="color">
@@ -841,7 +827,7 @@ body{padding:0!important}
     <p class="note">Con 24 bits hay 256 × 256 × 256 = 16.777.216 colores posibles.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="El sonido" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="25: El sonido"><div class="slide-inner"><section aria-labelledby="p2-t4">
+<div class="slide pg2" data-sec="2" data-titulo="El sonido" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="24: El sonido"><div class="slide-inner"><section aria-labelledby="p2-t4">
   <h2 id="p2-t4">El sonido</h2>
   <p>El sonido es una onda continua. Para guardarlo, el ordenador mide su altura muchas veces por segundo (<strong>muestreo</strong>) y redondea cada medida a un número entero (<strong>cuantificación</strong>). Mueve los controles y compara la onda original con la guardada.</p>
   <div class="panel">
@@ -854,7 +840,7 @@ body{padding:0!important}
     <p class="note">Más muestras y más bits dan un sonido más fiel, pero ocupan más. La calidad de un CD (disco compacto) toma 44.100 muestras por segundo y usa 16 bits por muestra.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Las instrucciones" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="26: Las instrucciones"><div class="slide-inner"><section aria-labelledby="p2-t5">
+<div class="slide pg2" data-sec="2" data-titulo="Las instrucciones" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="25: Las instrucciones"><div class="slide-inner"><section aria-labelledby="p2-t5">
   <h2 id="p2-t5">Las instrucciones</h2>
   <p>Un programa es una lista de instrucciones, y también se guarda en binario. Una parte de los bits dice <strong>qué hacer</strong> (código de operación) y otra dice <strong>con qué casilla de memoria</strong> (dirección). Este es el programa que veremos dentro del ordenador de juguete.</p>
   <div class="panel">
@@ -867,7 +853,7 @@ body{padding:0!important}
     <p class="note">Código inventado para la clase: 3 bits de operación (<span style="background:var(--a-soft);padding:0 4px;border-radius:4px">naranja</span>) y 5 bits de dirección (<span style="background:var(--b-soft);padding:0 4px;border-radius:4px">verde</span>). Cada familia de procesadores reales tiene su propio código.</p>
   </div>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Unidades de medida" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="27: Unidades de medida"><div class="slide-inner"><section aria-labelledby="p2-t6">
+<div class="slide pg2" data-sec="2" data-titulo="Unidades de medida" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="26: Unidades de medida"><div class="slide-inner"><section aria-labelledby="p2-t6">
   <h2 id="p2-t6">Unidades de medida</h2>
   <div class="units">
     <div class="unit"><span class="u">bit</span><span class="eq">0 o 1</span><span>Un interruptor</span></div>
@@ -879,7 +865,7 @@ body{padding:0!important}
   </div>
   <p class="note">A veces se usa 1.024 en lugar de 1.000. Por eso un disco de 1 TB aparece en Windows con unos 931 GB.</p>
 </section></div></div>
-<div class="slide pg2" data-sec="2" data-titulo="Descifrar el mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="28: Descifrar el mensaje secreto"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-reto">
+<div class="slide pg2" data-sec="2" data-titulo="Descifrar el mensaje secreto" data-lugar="2 · ¿Cómo representan la información?" role="group" aria-roledescription="diapositiva" aria-label="27: Descifrar el mensaje secreto"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p2-t-reto">
   <span class="sello-reto">Reto</span>
   <h2 id="p2-t-reto">Descifrar el mensaje secreto</h2>
   <p>Pasa cada byte a número y busca su letra. Cada posición vale 128, 64, 32, 16, 8, 4, 2 y 1, y se suman las que tienen un 1.</p>
@@ -892,8 +878,8 @@ body{padding:0!important}
   <div class="tabla" id="tabla-letras" hidden></div>
   <p class="aviso-reto" id="reto-res" aria-live="polite"></p>
 </section></div></div>
-<div class="slide pg3 divisoria" data-sec="3" data-titulo="La arquitectura Von Neumann" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="29: La arquitectura Von Neumann"><div class="slide-inner"><div class="divisor"><span class="num-grande">3</span><h1>La arquitectura Von Neumann</h1><p class="lead">Primero las piezas, después el ordenador montado, luego qué pasa dentro al hacer una suma y, por último, un zoom a la CPU.</p></div></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="Las piezas del hardware" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="30: Las piezas del hardware"><div class="slide-inner"><section aria-labelledby="p3-t2">
+<div class="slide pg3 divisoria" data-sec="3" data-titulo="La arquitectura Von Neumann" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="28: La arquitectura Von Neumann"><div class="slide-inner"><div class="divisor"><span class="num-grande">3</span><h1>La arquitectura Von Neumann</h1><p class="lead">Primero las piezas, después el ordenador montado, luego qué pasa dentro al hacer una suma y, por último, un zoom a la CPU.</p></div></div></div>
+<div class="slide pg3" data-sec="3" data-titulo="Las piezas del hardware" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="29: Las piezas del hardware"><div class="slide-inner"><section aria-labelledby="p3-t2">
     <h2 id="p3-t2">Las piezas del hardware</h2>
   <p>Casi todos los ordenadores siguen la <strong>arquitectura Von Neumann</strong> (1945). La idea clave es que el programa y los datos se guardan juntos en la misma memoria. Para entender cada pieza, piensa en una cocina.</p>
   <div class="parts">
@@ -905,7 +891,7 @@ body{padding:0!important}
     <div class="part" style="--c:var(--fg)"><h3>Placa base y fuente</h3><p>La placa base une todas las piezas. La fuente de alimentación les da energía.</p><p class="an">En la cocina, <strong>el edificio y la instalación eléctrica</strong>.</p></div>
   </div>
 </section></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="Un ordenador montado" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="31: Un ordenador montado"><div class="slide-inner"><section aria-labelledby="p3-t-mont">
+<div class="slide pg3" data-sec="3" data-titulo="Un ordenador montado" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="30: Un ordenador montado"><div class="slide-inner"><section aria-labelledby="p3-t-mont">
   <h2 id="p3-t-mont">Un ordenador montado</h2>
   <p>Las piezas dentro de la caja. Al pulsar una pieza se muestra su función. El botón indica a qué parte de la arquitectura Von Neumann corresponde cada una.</p>
   <div class="controls"><button class="btn alt" id="vn-btn" aria-pressed="false">Ver como Von Neumann</button></div>
@@ -920,7 +906,7 @@ body{padding:0!important}
     <span><i style="background:var(--bus)"></i>Buses</span>
   </div>
 </section></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="Recorrido de los datos en la suma 5 + 3" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="32: Recorrido de los datos en la suma 5 + 3"><div class="slide-inner"><section aria-labelledby="t-suma">
+<div class="slide pg3" data-sec="3" data-titulo="Recorrido de los datos en la suma 5 + 3" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="31: Recorrido de los datos en la suma 5 + 3"><div class="slide-inner"><section aria-labelledby="t-suma">
   <h2 id="t-suma">Recorrido de los datos en la suma 5 + 3</h2>
   <p>Qué hace cada pieza al sumar dos números con la calculadora, paso a paso.</p>
   <div class="controls">
@@ -941,7 +927,7 @@ body{padding:0!important}
   </div>
   <div class="key">La CPU no guarda los datos: los trae de la RAM, los procesa y los devuelve. Y todo viaja por los buses. Esa es la idea de Von Neumann: programa y datos en la misma memoria.</div>
 </section></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="Dentro de la CPU" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="33: Dentro de la CPU"><div class="slide-inner"><section aria-labelledby="p3-t3">
+<div class="slide pg3" data-sec="3" data-titulo="Dentro de la CPU" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="32: Dentro de la CPU"><div class="slide-inner"><section aria-labelledby="p3-t3">
     <h2 id="p3-t3">Dentro de la CPU</h2>
   <p>El programa de la suma, instrucción a instrucción. Este ordenador de juguete suma dos números. Cada instrucción pasa por tres fases, siempre las mismas: <strong>buscar, decodificar y ejecutar</strong>. Cambia los números de las casillas 7 y 8 si quieres.</p>
   <div class="sim">
@@ -976,7 +962,7 @@ body{padding:0!important}
     <p class="note">Un ordenador real hace este ciclo miles de millones de veces por segundo. Un procesador de 3 GHz (gigahercios) marca 3.000 millones de pulsos de reloj cada segundo.</p>
   </div>
 </section></div></div>
-<div class="slide pg3" data-sec="3" data-titulo="Calcular 4 × 3 solo con sumas" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="34: Calcular 4 × 3 solo con sumas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p3-t-reto">
+<div class="slide pg3" data-sec="3" data-titulo="Calcular 4 × 3 solo con sumas" data-lugar="3 · La arquitectura Von Neumann" role="group" aria-roledescription="diapositiva" aria-label="33: Calcular 4 × 3 solo con sumas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p3-t-reto">
   <span class="sello-reto">Reto</span>
   <h2 id="p3-t-reto">Calcular 4 × 3 solo con sumas</h2>
   <p>Este ordenador <strong>no sabe multiplicar</strong>. Solo sabe sumar. Escribe un programa en la memoria que muestre en la pantalla el resultado de 4 × 3. El 4 ya está guardado en la casilla 7.</p>
@@ -998,8 +984,8 @@ body{padding:0!important}
   </div>
   <div class="key" id="r-extra" hidden><strong>Y ahora piensa:</strong> ¿cuántas instrucciones harían falta para calcular 4 × 100 así? Unas 100. Por eso los procesadores reales tienen instrucciones para <strong>repetir</strong> un trozo del programa (bucles), en lugar de escribirlo muchas veces.</div>
 </section></div></div>
-<div class="slide pg4 divisoria" data-sec="4" data-titulo="Un ordenador por capas" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="35: Un ordenador por capas"><div class="slide-inner"><div class="divisor"><span class="num-grande">4</span><h1>Un ordenador por capas</h1><p class="lead">Tú usas aplicaciones. Las aplicaciones se ejecutan sobre el sistema operativo. El sistema operativo decide cómo usar el hardware.</p></div></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="Las capas de un ordenador" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="36: Las capas de un ordenador"><div class="slide-inner"><section aria-labelledby="p4-t1">
+<div class="slide pg4 divisoria" data-sec="4" data-titulo="Un ordenador por capas" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="34: Un ordenador por capas"><div class="slide-inner"><div class="divisor"><span class="num-grande">4</span><h1>Un ordenador por capas</h1><p class="lead">Tú usas aplicaciones. Las aplicaciones se ejecutan sobre el sistema operativo. El sistema operativo decide cómo usar el hardware.</p></div></div></div>
+<div class="slide pg4" data-sec="4" data-titulo="Las capas de un ordenador" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="35: Las capas de un ordenador"><div class="slide-inner"><section aria-labelledby="p4-t1">
     <h2 id="p4-t1">Las capas de un ordenador</h2>
   <p>Cada capa usa la de abajo y no necesita saber cómo funciona por dentro. Pulsa una capa.</p>
   <div class="layers">
@@ -1012,7 +998,7 @@ body{padding:0!important}
     <div class="explain" id="explain" aria-live="polite"></div>
   </div>
 </section></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="Simulador del sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="37: Simulador del sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t2">
+<div class="slide pg4" data-sec="4" data-titulo="Simulador del sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="36: Simulador del sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t2">
   <h2 id="p4-t2">Simulador del sistema operativo</h2>
   <p>Este móvil tiene una CPU que solo atiende a una aplicación cada vez y una memoria con 8 huecos. Abre y cierra aplicaciones y mira cómo el sistema operativo reparte los recursos.</p>
   <div class="panel capas-sim">
@@ -1037,7 +1023,7 @@ body{padding:0!important}
     <div class="key">Empieza con pocos turnos por segundo: verás cómo la CPU va de una aplicación a otra. Después súbelos: parece que todas funcionan a la vez. A esto se le llama <strong>multitarea</strong>.</div>
   </div>
 </section></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="Qué hace el sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="38: Qué hace el sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t3">
+<div class="slide pg4" data-sec="4" data-titulo="Qué hace el sistema operativo" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="37: Qué hace el sistema operativo"><div class="slide-inner"><section aria-labelledby="p4-t3">
   <h2 id="p4-t3">Qué hace el sistema operativo</h2>
   <div class="osgrid">
     <div class="os"><h3>Reparte la CPU</h3><p>Da turnos muy cortos a cada programa.</p></div>
@@ -1049,7 +1035,7 @@ body{padding:0!important}
   </div>
   <p>Ejemplos de sistemas operativos: <strong>Windows</strong>, <strong>macOS</strong> y <strong>Linux</strong> en ordenadores; <strong>Android</strong> (basado en Linux) e <strong>iOS</strong> en móviles.</p>
 </section></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="El Administrador de tareas" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="39: El Administrador de tareas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p4-t-reto">
+<div class="slide pg4" data-sec="4" data-titulo="El Administrador de tareas" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="38: El Administrador de tareas"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p4-t-reto">
   <span class="sello-reto">Reto</span>
   <h2 id="p4-t-reto">El Administrador de tareas</h2>
   <p>El <strong>Administrador de tareas</strong> muestra cómo reparte el sistema operativo la CPU y la memoria entre las aplicaciones. Ábrelo en tu ordenador y sigue estos pasos.</p>
@@ -1061,7 +1047,7 @@ body{padding:0!important}
       <span class="resp"><label for="m1c">CPU <input type="text" id="m1c" placeholder="%"></label><label for="m1m">Memoria <input type="text" id="m1m" placeholder="%"></label></span></li><li><b>Cuenta los procesos</b><span>En <em>Procesos</em>, mira la lista. Hay muchos programas funcionando aunque tú no los hayas abierto: son procesos en segundo plano.</span>
       <span class="resp"><label for="m2">¿Cuántos procesos ves, más o menos? <input type="text" id="m2"></label></span></li><li><b>Pon un vídeo</b><span>Abre una pestaña nueva y reproduce un vídeo. Vuelve al Administrador de tareas.</span>
       <span class="resp"><label for="m3c">CPU <input type="text" id="m3c" placeholder="%"></label><label for="m3m">Memoria <input type="text" id="m3m" placeholder="%"></label></span></li></ol></section></div></div>
-<div class="slide pg4" data-sec="4" data-titulo="El Administrador de tareas (2)" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="40: El Administrador de tareas (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>El Administrador de tareas (continuación)</h2><ol class="misiones" style="counter-reset:m 3"><li><b>Abre más pestañas</b><span>Abre 5 pestañas más en el navegador. ¿Qué sube más, la CPU o la memoria?</span>
+<div class="slide pg4" data-sec="4" data-titulo="El Administrador de tareas (2)" data-lugar="4 · Un ordenador por capas" role="group" aria-roledescription="diapositiva" aria-label="39: El Administrador de tareas (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>El Administrador de tareas (continuación)</h2><ol class="misiones" style="counter-reset:m 3"><li><b>Abre más pestañas</b><span>Abre 5 pestañas más en el navegador. ¿Qué sube más, la CPU o la memoria?</span>
       <span class="resp"><label for="m4">Respuesta <input type="text" id="m4" class="largo"></label></span></li><li><b>Mira el hardware</b><span>En Windows, ve a <em>Rendimiento</em>. En Linux, a <em>Recursos</em>. Busca cuántos núcleos tiene la CPU y cuánta memoria RAM hay en total.</span>
       <span class="resp"><label for="m5n">Núcleos <input type="text" id="m5n"></label><label for="m5r">RAM total <input type="text" id="m5r" placeholder="GB"></label></span></li><li><b>Cierra una aplicación desde aquí</b><span>Abre la Calculadora. Después, búscala en la lista del Administrador de tareas y pulsa <em>Finalizar tarea</em> (en Linux, <em>Finalizar proceso</em>). ¿Qué ha pasado?</span>
       <span class="resp"><label for="m6">Respuesta <input type="text" id="m6" class="largo"></label></span></li></ol>
@@ -1072,8 +1058,8 @@ body{padding:0!important}
     <p id="reto-resp" hidden>Tú lo has pedido, pero lo ha hecho el <strong>sistema operativo</strong>. Ha parado el programa y ha liberado su memoria y sus turnos de CPU para las demás aplicaciones.</p>
   </div>
 </section></div></div>
-<div class="slide pg5 divisoria" data-sec="5" data-titulo="¿Cómo se comunican los dispositivos?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="41: ¿Cómo se comunican los dispositivos?"><div class="slide-inner"><div class="divisor"><span class="num-grande">5</span><h1>¿Cómo se comunican los dispositivos?</h1><p class="lead">Redes, Internet, direcciones IP y paquetes.</p></div></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Recorrido de un mensaje" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="42: Recorrido de un mensaje"><div class="slide-inner"><section aria-labelledby="p5-t1">
+<div class="slide pg5 divisoria" data-sec="5" data-titulo="¿Cómo se comunican los dispositivos?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="40: ¿Cómo se comunican los dispositivos?"><div class="slide-inner"><div class="divisor"><span class="num-grande">5</span><h1>¿Cómo se comunican los dispositivos?</h1><p class="lead">Redes, Internet, direcciones IP y paquetes.</p></div></div></div>
+<div class="slide pg5" data-sec="5" data-titulo="Recorrido de un mensaje" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="41: Recorrido de un mensaje"><div class="slide-inner"><section aria-labelledby="p5-t1">
   <h2 id="p5-t1">Recorrido de un mensaje</h2>
   <div class="viaje">
     <div class="etapa dev"><b>Tu móvil</b><small>escribe el mensaje</small></div>
@@ -1088,7 +1074,7 @@ body{padding:0!important}
   </div>
   <p>Una <strong>red</strong> son aparatos conectados para compartir información. <strong>Internet</strong> es una red de redes: une millones de redes de todo el mundo.</p>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="La red doméstica" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="43: La red doméstica"><div class="slide-inner"><section aria-labelledby="p5-t2">
+<div class="slide pg5" data-sec="5" data-titulo="La red doméstica" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="42: La red doméstica"><div class="slide-inner"><section aria-labelledby="p5-t2">
   <h2 id="p5-t2">La red doméstica</h2>
   <p>Pulsa cada parte del dibujo.</p>
   <div class="casa">
@@ -1138,7 +1124,7 @@ body{padding:0!important}
   </div>
   <div class="q"><button class="btn alt" aria-expanded="false">¿El wifi es lo mismo que Internet?</button><p hidden>No. El wifi conecta tu aparato con el router. El router conecta tu casa con Internet. Puedes tener wifi y no tener Internet si falla la fibra o el router.</p></div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Formas de conectarse" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="44: Formas de conectarse"><div class="slide-inner"><section aria-labelledby="p5-t3">
+<div class="slide pg5" data-sec="5" data-titulo="Formas de conectarse" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="43: Formas de conectarse"><div class="slide-inner"><section aria-labelledby="p5-t3">
   <h2 id="p5-t3">Formas de conectarse</h2>
   <div class="scroll">
     <table>
@@ -1153,7 +1139,7 @@ body{padding:0!important}
     </table>
   </div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Direcciones IP y DNS" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="45: Direcciones IP y DNS"><div class="slide-inner"><section aria-labelledby="p5-t4">
+<div class="slide pg5" data-sec="5" data-titulo="Direcciones IP y DNS" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="44: Direcciones IP y DNS"><div class="slide-inner"><section aria-labelledby="p5-t4">
   <h2 id="p5-t4">Direcciones IP y DNS</h2>
   <p>Cada aparato conectado tiene una <strong>dirección IP</strong> (Internet Protocol), como la dirección de una casa. Pero tú escribes nombres como <span class="mono">juego.es</span>. El <strong>DNS</strong> (Domain Name System) traduce el nombre a la IP, como la agenda de contactos del móvil.</p>
   <div class="panel">
@@ -1172,7 +1158,7 @@ body{padding:0!important}
   </div>
   <div class="key"><strong>IP privada e IP pública.</strong> Dentro de casa, el router da a cada aparato una IP privada, como 192.168.1.10. Hacia fuera, toda la casa sale a Internet con una sola IP pública, la del router.</div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="¿Qué hace un router?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="46: ¿Qué hace un router?"><div class="slide-inner"><section aria-labelledby="p5-t5">
+<div class="slide pg5" data-sec="5" data-titulo="¿Qué hace un router?" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="45: ¿Qué hace un router?"><div class="slide-inner"><section aria-labelledby="p5-t5">
   <h2 id="p5-t5">¿Qué hace un router?</h2>
   <p>Un router recibe paquetes y mira su dirección de destino. Según su tabla, decide por qué salida enviarlos. Pulsa para que llegue un paquete.</p>
   <div class="panel rt">
@@ -1191,7 +1177,7 @@ body{padding:0!important}
     </table>
   </div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Los paquetes" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="47: Los paquetes"><div class="slide-inner"><section aria-labelledby="p5-t6">
+<div class="slide pg5" data-sec="5" data-titulo="Los paquetes" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="46: Los paquetes"><div class="slide-inner"><section aria-labelledby="p5-t6">
   <h2 id="p5-t6">Los paquetes</h2>
   <p>Los datos no viajan enteros. Se dividen en <strong>paquetes</strong>, cada uno con la IP de origen, la de destino y su número. Pueden ir por caminos distintos y llegar desordenados. El destino los ordena y pide los que faltan.</p>
   <div class="panel">
@@ -1203,7 +1189,7 @@ body{padding:0!important}
     <p class="note" id="status" aria-live="polite">Pulsa «Enviar».</p>
   </div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Configuración del wifi" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="48: Configuración del wifi"><div class="slide-inner"><section aria-labelledby="p5-t7">
+<div class="slide pg5" data-sec="5" data-titulo="Configuración del wifi" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="47: Configuración del wifi"><div class="slide-inner"><section aria-labelledby="p5-t7">
   <h2 id="p5-t7">Configuración del wifi</h2>
   <p>El router tiene una página de configuración. Desde ahí se cambia el nombre de la red, la contraseña y otras opciones. Prueba a configurar este router de ejemplo.</p>
   <div class="panel panel-router">
@@ -1223,7 +1209,7 @@ body{padding:0!important}
     </div>
   </div>
 </section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Comandos de red" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="49: Comandos de red"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p5-t-reto">
+<div class="slide pg5" data-sec="5" data-titulo="Comandos de red" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="48: Comandos de red"><div class="slide-inner"><section class="zona-reto" aria-labelledby="p5-t-reto">
   <span class="sello-reto">Reto</span>
   <h2 id="p5-t-reto">Comandos de red</h2>
   <p>Con unos comandos puedes ver tu dirección IP, preguntar al DNS, enviar paquetes y ver los routers por los que pasan. Abre la terminal y escribe cada comando. Después pulsa <kbd>Intro</kbd>.</p>
@@ -1236,7 +1222,7 @@ body{padding:0!important}
       <span class="resp"><label for="q1">Mi IP <input type="text" id="q1" placeholder="192.168…"></label></span></li><li><b>Pregunta al DNS</b><span>Pide al DNS la dirección IP de Wikipedia. Mira la línea <em>Address</em> o <em>Dirección</em> del final.</span>
       <span class="cmds"><span class="cmd"><span class="note">Windows y Linux</span><code>nslookup wikipedia.org</code><button type="button" data-copia="nslookup wikipedia.org">Copiar</button></span></span>
       <span class="resp"><label for="q2">IP de Wikipedia <input type="text" id="q2"></label></span></li></ol></section></div></div>
-<div class="slide pg5" data-sec="5" data-titulo="Comandos de red (2)" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="50: Comandos de red (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>Comandos de red (continuación)</h2><ol class="misiones" style="counter-reset:m 2"><li><b>Envía paquetes</b><span>El comando ping envía 4 paquetes pequeños y mide cuánto tardan en ir y volver, en milisegundos (ms).</span>
+<div class="slide pg5" data-sec="5" data-titulo="Comandos de red (2)" data-lugar="5 · ¿Cómo se comunican los dispositivos?" role="group" aria-roledescription="diapositiva" aria-label="49: Comandos de red (2)"><div class="slide-inner"><section class="zona-reto"><span class="sello-reto">Reto</span><h2>Comandos de red (continuación)</h2><ol class="misiones" style="counter-reset:m 2"><li><b>Envía paquetes</b><span>El comando ping envía 4 paquetes pequeños y mide cuánto tardan en ir y volver, en milisegundos (ms).</span>
       <span class="cmds"><span class="cmd"><span class="note">Windows</span><code>ping google.es</code><button type="button" data-copia="ping google.es">Copiar</button></span><span class="cmd"><span class="note">Linux</span><code>ping -c 4 google.es</code><button type="button" data-copia="ping -c 4 google.es">Copiar</button></span></span>
       <span class="resp"><label for="q3a">Paquetes perdidos <input type="text" id="q3a"></label><label for="q3b">Tiempo medio <input type="text" id="q3b" placeholder="ms"></label></span></li><li><b>Sigue el viaje</b><span>Este comando muestra cada router por el que pasan tus paquetes hasta Wikipedia. Cada línea es un router. Tarda un poco: espera a que termine.</span>
       <span class="cmds"><span class="cmd"><span class="note">Windows</span><code>tracert wikipedia.org</code><button type="button" data-copia="tracert wikipedia.org">Copiar</button></span><span class="cmd"><span class="note">Linux</span><code>tracepath wikipedia.org</code><button type="button" data-copia="tracepath wikipedia.org">Copiar</button></span></span>
@@ -1603,28 +1589,6 @@ reset();
 })();</script>
 <script>/* Sección 2 */
 (function(){
-
-/* Parte 1: bombillas */
-const weights=[128,64,32,16,8,4,2,1];
-let bits=[0,1,0,0,0,0,0,1];
-const bulbsEl=document.getElementById("bulbs");
-weights.forEach((w,i)=>{
-  const b=document.createElement("button");
-  b.className="bulb"; b.setAttribute("aria-label",`Bit que vale ${w}`);
-  b.innerHTML=`<span class="lamp"></span><span class="bit"></span><span class="w">${w}</span>`;
-  b.addEventListener("click",()=>{bits[i]^=1;renderBits();});
-  bulbsEl.appendChild(b);
-});
-function renderBits(){
-  [...bulbsEl.children].forEach((b,i)=>{b.classList.toggle("lit",!!bits[i]);b.querySelector(".bit").textContent=bits[i];b.setAttribute("aria-pressed",!!bits[i]);});
-  const n=bits.reduce((s,b,i)=>s+b*weights[i],0);
-  document.getElementById("r-bin").textContent=bits.join("");
-  document.getElementById("r-dec").textContent=n;
-  const parts=weights.filter((w,i)=>bits[i]);
-  document.getElementById("r-sum").textContent=parts.length?parts.join(" + ")+" = "+n:"todas apagadas";
-  document.getElementById("r-chr").textContent=(n>=33&&n<=126)?`«${String.fromCharCode(n)}»`:(n===32?"(espacio)":"—");
-}
-renderBits();
 
 /* Parte 2: texto */
 const enc=new TextEncoder();
